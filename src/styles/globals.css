@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --primary: #1D857E;
+  --primary-light: #CDE9E6;
+  --primary-tint: rgba(29, 133, 126, 0.06);
+  
+  /* Neutral Scale */
+  --neutral-50: #F9FAFB;
+  --neutral-100: #F3F4F6;
+  --neutral-200: #E5E7EB;
+  --neutral-300: #D1D5DB;
+  --neutral-400: #9CA3AF;
+  --neutral-500: #6B7280;
+  --neutral-600: #4B5563;
+  --neutral-700: #374151;
+  --neutral-800: #1F2937;
+  --neutral-900: #111827;
+  
+  /* Legacy tokens for backward compatibility */
+  --teal: #1D857E;
+  --soft-grey: #FAFAFA;
+  --charcoal: #1A1A1A;
+  --white: #FFFFFF;
+  
+  /* Border */
+  --border-soft: #DDE9E7;
+}
+
+body {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--neutral-900);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.2;
+  color: var(--neutral-900);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.small-caps, .section-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-family: 'Inter', sans-serif;
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--neutral-600);
+  line-height: 1.5;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 27px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  h3 {
+    font-size: 16px;
+  }
+}
