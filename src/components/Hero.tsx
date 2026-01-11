@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import portraitImage from 'figma:asset/29ef344e7da5848a42de9cbdc17ff00a75af6555.png';
+import portraitImage from '../assets/29ef344e7da5848a42de9cbdc17ff00a75af6555.png';
 import { Button } from './ui/Button';
 import { Tag } from './ui/Tag';
 
@@ -20,7 +20,7 @@ export function Hero() {
 
   const handleCopyEmail = () => {
     const email = 'sskumbar7@gmail.com';
-    
+
     // Use fallback method that works in all contexts
     const textarea = document.createElement('textarea');
     textarea.value = email;
@@ -29,12 +29,12 @@ export function Hero() {
     textarea.style.top = '0';
     textarea.setAttribute('readonly', '');
     document.body.appendChild(textarea);
-    
+
     try {
       textarea.select();
       textarea.setSelectionRange(0, textarea.value.length);
       document.execCommand('copy');
-      
+
       setEmailCopied(true);
       setTimeout(() => setEmailCopied(false), 2500);
     } catch (err) {
@@ -46,7 +46,7 @@ export function Hero() {
 
   const GradientWord = ({ children, wordKey }: { children: string; wordKey: string }) => {
     const isHovered = hoveredWord === wordKey;
-    
+
     return (
       <motion.span
         className="relative inline-block cursor-default"
@@ -76,27 +76,27 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Soft gradient background */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           background: 'linear-gradient(135deg, #1D857E 0%, #FFFFFF 100%)'
         }}
       />
-      
+
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-24 md:pb-20 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
           {/* Left column */}
           <div className="space-y-10">
-            <h1 className="leading-tight text-[28px] md:text-[36px]" style={{ 
+            <h1 className="leading-tight text-[28px] md:text-[36px]" style={{
               color: '#111827',
               lineHeight: '1.2'
             }}>
               Lead <GradientWord wordKey="exp-designer">Experience Designer</GradientWord> shaping <GradientWord wordKey="calm">calm</GradientWord>, <GradientWord wordKey="meaningful">meaningful</GradientWord> digital products.
             </h1>
-            
+
             <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', maxWidth: '580px' }}>
-              With 11+ years of expertise spanning UX research, strategic design thinking, interaction design, 
-              micro-motion choreography, and agentic AI workflows—I craft experiences that feel purposeful, 
+              With 11+ years of expertise spanning UX research, strategic design thinking, interaction design,
+              micro-motion choreography, and agentic AI workflows—I craft experiences that feel purposeful,
               human, and technically sound.
             </p>
 
@@ -113,11 +113,11 @@ export function Hero() {
             <div className="relative md:hidden" style={{ order: 2 }}>
               <div className="relative flex justify-center">
                 {/* Organic teal blob background */}
-                <div 
+                <div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-[0.03] rounded-[40%_60%_70%_30%/60%_30%_70%_40%]"
                   style={{ background: '#1D857E' }}
                 />
-                
+
                 <div className="relative w-full max-w-md">
                   <div className="relative p-1 rounded-xl" style={{
                     background: 'linear-gradient(to bottom right, rgba(29, 133, 126, 0.3), rgba(78, 205, 196, 0.3), rgba(29, 133, 126, 0.3))'
@@ -128,7 +128,7 @@ export function Hero() {
                       loading="eager"
                       fetchpriority="high"
                       className="w-full h-auto rounded-xl shadow-xl"
-                      style={{ 
+                      style={{
                         filter: 'grayscale(100%)',
                         aspectRatio: '1/1',
                         objectFit: 'cover'
@@ -154,11 +154,11 @@ export function Hero() {
           <div className="relative hidden md:block">
             <div className="relative flex justify-center md:justify-end">
               {/* Organic teal blob background */}
-              <div 
+              <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-[0.03] rounded-[40%_60%_70%_30%/60%_30%_70%_40%]"
                 style={{ background: '#1D857E' }}
               />
-              
+
               <div className="relative w-full max-w-md">
                 <div className="relative p-1 rounded-xl" style={{
                   background: 'linear-gradient(to bottom right, rgba(29, 133, 126, 0.3), rgba(78, 205, 196, 0.3), rgba(29, 133, 126, 0.3))'
@@ -167,7 +167,7 @@ export function Hero() {
                     src={portraitImage}
                     alt="Sandeep S Kumbar - Lead Experience Designer"
                     className="w-full h-auto rounded-xl shadow-xl"
-                    style={{ 
+                    style={{
                       filter: 'grayscale(100%)',
                       aspectRatio: '1/1',
                       objectFit: 'cover'

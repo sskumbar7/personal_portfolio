@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Workflow } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import flowToolImage from 'figma:asset/77a0cbc77af505d9a6124708f3f42639e3e077c2.png';
+import flowToolImage from '../assets/77a0cbc77af505d9a6124708f3f42639e3e077c2.png';
 
 export function ConfidentialCaseStudy2() {
   return (
@@ -11,7 +11,7 @@ export function ConfidentialCaseStudy2() {
       <Navigation />
 
       {/* HERO SECTION - Two Column Layout */}
-      <section 
+      <section
         className="relative overflow-hidden"
         style={{
           background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.11) 0%, rgba(29, 133, 126, 0.06) 40%, #FFFFFF 80%)'
@@ -42,9 +42,9 @@ export function ConfidentialCaseStudy2() {
 
           {/* Title with Icon */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-            <h1 
+            <h1
               className="text-[32px] md:text-[52px]"
-              style={{ 
+              style={{
                 lineHeight: '1.1',
                 color: '#111827',
                 fontFamily: 'Inter, sans-serif',
@@ -55,22 +55,22 @@ export function ConfidentialCaseStudy2() {
             >
               Call Flow Development Tool
             </h1>
-            <Workflow 
-              size={32} 
+            <Workflow
+              size={32}
               className="hidden md:block"
-              style={{ 
+              style={{
                 color: 'rgba(29, 133, 126, 0.5)',
                 strokeWidth: 1.5,
                 flexShrink: 0,
                 marginTop: '8px'
-              }} 
+              }}
             />
           </div>
 
           {/* Value statement */}
-          <p 
+          <p
             className="text-[15px] md:text-[17px]"
-            style={{ 
+            style={{
               lineHeight: '1.5',
               color: 'rgba(17, 24, 39, 0.7)',
               fontFamily: 'Work Sans, sans-serif',
@@ -82,7 +82,7 @@ export function ConfidentialCaseStudy2() {
           </p>
 
           {/* Meta row */}
-          <div 
+          <div
             className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5"
             style={{
               fontSize: '13px',
@@ -190,7 +190,7 @@ export function ConfidentialCaseStudy2() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* WHAT */}
             <div>
-              <div 
+              <div
                 style={{
                   fontSize: '11px',
                   fontWeight: 600,
@@ -259,7 +259,7 @@ export function ConfidentialCaseStudy2() {
 
             {/* WHY */}
             <div>
-              <div 
+              <div
                 style={{
                   fontSize: '11px',
                   fontWeight: 600,
@@ -330,7 +330,7 @@ export function ConfidentialCaseStudy2() {
 
         {/* SECTION 2: MY APPROACH & PROCESS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -463,7 +463,7 @@ export function ConfidentialCaseStudy2() {
 
         {/* SECTION 3: IMPACT & OUTCOMES */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,

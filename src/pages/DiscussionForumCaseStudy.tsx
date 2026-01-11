@@ -3,30 +3,41 @@ import { Footer } from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, Shield, MessageCircle, ThumbsUp, UserCheck, Palette, Type, Grid3x3, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import mobileHome from 'figma:asset/b92a8671aba19484df70d5b00dcb3fc6b567fa53.png';
-import mobileCreate from 'figma:asset/4d5a27ec50ddb7ac13e4f8c03f26fb31c5bd4cfd.png';
-import mobileDetail from 'figma:asset/812b0facbc73c95b10c8ebb1e1cec32d9fc24df4.png';
-import heroImage from 'figma:asset/13e06508fa565e6a916de46eba28a74c9e452b39.png';
-import loginFlow from 'figma:asset/9acc539a382f66e721f1ed8fbca7ae282932ad23.png';
-import browseFlow from 'figma:asset/7f4469d22cdce8df49731ecb7fe65719ce99a569.png';
-import createPostFlow from 'figma:asset/e2bcae5819bc486f774930a0a5f66075302ce8e5.png';
-import replyFlow from 'figma:asset/72612e97302ec43d760405fb4db85c219fd39bb2.png';
-import landingPageDesign from 'figma:asset/8a80c5f22aba5bf46b75e7083d0132c4bf9d6c7a.png';
-import topicListingDesign from 'figma:asset/024046386a2425ffa236cbb25c4ba7515941a17e.png';
-import postDetailsDesign from 'figma:asset/16043d6f496b856ec2f44ef1d6daa78391bf6800.png';
-import createNewPostDesign from 'figma:asset/aafa51483f84f99d61331ff2d888e1b54d58d1c4.png';
-import replyToDiscussionDesign from 'figma:asset/fb6bd5d093f88a01f65745952d1faf47fa78309b.png';
-import colorSystemImage from 'figma:asset/befbc3f0803267c0ec86a20a0cf7cab64a627942.png';
-import typographyImage from 'figma:asset/ed380d7db126e3f6f1bff5a4dbfc3b254db09e97.png';
-import buttonVariantsImage from 'figma:asset/41168b98aa9b7f53ecd60d2b268710cce1cac410.png';
-import cardAnatomyImage from 'figma:asset/9cd3b5a704fc802fb5d89bc546cb0d75eddecdab.png';
-import componentConsistency1 from 'figma:asset/2a4a44acb66830653a79cb8be98e84e234210834.png';
-import componentConsistency2 from 'figma:asset/acb433052ee4b2cecaf021f76d400d96d5068c35.png';
-import mayoClinicLogo from 'figma:asset/905a241ff1bdc5bcea7ed3d12e1b4c0abf151367.png';
-import patientLogo from 'figma:asset/6979ac574ba1942a785503c4b93851bcb7dac767.png';
-import inspireLogo from 'figma:asset/d23c6aa78e9b4001ee532cec135d4d3c7d61f186.png';
-import quoraLogo from 'figma:asset/87a2b9caa3bedc7089e6c7df8d5b7bcf1141b603.png';
-import stackOverflowLogo from 'figma:asset/6dded04dabee7c688bddcb0b922d6ce1be252e39.png';
+import mobileHome from '../assets/b92a8671aba19484df70d5b00dcb3fc6b567fa53.png';
+import mobileCreate from '../assets/4d5a27ec50ddb7ac13e4f8c03f26fb31c5bd4cfd.png';
+import mobileDetail from '../assets/812b0facbc73c95b10c8ebb1e1cec32d9fc24df4.png';
+
+// Core Flows
+import heroImage from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
+import loginFlow from '../assets/Card_anatomy.png';
+import browseFlow from '../assets/7f4469d22cdce8df49731ecb7fe65719ce99a569.png';
+import createPostFlow from '../assets/e2bcae5819bc486f774930a0a5f66075302ce8e5.png';
+import replyFlow from '../assets/72612e97302ec43d760405fb4db85c219fd39bb2.png';
+
+// Web / Design Screens
+import landingPageDesign from '../assets/8a80c5f22aba5bf46b75e7083d0132c4bf9d6c7a.png';
+import topicListingDesign from '../assets/024046386a2425ffa236cbb25c4ba7515941a17e.png';
+import postDetailsDesign from '../assets/16043d6f496b856ec2f44ef1d6daa78391bf6800.png';
+import createNewPostDesign from '../assets/aafa51483f84f99d61331ff2d888e1b54d58d1c4.png';
+import replyToDiscussionDesign from '../assets/fb6bd5d093f88a01f65745952d1faf47fa78309b.png';
+
+// Design System / UI Elements
+import colorSystemImage from '../assets/befbc3f0803267c0ec86a20a0cf7cab64a627942.png';
+import typographyImage from '../assets/ed380d7db126e3f6f1bff5a4dbfc3b254db09e97.png';
+import buttonVariantsImage from '../assets/41168b98aa9b7f53ecd60d2b268710cce1cac410.png';
+import cardAnatomyImage from '../assets/Card_anatomy.png';
+
+// Brand / Reference Logos
+import componentConsistency1 from '../assets/2a4a44acb66830653a79cb8be98e84e234210834.png';
+import componentConsistency2 from '../assets/acb433052ee4b2cecaf021f76d400d96d5068c35.png';
+
+import mayoClinicLogo from '../assets/905a241ff1bdc5bcea7ed3d12e1b4c0abf151367.png';
+import patientLogo from '../assets/6979ac574ba1942a785503c4b93851bcb7dac767.png';
+import inspireLogo from '../assets/d23c6aa78e9b4001ee532cec135d4d3c7d61f186.png';
+import quoraLogo from '../assets/87a2b9caa3bedc7089e6c7df8d5b7bcf1141b603.png';
+import stackOverflowLogo from '../assets/6dded04dabee7c688bddcb0b922d6ce1be252e39.png';
+
+
 
 // FINAL – CASE STUDY LOCKED
 export function DiscussionForumCaseStudy() {
@@ -35,7 +46,7 @@ export function DiscussionForumCaseStudy() {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section 
+      <section
         className="relative overflow-hidden"
         style={{
           background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.11) 0%, rgba(29, 133, 126, 0.06) 40%, #FFFFFF 80%)'
@@ -65,9 +76,9 @@ export function DiscussionForumCaseStudy() {
           </Link>
 
           {/* Title */}
-          <h1 
+          <h1
             className="text-[32px] md:text-[52px]"
-            style={{ 
+            style={{
               lineHeight: '1.1',
               color: '#111827',
               fontFamily: 'Inter, sans-serif',
@@ -80,9 +91,9 @@ export function DiscussionForumCaseStudy() {
           </h1>
 
           {/* Value statement */}
-          <p 
+          <p
             className="text-[15px] md:text-[17px]"
-            style={{ 
+            style={{
               lineHeight: '1.5',
               color: 'rgba(17, 24, 39, 0.7)',
               fontFamily: 'Work Sans, sans-serif',
@@ -94,7 +105,7 @@ export function DiscussionForumCaseStudy() {
           </p>
 
           {/* Meta row */}
-          <div 
+          <div
             className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 text-[13px] md:text-[13px]"
             style={{
               color: 'rgba(17, 24, 39, 0.7)',
@@ -121,14 +132,14 @@ export function DiscussionForumCaseStudy() {
 
         {/* HERO VISUAL */}
         <section className="pt-8 pb-12 md:pt-12 md:pb-24">
-          <div 
+          <div
             style={{
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)'
             }}
           >
-            <img 
+            <img
               src={heroImage}
               alt="Discussion Forum - Desktop and Mobile Interface"
               style={{
@@ -138,7 +149,7 @@ export function DiscussionForumCaseStudy() {
               }}
             />
           </div>
-          <p 
+          <p
             style={{
               fontSize: '13px',
               lineHeight: '1.5',
@@ -154,7 +165,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* OVERVIEW */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -180,7 +191,7 @@ export function DiscussionForumCaseStudy() {
             Project Context
           </h2>
 
-          <p 
+          <p
             className="text-[15px] md:text-[17px]"
             style={{
               lineHeight: '1.6',
@@ -194,7 +205,7 @@ export function DiscussionForumCaseStudy() {
 
           {/* Services - lightweight inline display */}
           <div>
-            <div 
+            <div
               style={{
                 fontSize: '13px',
                 fontWeight: 600,
@@ -230,7 +241,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* PROBLEM STATEMENT - HIGHLIGHTED PANEL */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -256,7 +267,7 @@ export function DiscussionForumCaseStudy() {
             The Challenge
           </h2>
 
-          <div 
+          <div
             style={{
               background: 'rgba(29, 133, 126, 0.04)',
               borderLeft: '3px solid rgba(29, 133, 126, 0.5)',
@@ -264,7 +275,7 @@ export function DiscussionForumCaseStudy() {
               borderRadius: '4px'
             }}
           >
-            <p 
+            <p
               style={{
                 fontSize: '17px',
                 lineHeight: '1.6',
@@ -280,7 +291,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* USER DETAILS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -359,7 +370,7 @@ export function DiscussionForumCaseStudy() {
                 ]
               }
             ].map((card, cardIndex) => (
-              <div 
+              <div
                 key={cardIndex}
                 style={{
                   background: '#FAFAFA',
@@ -368,7 +379,7 @@ export function DiscussionForumCaseStudy() {
                   border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <h3 
+                <h3
                   style={{
                     fontSize: '15px',
                     fontWeight: 600,
@@ -383,7 +394,7 @@ export function DiscussionForumCaseStudy() {
                   <div style={{ display: 'grid', gap: '12px' }}>
                     {(card.items as { label: string; value: string }[]).map((item, index) => (
                       <div key={index}>
-                        <div 
+                        <div
                           style={{
                             fontSize: '12px',
                             fontWeight: 600,
@@ -394,7 +405,7 @@ export function DiscussionForumCaseStudy() {
                         >
                           {item.label}
                         </div>
-                        <div 
+                        <div
                           style={{
                             fontSize: '13px',
                             color: 'rgba(17, 24, 39, 0.8)',
@@ -410,7 +421,7 @@ export function DiscussionForumCaseStudy() {
                 ) : (
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: '10px' }}>
                     {(card.items as string[]).map((item, index) => (
-                      <li 
+                      <li
                         key={index}
                         style={{
                           fontSize: '13px',
@@ -421,7 +432,7 @@ export function DiscussionForumCaseStudy() {
                           position: 'relative'
                         }}
                       >
-                        <span 
+                        <span
                           style={{
                             position: 'absolute',
                             left: '0',
@@ -444,7 +455,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* PROJECT OBJECTIVES - SPLIT LAYOUT (LEFT: TITLE, RIGHT: LIST) */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -563,7 +574,7 @@ export function DiscussionForumCaseStudy() {
                 ].map((goal, index) => {
                   const IconComponent = goal.icon;
                   return (
-                    <div 
+                    <div
                       key={index}
                       style={{
                         display: 'flex',
@@ -573,7 +584,7 @@ export function DiscussionForumCaseStudy() {
                         borderBottom: index < 3 ? '1px solid rgba(0, 0, 0, 0.06)' : 'none'
                       }}
                     >
-                      <div 
+                      <div
                         style={{
                           width: '40px',
                           height: '40px',
@@ -588,7 +599,7 @@ export function DiscussionForumCaseStudy() {
                         <IconComponent size={20} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                       </div>
                       <div>
-                        <h3 
+                        <h3
                           style={{
                             fontSize: '16px',
                             fontWeight: 600,
@@ -600,7 +611,7 @@ export function DiscussionForumCaseStudy() {
                         >
                           {goal.title}
                         </h3>
-                        <p 
+                        <p
                           style={{
                             fontSize: '14px',
                             lineHeight: '1.5',
@@ -622,7 +633,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* DESIGN PROCESS - CIRCULAR SYSTEM */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -668,11 +679,11 @@ export function DiscussionForumCaseStudy() {
               }
             ].map((item, index) => (
               <div key={index} className="contents md:contents">
-                <div 
+                <div
                   className="relative pt-5 flex-1"
                 >
                   {/* Large background step number */}
-                  <div 
+                  <div
                     style={{
                       fontSize: '96px',
                       fontWeight: 700,
@@ -694,7 +705,7 @@ export function DiscussionForumCaseStudy() {
                   <div className="relative z-10 pl-0 md:pl-20">
                     {/* Small step indicator with circle */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                      <div 
+                      <div
                         style={{
                           width: '32px',
                           height: '32px',
@@ -712,7 +723,7 @@ export function DiscussionForumCaseStudy() {
                       >
                         {item.step}
                       </div>
-                      <div 
+                      <div
                         style={{
                           width: '24px',
                           height: '1.5px',
@@ -722,7 +733,7 @@ export function DiscussionForumCaseStudy() {
                     </div>
 
                     {/* Title */}
-                    <h3 
+                    <h3
                       style={{
                         fontSize: '20px',
                         fontWeight: 600,
@@ -736,7 +747,7 @@ export function DiscussionForumCaseStudy() {
                     </h3>
 
                     {/* Description */}
-                    <p 
+                    <p
                       style={{
                         fontSize: '14px',
                         lineHeight: '1.6',
@@ -753,24 +764,24 @@ export function DiscussionForumCaseStudy() {
 
                 {/* Arrow connector between steps */}
                 {index < 2 && (
-                  <div 
+                  <div
                     className="hidden md:flex items-center flex-shrink-0 -mx-3"
                     style={{
                       paddingTop: '70px'
                     }}
                   >
-                    <svg 
-                      width="48" 
-                      height="24" 
-                      viewBox="0 0 48 24" 
+                    <svg
+                      width="48"
+                      height="24"
+                      viewBox="0 0 48 24"
                       fill="none"
                       style={{ opacity: 0.3 }}
                     >
-                      <path 
-                        d="M0 12H44M44 12L36 6M44 12L36 18" 
-                        stroke="rgba(29, 133, 126, 0.5)" 
-                        strokeWidth="1.5" 
-                        strokeLinecap="round" 
+                      <path
+                        d="M0 12H44M44 12L36 6M44 12L36 18"
+                        stroke="rgba(29, 133, 126, 0.5)"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
@@ -783,7 +794,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* COMPETITOR ANALYSIS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -813,7 +824,7 @@ export function DiscussionForumCaseStudy() {
           <div className="flex flex-col md:flex-row gap-8 md:gap-5 mb-8">
             {/* Direct Competitors - 70% */}
             <div className="w-full md:flex-[0_0_70%]">
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -853,7 +864,7 @@ export function DiscussionForumCaseStudy() {
                     >
                       {competitor.name}
                     </span>
-                    <img 
+                    <img
                       src={competitor.logo}
                       alt={competitor.name}
                       style={{
@@ -870,7 +881,7 @@ export function DiscussionForumCaseStudy() {
 
             {/* Discussion Forum References - 30% */}
             <div className="w-full md:flex-[0_0_calc(30%-20px)]">
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -909,7 +920,7 @@ export function DiscussionForumCaseStudy() {
                     >
                       {platform.name}
                     </span>
-                    <img 
+                    <img
                       src={platform.logo}
                       alt={platform.name}
                       style={{
@@ -929,7 +940,7 @@ export function DiscussionForumCaseStudy() {
 
             {/* STRENGTHS SECTION */}
             <div style={{ marginTop: '24px' }}>
-              <h3 
+              <h3
                 style={{
                   fontSize: '20px',
                   fontWeight: 600,
@@ -940,10 +951,10 @@ export function DiscussionForumCaseStudy() {
               >
                 Strengths
               </h3>
-              
+
               <div className="grid md:grid-cols-3" style={{ gap: '20px' }}>
                 {/* Strength Card 1 - Light Blue */}
-                <div 
+                <div
                   style={{
                     background: '#A8D8EA',
                     borderRadius: '12px',
@@ -978,7 +989,7 @@ export function DiscussionForumCaseStudy() {
                 </div>
 
                 {/* Strength Card 2 - Pink */}
-                <div 
+                <div
                   style={{
                     background: '#FFB6C1',
                     borderRadius: '12px',
@@ -1013,7 +1024,7 @@ export function DiscussionForumCaseStudy() {
                 </div>
 
                 {/* Strength Card 3 - Blue */}
-                <div 
+                <div
                   style={{
                     background: '#3A7CA5',
                     borderRadius: '12px',
@@ -1048,7 +1059,7 @@ export function DiscussionForumCaseStudy() {
 
             {/* WEAKNESS SECTION */}
             <div style={{ marginTop: '48px' }}>
-              <h3 
+              <h3
                 style={{
                   fontSize: '20px',
                   fontWeight: 600,
@@ -1059,10 +1070,10 @@ export function DiscussionForumCaseStudy() {
               >
                 Weakness
               </h3>
-              
+
               <div className="grid md:grid-cols-3" style={{ gap: '20px' }}>
                 {/* Weakness Card 1 */}
-                <div 
+                <div
                   style={{
                     background: '#F5F5F5',
                     borderRadius: '12px',
@@ -1094,7 +1105,7 @@ export function DiscussionForumCaseStudy() {
                 </div>
 
                 {/* Weakness Card 2 */}
-                <div 
+                <div
                   style={{
                     background: '#F5F5F5',
                     borderRadius: '12px',
@@ -1126,7 +1137,7 @@ export function DiscussionForumCaseStudy() {
                 </div>
 
                 {/* Weakness Card 3 */}
-                <div 
+                <div
                   style={{
                     background: '#F5F5F5',
                     borderRadius: '12px',
@@ -1163,7 +1174,7 @@ export function DiscussionForumCaseStudy() {
             <div className="grid md:grid-cols-2" style={{ gap: '48px', marginTop: '48px' }}>
               {/* Outcomes of Competitor Analysis */}
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '20px',
                     fontWeight: 600,
@@ -1174,10 +1185,10 @@ export function DiscussionForumCaseStudy() {
                 >
                   Outcomes of Competitor Analysis
                 </h3>
-                
+
                 <div className="grid md:grid-cols-3" style={{ gap: '16px' }}>
                   {/* Outcome 1 - Yellow */}
-                  <div 
+                  <div
                     style={{
                       background: '#F9D949',
                       borderRadius: '8px',
@@ -1199,7 +1210,7 @@ export function DiscussionForumCaseStudy() {
                   </div>
 
                   {/* Outcome 2 - Yellow */}
-                  <div 
+                  <div
                     style={{
                       background: '#F9D949',
                       borderRadius: '8px',
@@ -1221,7 +1232,7 @@ export function DiscussionForumCaseStudy() {
                   </div>
 
                   {/* Outcome 3 - Yellow */}
-                  <div 
+                  <div
                     style={{
                       background: '#F9D949',
                       borderRadius: '8px',
@@ -1246,7 +1257,7 @@ export function DiscussionForumCaseStudy() {
 
               {/* Design Decisions */}
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '20px',
                     fontWeight: 600,
@@ -1257,10 +1268,10 @@ export function DiscussionForumCaseStudy() {
                 >
                   Design Decisions
                 </h3>
-                
+
                 <div className="grid md:grid-cols-3" style={{ gap: '16px' }}>
                   {/* Decision 1 - Light Blue */}
-                  <div 
+                  <div
                     style={{
                       background: '#C5DFE8',
                       borderRadius: '8px',
@@ -1282,7 +1293,7 @@ export function DiscussionForumCaseStudy() {
                   </div>
 
                   {/* Decision 2 - Light Blue */}
-                  <div 
+                  <div
                     style={{
                       background: '#C5DFE8',
                       borderRadius: '8px',
@@ -1304,7 +1315,7 @@ export function DiscussionForumCaseStudy() {
                   </div>
 
                   {/* Decision 3 - Light Blue */}
-                  <div 
+                  <div
                     style={{
                       background: '#C5DFE8',
                       borderRadius: '8px',
@@ -1332,7 +1343,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* SECONDARY RESEARCH - SOFT CONTAINER */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1358,7 +1369,7 @@ export function DiscussionForumCaseStudy() {
             Key Findings
           </h2>
 
-          <div 
+          <div
             style={{
               background: 'rgba(29, 133, 126, 0.02)',
               border: '1px solid rgba(29, 133, 126, 0.08)',
@@ -1374,7 +1385,7 @@ export function DiscussionForumCaseStudy() {
                 'Strong moderation expectations',
                 'Content vetted by qualified professionals'
               ].map((finding, index) => (
-                <li 
+                <li
                   key={index}
                   style={{
                     fontSize: '15px',
@@ -1385,7 +1396,7 @@ export function DiscussionForumCaseStudy() {
                     position: 'relative'
                   }}
                 >
-                  <span 
+                  <span
                     style={{
                       position: 'absolute',
                       left: '0',
@@ -1405,7 +1416,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* USER FLOWS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1438,7 +1449,7 @@ export function DiscussionForumCaseStudy() {
               { title: 'Browse and read posts', caption: 'Discovering and consuming health discussions', image: browseFlow }
             ].map((flow, index) => (
               <div key={index}>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -1449,7 +1460,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   {flow.title}
                 </h3>
-                <img 
+                <img
                   src={flow.image}
                   alt={flow.title}
                   style={{
@@ -1460,7 +1471,7 @@ export function DiscussionForumCaseStudy() {
                     marginBottom: '10px'
                   }}
                 />
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -1480,7 +1491,7 @@ export function DiscussionForumCaseStudy() {
                 { title: 'Reply to a discussion', caption: 'Engaging with community conversations', image: replyFlow }
               ].map((flow, index) => (
                 <div key={index}>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '17px',
                       fontWeight: 600,
@@ -1491,7 +1502,7 @@ export function DiscussionForumCaseStudy() {
                   >
                     {flow.title}
                   </h3>
-                  <img 
+                  <img
                     src={flow.image}
                     alt={flow.title}
                     style={{
@@ -1502,7 +1513,7 @@ export function DiscussionForumCaseStudy() {
                       marginBottom: '10px'
                     }}
                   />
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       lineHeight: '1.5',
@@ -1520,7 +1531,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* HEALTHCARE FEATURES - LIGHTER GRID */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1582,7 +1593,7 @@ export function DiscussionForumCaseStudy() {
             ].map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div 
+                <div
                   key={index}
                   style={{
                     display: 'flex',
@@ -1592,7 +1603,7 @@ export function DiscussionForumCaseStudy() {
                     borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       width: '40px',
                       height: '40px',
@@ -1607,7 +1618,7 @@ export function DiscussionForumCaseStudy() {
                     <IconComponent size={20} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                   </div>
                   <div>
-                    <h3 
+                    <h3
                       style={{
                         fontSize: '16px',
                         fontWeight: 600,
@@ -1619,7 +1630,7 @@ export function DiscussionForumCaseStudy() {
                     >
                       {feature.title}
                     </h3>
-                    <p 
+                    <p
                       style={{
                         fontSize: '13px',
                         lineHeight: '1.5',
@@ -1639,7 +1650,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* DESIGN SYSTEM & COMPONENT FOUNDATION - EDITORIAL LAYOUT */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1665,7 +1676,7 @@ export function DiscussionForumCaseStudy() {
             Design System & Component Foundation
           </h2>
 
-          <p 
+          <p
             style={{
               fontSize: '15px',
               lineHeight: '1.6',
@@ -1680,7 +1691,7 @@ export function DiscussionForumCaseStudy() {
           {/* COLOR SYSTEM & ACCESSIBILITY - FULL WIDTH */}
           <div style={{ marginBottom: '48px' }}>
             {/* Text row */}
-            <div 
+            <div
               style={{
                 display: 'flex',
                 gap: '14px',
@@ -1688,7 +1699,7 @@ export function DiscussionForumCaseStudy() {
                 marginBottom: '24px'
               }}
             >
-              <div 
+              <div
                 style={{
                   width: '32px',
                   height: '32px',
@@ -1703,7 +1714,7 @@ export function DiscussionForumCaseStudy() {
                 <Palette size={16} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
               </div>
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '15px',
                     fontWeight: 600,
@@ -1715,7 +1726,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   Color system & accessibility
                 </h3>
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -1730,7 +1741,7 @@ export function DiscussionForumCaseStudy() {
             </div>
 
             {/* Full-width color system preview */}
-            <div 
+            <div
               className="p-4 md:p-8"
               style={{
                 background: '#FAFAFA',
@@ -1741,7 +1752,7 @@ export function DiscussionForumCaseStudy() {
               <div style={{ display: 'grid', gap: '24px' }}>
                 {/* Primary Colors */}
                 <div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '11px',
                       fontWeight: 600,
@@ -1763,7 +1774,7 @@ export function DiscussionForumCaseStudy() {
                       { color: '#FFFFFF', name: 'Primary White', hex: '#FFFFFF', contrast: 'AAA', border: true }
                     ].map((item, index) => (
                       <div key={index}>
-                        <div 
+                        <div
                           className="h-14 md:h-[72px]"
                           style={{
                             width: '100%',
@@ -1773,7 +1784,7 @@ export function DiscussionForumCaseStudy() {
                             border: item.border ? '1px solid rgba(0, 0, 0, 0.08)' : 'none'
                           }}
                         />
-                        <div 
+                        <div
                           style={{
                             fontSize: '12px',
                             fontWeight: 500,
@@ -1784,7 +1795,7 @@ export function DiscussionForumCaseStudy() {
                         >
                           {item.name}
                         </div>
-                        <div 
+                        <div
                           style={{
                             fontSize: '10px',
                             color: 'rgba(17, 24, 39, 0.5)',
@@ -1793,7 +1804,7 @@ export function DiscussionForumCaseStudy() {
                         >
                           {item.hex}
                         </div>
-                        <div 
+                        <div
                           style={{
                             fontSize: '10px',
                             fontWeight: 600,
@@ -1811,7 +1822,7 @@ export function DiscussionForumCaseStudy() {
 
                 {/* Semantic Colors */}
                 <div style={{ paddingTop: '8px', borderTop: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                  <div 
+                  <div
                     style={{
                       fontSize: '11px',
                       fontWeight: 600,
@@ -1849,7 +1860,7 @@ export function DiscussionForumCaseStudy() {
             </div>
 
             {/* Full-width color system image */}
-            <img 
+            <img
               src={colorSystemImage}
               alt="Color system palette and accessibility overview"
               style={{
@@ -1867,7 +1878,7 @@ export function DiscussionForumCaseStudy() {
             {/* Typography hierarchy */}
             <div>
               {/* Text row */}
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   gap: '14px',
@@ -1875,7 +1886,7 @@ export function DiscussionForumCaseStudy() {
                   marginBottom: '24px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '32px',
                     height: '32px',
@@ -1890,7 +1901,7 @@ export function DiscussionForumCaseStudy() {
                   <Type size={16} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '15px',
                       fontWeight: 600,
@@ -1902,7 +1913,7 @@ export function DiscussionForumCaseStudy() {
                   >
                     Typography hierarchy
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       lineHeight: '1.5',
@@ -1917,7 +1928,7 @@ export function DiscussionForumCaseStudy() {
               </div>
 
               {/* Typography preview */}
-              <div 
+              <div
                 style={{
                   position: 'relative',
                   overflow: 'hidden',
@@ -1926,7 +1937,7 @@ export function DiscussionForumCaseStudy() {
                   background: '#FAFAFA'
                 }}
               >
-                <img 
+                <img
                   src={typographyImage}
                   alt="Typography hierarchy scale"
                   style={{
@@ -1936,7 +1947,7 @@ export function DiscussionForumCaseStudy() {
                   }}
                 />
                 {/* Blur fade at bottom */}
-                <div 
+                <div
                   style={{
                     position: 'absolute',
                     bottom: 0,
@@ -1953,7 +1964,7 @@ export function DiscussionForumCaseStudy() {
             {/* Button variants */}
             <div>
               {/* Text row */}
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   gap: '14px',
@@ -1961,7 +1972,7 @@ export function DiscussionForumCaseStudy() {
                   marginBottom: '24px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '32px',
                     height: '32px',
@@ -1976,7 +1987,7 @@ export function DiscussionForumCaseStudy() {
                   <Sparkles size={16} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '15px',
                       fontWeight: 600,
@@ -1988,7 +1999,7 @@ export function DiscussionForumCaseStudy() {
                   >
                     Button variants
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       lineHeight: '1.5',
@@ -2003,7 +2014,7 @@ export function DiscussionForumCaseStudy() {
               </div>
 
               {/* Button preview */}
-              <div 
+              <div
                 style={{
                   position: 'relative',
                   overflow: 'hidden',
@@ -2012,7 +2023,7 @@ export function DiscussionForumCaseStudy() {
                   height: '520px'
                 }}
               >
-                <img 
+                <img
                   src={buttonVariantsImage}
                   alt="Button variants with states"
                   style={{
@@ -2024,7 +2035,7 @@ export function DiscussionForumCaseStudy() {
                   }}
                 />
                 {/* Blur fade at bottom */}
-                <div 
+                <div
                   style={{
                     position: 'absolute',
                     bottom: 0,
@@ -2042,7 +2053,7 @@ export function DiscussionForumCaseStudy() {
           {/* CARD ANATOMY - FULL WIDTH */}
           <div style={{ marginBottom: '48px' }}>
             {/* Text row */}
-            <div 
+            <div
               style={{
                 display: 'flex',
                 gap: '14px',
@@ -2050,7 +2061,7 @@ export function DiscussionForumCaseStudy() {
                 marginBottom: '24px'
               }}
             >
-              <div 
+              <div
                 style={{
                   width: '32px',
                   height: '32px',
@@ -2065,7 +2076,7 @@ export function DiscussionForumCaseStudy() {
                 <Grid3x3 size={16} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
               </div>
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '15px',
                     fontWeight: 600,
@@ -2077,7 +2088,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   Card Anatomy
                 </h3>
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -2092,7 +2103,7 @@ export function DiscussionForumCaseStudy() {
             </div>
 
             {/* Card anatomy image */}
-            <img 
+            <img
               src={cardAnatomyImage}
               alt="Card anatomy and component structure"
               style={{
@@ -2108,13 +2119,13 @@ export function DiscussionForumCaseStudy() {
           {/* COMPONENT CONSISTENCY & INTERACTION PATTERNS - LIGHTWEIGHT ROWS */}
           <div style={{ display: 'grid', gap: '24px' }}>
             {/* Component consistency with images */}
-            <div 
+            <div
               style={{
                 paddingBottom: '24px',
                 borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   gap: '14px',
@@ -2122,7 +2133,7 @@ export function DiscussionForumCaseStudy() {
                   marginBottom: '24px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '32px',
                     height: '32px',
@@ -2137,7 +2148,7 @@ export function DiscussionForumCaseStudy() {
                   <Grid3x3 size={16} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '15px',
                       fontWeight: 600,
@@ -2149,7 +2160,7 @@ export function DiscussionForumCaseStudy() {
                   >
                     Component consistency
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       lineHeight: '1.5',
@@ -2166,7 +2177,7 @@ export function DiscussionForumCaseStudy() {
               {/* Component consistency images */}
               <div style={{ display: 'grid', gap: '16px' }}>
                 {/* First image - full width */}
-                <img 
+                <img
                   src={componentConsistency1}
                   alt="Component consistency - checkboxes, radios, and tabs"
                   style={{
@@ -2176,9 +2187,9 @@ export function DiscussionForumCaseStudy() {
                     borderRadius: '8px'
                   }}
                 />
-                
+
                 {/* Second image - full width */}
-                <img 
+                <img
                   src={componentConsistency2}
                   alt="Component consistency - form fields and states"
                   style={{
@@ -2195,7 +2206,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* INTERFACE DESIGNS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -2224,7 +2235,7 @@ export function DiscussionForumCaseStudy() {
           <div style={{ display: 'grid', gap: '48px' }}>
             {/* Discussion landing page - full width */}
             <div>
-              <h3 
+              <h3
                 style={{
                   fontSize: '17px',
                   fontWeight: 600,
@@ -2235,7 +2246,7 @@ export function DiscussionForumCaseStudy() {
               >
                 Discussion landing page
               </h3>
-              <img 
+              <img
                 src={landingPageDesign}
                 alt="Discussion landing page"
                 style={{
@@ -2246,7 +2257,7 @@ export function DiscussionForumCaseStudy() {
                   marginBottom: '10px'
                 }}
               />
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -2261,7 +2272,7 @@ export function DiscussionForumCaseStudy() {
             {/* Topic listing page and Post details page - 2-column grid */}
             <div className="grid md:grid-cols-2" style={{ gap: '24px' }}>
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -2272,7 +2283,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   Topic listing page
                 </h3>
-                <img 
+                <img
                   src={topicListingDesign}
                   alt="Topic listing page"
                   style={{
@@ -2283,7 +2294,7 @@ export function DiscussionForumCaseStudy() {
                     marginBottom: '10px'
                   }}
                 />
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -2296,7 +2307,7 @@ export function DiscussionForumCaseStudy() {
               </div>
 
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -2307,7 +2318,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   Post details page
                 </h3>
-                <img 
+                <img
                   src={postDetailsDesign}
                   alt="Post details page"
                   style={{
@@ -2318,7 +2329,7 @@ export function DiscussionForumCaseStudy() {
                     marginBottom: '10px'
                   }}
                 />
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -2334,7 +2345,7 @@ export function DiscussionForumCaseStudy() {
             {/* Create new post and Reply to discussion - 2-column grid */}
             <div className="grid md:grid-cols-2" style={{ gap: '24px' }}>
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -2345,7 +2356,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   Create new post
                 </h3>
-                <img 
+                <img
                   src={createNewPostDesign}
                   alt="Create new post"
                   style={{
@@ -2356,7 +2367,7 @@ export function DiscussionForumCaseStudy() {
                     marginBottom: '10px'
                   }}
                 />
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -2369,7 +2380,7 @@ export function DiscussionForumCaseStudy() {
               </div>
 
               <div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -2380,7 +2391,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   Reply to discussion
                 </h3>
-                <img 
+                <img
                   src={replyToDiscussionDesign}
                   alt="Reply to discussion"
                   style={{
@@ -2391,7 +2402,7 @@ export function DiscussionForumCaseStudy() {
                     marginBottom: '10px'
                   }}
                 />
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -2408,7 +2419,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* RESPONSIVE MOBILE SCREENS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -2441,7 +2452,7 @@ export function DiscussionForumCaseStudy() {
               { title: 'Discussion detail view', caption: 'Mobile thread and comment view', image: mobileDetail }
             ].map((screen, index) => (
               <div key={index}>
-                <img 
+                <img
                   src={screen.image}
                   alt={screen.title}
                   style={{
@@ -2452,7 +2463,7 @@ export function DiscussionForumCaseStudy() {
                     marginBottom: '12px'
                   }}
                 />
-                <h3 
+                <h3
                   style={{
                     fontSize: '14px',
                     fontWeight: 600,
@@ -2463,7 +2474,7 @@ export function DiscussionForumCaseStudy() {
                 >
                   {screen.title}
                 </h3>
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.5',
@@ -2479,9 +2490,9 @@ export function DiscussionForumCaseStudy() {
         </section>
 
         {/* FOOTER NAVIGATION */}
-        <section 
+        <section
           className="pt-12 pb-16 md:pt-16 md:pb-24"
-          style={{ 
+          style={{
             borderTop: '1px solid rgba(0, 0, 0, 0.08)'
           }}
         >

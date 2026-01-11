@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import { BuyerJourneyContent } from '../components/BuyerJourneyContent';
 import { SellerJourneyContent } from '../components/SellerJourneyContent';
 import { InformationArchitecture } from '../components/InformationArchitecture';
-import loginRegisterFlowImg from 'figma:asset/a9d27889a2a3189c4590492f3fe75b74d4e93deb.png';
-import sellItemsFlowImg from 'figma:asset/4c2a67b7d531f85616cfa93ce6aa6725efd382e7.png';
-import buyProductsFlowImg from 'figma:asset/1c454ef69e221da96172a592a1f36e589b0aa10f.png';
-import cardSortingImg from 'figma:asset/c448282c4da45510eab68a7b36ddaa2973578b03.png';
-import hiFiOnboardingImg from 'figma:asset/68aa67b68abe7b8961f12385c6a10eb5b1351a4b.png';
-import hiFiHomeScreenImg from 'figma:asset/f0edf0cd1700b773e9e82196345359d0177fc49b.png';
-import hiFiSellingFlowImg from 'figma:asset/7a55e6b4d53d9648bda532fac42c10d6cf9d80ca.png';
-import hiFiSellingCompleteImg from 'figma:asset/6ddd7a45c9d532861286c12d2122b28266a5edab.png';
+import loginRegisterFlowImg from '../assets/a9d27889a2a3189c4590492f3fe75b74d4e93deb.png';
+import sellItemsFlowImg from '../assets/4c2a67b7d531f85616cfa93ce6aa6725efd382e7.png';
+import buyProductsFlowImg from '../assets/1c454ef69e221da96172a592a1f36e589b0aa10f.png';
+import cardSortingImg from '../assets/c448282c4da45510eab68a7b36ddaa2973578b03.png';
+import hiFiOnboardingImg from '../assets/68aa67b68abe7b8961f12385c6a10eb5b1351a4b.png';
+import hiFiHomeScreenImg from '../assets/f0edf0cd1700b773e9e82196345359d0177fc49b.png';
+import hiFiSellingFlowImg from '../assets/7a55e6b4d53d9648bda532fac42c10d6cf9d80ca.png';
+import hiFiSellingCompleteImg from '../assets/6ddd7a45c9d532861286c12d2122b28266a5edab.png';
 import { ArrowLeft, ArrowRight, Users, Target, Package, TrendingUp, Search, Focus, Sparkles, Palette, BadgeCheck, CheckCircle2, Heart, Zap, AlertTriangle, Shield, Clock, Eye, DollarSign, Leaf, UserPlus, ChevronDown, ChevronUp, Lightbulb, BarChart3, Map, FileText, GitBranch, ShoppingBag, Recycle, LogIn, ShoppingCart } from 'lucide-react';
-import recyclifyHeroImage from 'figma:asset/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
-import wireframesImage from 'figma:asset/9bbca8c75599410fc9ae1a59df1168a5dc498ccf.png';
+import recyclifyHeroImage from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
+import wireframesImage from '../assets/9bbca8c75599410fc9ae1a59df1168a5dc498ccf.png';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { useState } from 'react';
 
@@ -23,8 +23,8 @@ export function RecyclifyCaseStudy() {
   const [activeJourney, setActiveJourney] = useState<'buyer' | 'seller'>('buyer');
 
   const toggleCluster = (index: number) => {
-    setExpandedClusters(prev => 
-      prev.includes(index) 
+    setExpandedClusters(prev =>
+      prev.includes(index)
         ? prev.filter(i => i !== index)
         : [...prev, index]
     );
@@ -35,7 +35,7 @@ export function RecyclifyCaseStudy() {
       <Navigation />
 
       {/* SECTION 1: HERO */}
-      <section 
+      <section
         className="relative overflow-hidden"
         style={{
           background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.11) 0%, rgba(29, 133, 126, 0.06) 40%, #FFFFFF 80%)'
@@ -65,9 +65,9 @@ export function RecyclifyCaseStudy() {
           </Link>
 
           {/* Title */}
-          <h1 
+          <h1
             className="text-[32px] md:text-[52px]"
-            style={{ 
+            style={{
               lineHeight: '1.1',
               color: '#111827',
               fontFamily: 'Inter, sans-serif',
@@ -80,9 +80,9 @@ export function RecyclifyCaseStudy() {
           </h1>
 
           {/* Value statement */}
-          <p 
+          <p
             className="text-[15px] md:text-[17px]"
-            style={{ 
+            style={{
               lineHeight: '1.5',
               color: 'rgba(17, 24, 39, 0.7)',
               fontFamily: 'Work Sans, sans-serif',
@@ -94,7 +94,7 @@ export function RecyclifyCaseStudy() {
           </p>
 
           {/* Meta row */}
-          <div 
+          <div
             className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 text-[13px] md:text-[13px]"
             style={{
               color: 'rgba(17, 24, 39, 0.7)',
@@ -120,7 +120,7 @@ export function RecyclifyCaseStudy() {
         </div>
 
         {/* Subtle eco illustration */}
-        <div 
+        <div
           style={{
             position: 'absolute',
             right: '5%',
@@ -145,7 +145,7 @@ export function RecyclifyCaseStudy() {
 
         {/* HERO VISUAL */}
         <section className="pt-8 pb-12 md:pt-12 md:pb-24">
-          <img 
+          <img
             src={recyclifyHeroImage}
             alt="Recyclify mobile app interface showcase"
             style={{
@@ -160,7 +160,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 2: PROJECT OVERVIEW */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -186,7 +186,7 @@ export function RecyclifyCaseStudy() {
             About the Project
           </h2>
           <div style={{ maxWidth: '780px' }}>
-            <p 
+            <p
               style={{
                 fontSize: '16px',
                 lineHeight: '1.7',
@@ -197,7 +197,7 @@ export function RecyclifyCaseStudy() {
             >
               Recyclify is a mobile-first marketplace designed to make secondhand buying and selling accessible, trustworthy, and joyful. The platform aims to reduce consumption waste by creating a community where quality pre-owned items find new homes.
             </p>
-            <p 
+            <p
               style={{
                 fontSize: '16px',
                 lineHeight: '1.7',
@@ -213,7 +213,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 3: PROBLEM & OPPORTUNITY */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -242,7 +242,7 @@ export function RecyclifyCaseStudy() {
           <div className="grid md:grid-cols-3" style={{ gap: '32px' }}>
             {/* User problems */}
             <div>
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   gap: '12px',
@@ -250,7 +250,7 @@ export function RecyclifyCaseStudy() {
                   marginBottom: '16px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '36px',
                     height: '36px',
@@ -264,7 +264,7 @@ export function RecyclifyCaseStudy() {
                 >
                   <Users size={18} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -276,7 +276,7 @@ export function RecyclifyCaseStudy() {
                   User Problems
                 </h3>
               </div>
-              <ul 
+              <ul
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.7',
@@ -295,7 +295,7 @@ export function RecyclifyCaseStudy() {
 
             {/* Market gaps */}
             <div>
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   gap: '12px',
@@ -303,7 +303,7 @@ export function RecyclifyCaseStudy() {
                   marginBottom: '16px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '36px',
                     height: '36px',
@@ -317,7 +317,7 @@ export function RecyclifyCaseStudy() {
                 >
                   <TrendingUp size={18} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -329,7 +329,7 @@ export function RecyclifyCaseStudy() {
                   Market Gaps
                 </h3>
               </div>
-              <ul 
+              <ul
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.7',
@@ -348,7 +348,7 @@ export function RecyclifyCaseStudy() {
 
             {/* Design challenge */}
             <div>
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   gap: '12px',
@@ -356,7 +356,7 @@ export function RecyclifyCaseStudy() {
                   marginBottom: '16px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '36px',
                     height: '36px',
@@ -370,7 +370,7 @@ export function RecyclifyCaseStudy() {
                 >
                   <Target size={18} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -390,7 +390,7 @@ export function RecyclifyCaseStudy() {
                   borderRadius: '4px'
                 }}
               >
-                <p 
+                <p
                   style={{
                     fontSize: '14px',
                     lineHeight: '1.7',
@@ -409,7 +409,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 4: DESIGN PROCESS & TIMELINE */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -438,7 +438,7 @@ export function RecyclifyCaseStudy() {
           {/* Timeline phases */}
           <div style={{ position: 'relative' }}>
             {/* Timeline line - hide on mobile */}
-            <div 
+            <div
               className="hidden md:block"
               style={{
                 position: 'absolute',
@@ -486,89 +486,89 @@ export function RecyclifyCaseStudy() {
               ].map((item, index) => {
                 const IconComponent = item.icon;
                 return (
-                <div key={index}>
-                  {/* Phase dot - hide on mobile */}
-                  <div 
-                    className="hidden md:block"
-                    style={{
-                      width: '12px',
-                      height: '12px',
-                      borderRadius: '50%',
-                      background: '#1D857E',
-                      margin: '0 auto 16px',
-                      border: '3px solid white',
-                      boxShadow: '0 0 0 1px rgba(29, 133, 126, 0.2)'
-                    }}
-                  />
-                  
-                  <div 
-                    className="p-3 md:p-5"
-                    style={{
-                      background: 'white',
-                      border: '1px solid rgba(0, 0, 0, 0.08)',
-                      borderRadius: '8px',
-                      minHeight: '0'
-                    }}
-                  >
-                    {/* Phase icon and name */}
-                    <div 
+                  <div key={index}>
+                    {/* Phase dot - hide on mobile */}
+                    <div
+                      className="hidden md:block"
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        marginBottom: '4px'
+                        width: '12px',
+                        height: '12px',
+                        borderRadius: '50%',
+                        background: '#1D857E',
+                        margin: '0 auto 16px',
+                        border: '3px solid white',
+                        boxShadow: '0 0 0 1px rgba(29, 133, 126, 0.2)'
+                      }}
+                    />
+
+                    <div
+                      className="p-3 md:p-5"
+                      style={{
+                        background: 'white',
+                        border: '1px solid rgba(0, 0, 0, 0.08)',
+                        borderRadius: '8px',
+                        minHeight: '0'
                       }}
                     >
-                      <div 
-                        className="w-7 h-7 md:w-8 md:h-8"
+                      {/* Phase icon and name */}
+                      <div
                         style={{
-                          borderRadius: '6px',
-                          background: 'rgba(29, 133, 126, 0.1)',
                           display: 'flex',
                           alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0
+                          gap: '8px',
+                          marginBottom: '4px'
                         }}
                       >
-                        <IconComponent size={14} className="md:w-4 md:h-4" style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
+                        <div
+                          className="w-7 h-7 md:w-8 md:h-8"
+                          style={{
+                            borderRadius: '6px',
+                            background: 'rgba(29, 133, 126, 0.1)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}
+                        >
+                          <IconComponent size={14} className="md:w-4 md:h-4" style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
+                        </div>
+                        <div
+                          className="text-[13px] md:text-[15px]"
+                          style={{
+                            fontWeight: 600,
+                            color: '#111827',
+                            fontFamily: 'Inter, sans-serif'
+                          }}
+                        >
+                          {item.phase}
+                        </div>
                       </div>
-                      <div 
-                        className="text-[13px] md:text-[15px]"
+                      <div
+                        className="text-[11px] md:text-[12px]"
                         style={{
-                          fontWeight: 600,
-                          color: '#111827',
-                          fontFamily: 'Inter, sans-serif'
+                          color: 'rgba(29, 133, 126, 0.7)',
+                          fontFamily: 'Work Sans, sans-serif',
+                          marginBottom: '6px',
+                          fontWeight: 500
                         }}
                       >
-                        {item.phase}
+                        {item.duration}
                       </div>
+
+                      <p
+                        className="text-[12px] md:text-[13px]"
+                        style={{
+                          lineHeight: '1.5',
+                          color: 'rgba(17, 24, 39, 0.7)',
+                          fontFamily: 'Work Sans, sans-serif',
+                          margin: 0
+                        }}
+                      >
+                        {item.description}
+                      </p>
                     </div>
-                    <div 
-                      className="text-[11px] md:text-[12px]"
-                      style={{
-                        color: 'rgba(29, 133, 126, 0.7)',
-                        fontFamily: 'Work Sans, sans-serif',
-                        marginBottom: '6px',
-                        fontWeight: 500
-                      }}
-                    >
-                      {item.duration}
-                    </div>
-                    
-                    <p 
-                      className="text-[12px] md:text-[13px]"
-                      style={{
-                        lineHeight: '1.5',
-                        color: 'rgba(17, 24, 39, 0.7)',
-                        fontFamily: 'Work Sans, sans-serif',
-                        margin: 0
-                      }}
-                    >
-                      {item.description}
-                    </p>
                   </div>
-                </div>
-              );
+                );
               })}
             </div>
           </div>
@@ -576,7 +576,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 5: RESEARCH OVERVIEW */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -603,7 +603,7 @@ export function RecyclifyCaseStudy() {
           </h2>
 
           <div style={{ maxWidth: '780px', marginBottom: '48px' }}>
-            <p 
+            <p
               style={{
                 fontSize: '15px',
                 lineHeight: '1.6',
@@ -619,26 +619,26 @@ export function RecyclifyCaseStudy() {
           {/* Research stats */}
           <div className="grid md:grid-cols-3" style={{ gap: '24px' }}>
             {[
-              { 
-                number: '95', 
-                label: 'Survey Responses', 
+              {
+                number: '95',
+                label: 'Survey Responses',
                 sublabel: 'Tier-1 cities in India',
                 detail: 'Ages: 20–35 (primary audience)'
               },
-              { 
-                number: '12', 
-                label: 'Qualitative Interviews', 
+              {
+                number: '12',
+                label: 'Qualitative Interviews',
                 sublabel: 'Working professionals, students, homemakers',
                 detail: 'Contextual inquiry + semi-structured'
               },
-              { 
-                number: '5', 
-                label: 'Platforms Analyzed', 
+              {
+                number: '5',
+                label: 'Platforms Analyzed',
                 sublabel: 'OLX, online resale apps, social media',
                 detail: 'Focus on trust, effort, accessibility'
               }
             ].map((stat, index) => (
-              <div 
+              <div
                 key={index}
                 style={{
                   padding: '28px 24px',
@@ -647,7 +647,7 @@ export function RecyclifyCaseStudy() {
                   border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <div 
+                <div
                   style={{
                     fontSize: '40px',
                     fontWeight: 600,
@@ -659,7 +659,7 @@ export function RecyclifyCaseStudy() {
                 >
                   {stat.number}
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '15px',
                     fontWeight: 600,
@@ -670,7 +670,7 @@ export function RecyclifyCaseStudy() {
                 >
                   {stat.label}
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '13px',
                     color: 'rgba(17, 24, 39, 0.6)',
@@ -681,7 +681,7 @@ export function RecyclifyCaseStudy() {
                 >
                   {stat.sublabel}
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '12px',
                     color: 'rgba(17, 24, 39, 0.5)',
@@ -698,7 +698,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 6: SURVEY RESULTS (VISUAL) */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -726,7 +726,7 @@ export function RecyclifyCaseStudy() {
 
           <div className="grid md:grid-cols-2" style={{ gap: '32px' }}>
             {/* Chart 1: Disposal Behavior */}
-            <div 
+            <div
               style={{
                 background: '#FAFAFA',
                 borderRadius: '12px',
@@ -734,7 +734,7 @@ export function RecyclifyCaseStudy() {
                 border: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -745,7 +745,7 @@ export function RecyclifyCaseStudy() {
               >
                 How users currently get rid of old items
               </h3>
-              
+
               <ResponsiveContainer width="100%" height={200}>
                 <PieChart>
                   <Pie
@@ -770,7 +770,7 @@ export function RecyclifyCaseStudy() {
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -788,7 +788,7 @@ export function RecyclifyCaseStudy() {
             </div>
 
             {/* Chart 2: Willingness to Sell */}
-            <div 
+            <div
               style={{
                 background: '#FAFAFA',
                 borderRadius: '12px',
@@ -796,7 +796,7 @@ export function RecyclifyCaseStudy() {
                 border: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -807,7 +807,7 @@ export function RecyclifyCaseStudy() {
               >
                 Do users sell second-hand products?
               </h3>
-              
+
               <ResponsiveContainer width="100%" height={200}>
                 <PieChart>
                   <Pie
@@ -832,7 +832,7 @@ export function RecyclifyCaseStudy() {
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -850,7 +850,7 @@ export function RecyclifyCaseStudy() {
             </div>
 
             {/* Chart 3: Selling Effort Perception */}
-            <div 
+            <div
               style={{
                 background: '#FAFAFA',
                 borderRadius: '12px',
@@ -858,7 +858,7 @@ export function RecyclifyCaseStudy() {
                 border: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -869,7 +869,7 @@ export function RecyclifyCaseStudy() {
               >
                 Ease of clearing old items (1–5 scale)
               </h3>
-              
+
               <ResponsiveContainer width="100%" height={200}>
                 <BarChart data={[
                   { rating: '1', responses: 8 },
@@ -884,7 +884,7 @@ export function RecyclifyCaseStudy() {
                   <Bar dataKey="responses" fill="#1D857E" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -902,7 +902,7 @@ export function RecyclifyCaseStudy() {
             </div>
 
             {/* Chart 4: Platform Preference */}
-            <div 
+            <div
               style={{
                 background: '#FAFAFA',
                 borderRadius: '12px',
@@ -910,7 +910,7 @@ export function RecyclifyCaseStudy() {
                 border: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -921,9 +921,9 @@ export function RecyclifyCaseStudy() {
               >
                 Where users sell today
               </h3>
-              
+
               <ResponsiveContainer width="100%" height={200}>
-                <BarChart 
+                <BarChart
                   data={[
                     { platform: 'OLX', value: 34.9 },
                     { platform: 'Word of mouth', value: 25.6 },
@@ -938,7 +938,7 @@ export function RecyclifyCaseStudy() {
                   <Bar dataKey="value" fill="#1D857E" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -956,7 +956,7 @@ export function RecyclifyCaseStudy() {
             </div>
 
             {/* Chart 5: Interest in Recycled Products */}
-            <div 
+            <div
               style={{
                 background: '#FAFAFA',
                 borderRadius: '12px',
@@ -964,7 +964,7 @@ export function RecyclifyCaseStudy() {
                 border: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -975,7 +975,7 @@ export function RecyclifyCaseStudy() {
               >
                 Do users like buying recycled products?
               </h3>
-              
+
               <ResponsiveContainer width="100%" height={200}>
                 <PieChart>
                   <Pie
@@ -1000,7 +1000,7 @@ export function RecyclifyCaseStudy() {
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -1018,7 +1018,7 @@ export function RecyclifyCaseStudy() {
             </div>
 
             {/* Chart 6: Barriers to Buying */}
-            <div 
+            <div
               style={{
                 background: '#FAFAFA',
                 borderRadius: '12px',
@@ -1026,7 +1026,7 @@ export function RecyclifyCaseStudy() {
                 border: '1px solid rgba(0, 0, 0, 0.06)'
               }}
             >
-              <h3 
+              <h3
                 style={{
                   fontSize: '15px',
                   fontWeight: 600,
@@ -1037,9 +1037,9 @@ export function RecyclifyCaseStudy() {
               >
                 Why users hesitate
               </h3>
-              
+
               <ResponsiveContainer width="100%" height={200}>
-                <BarChart 
+                <BarChart
                   data={[
                     { barrier: 'Not easily available', value: 55.9 },
                     { barrier: 'Unsure about quality', value: 53.8 },
@@ -1053,7 +1053,7 @@ export function RecyclifyCaseStudy() {
                   <Bar dataKey="value" fill="#EF4444" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -1074,7 +1074,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 7: RESEARCH SYNTHESIS & INSIGHTS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1099,7 +1099,7 @@ export function RecyclifyCaseStudy() {
           >
             Research Synthesis & Insights
           </h2>
-          <p 
+          <p
             style={{
               fontSize: '15px',
               lineHeight: '1.6',
@@ -1136,7 +1136,7 @@ export function RecyclifyCaseStudy() {
               ].map((item, index) => {
                 const IconComponent = item.icon;
                 return (
-                  <div 
+                  <div
                     key={index}
                     style={{
                       background: 'white',
@@ -1148,7 +1148,7 @@ export function RecyclifyCaseStudy() {
                       alignItems: 'flex-start'
                     }}
                   >
-                    <div 
+                    <div
                       style={{
                         width: '36px',
                         height: '36px',
@@ -1163,7 +1163,7 @@ export function RecyclifyCaseStudy() {
                       <IconComponent size={18} style={{ color: item.color }} />
                     </div>
                     <div>
-                      <div 
+                      <div
                         style={{
                           fontSize: '13px',
                           fontWeight: 600,
@@ -1174,7 +1174,7 @@ export function RecyclifyCaseStudy() {
                       >
                         {item.label}
                       </div>
-                      <div 
+                      <div
                         style={{
                           fontSize: '12px',
                           lineHeight: '1.4',
@@ -1185,7 +1185,7 @@ export function RecyclifyCaseStudy() {
                       >
                         {item.desc}
                       </div>
-                      <div 
+                      <div
                         style={{
                           fontSize: '14px',
                           fontWeight: 600,
@@ -1205,7 +1205,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 8: OUTCOME-BASED INSIGHT CLUSTERS (COLLAPSIBLE) */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1332,7 +1332,7 @@ export function RecyclifyCaseStudy() {
                     } as React.CSSProperties}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1 }}>
-                      <div 
+                      <div
                         style={{
                           width: '44px',
                           height: '44px',
@@ -1347,7 +1347,7 @@ export function RecyclifyCaseStudy() {
                         <IconComponent size={20} style={{ color: cluster.color }} />
                       </div>
                       <div style={{ flex: 1 }}>
-                        <h3 
+                        <h3
                           style={{
                             fontSize: '17px',
                             fontWeight: 600,
@@ -1359,7 +1359,7 @@ export function RecyclifyCaseStudy() {
                         >
                           {cluster.title}
                         </h3>
-                        <p 
+                        <p
                           style={{
                             fontSize: '13px',
                             color: 'rgba(17, 24, 39, 0.6)',
@@ -1376,17 +1376,17 @@ export function RecyclifyCaseStudy() {
 
                   {/* Expanded content */}
                   {isExpanded && (
-                    <div 
+                    <div
                       id={`cluster-content-${cluster.id}`}
                       style={{ padding: '0 24px 24px' }}
                     >
-                      <div 
+                      <div
                         style={{
                           borderTop: '1px solid rgba(0, 0, 0, 0.06)',
                           paddingTop: '20px'
                         }}
                       >
-                        <div 
+                        <div
                           style={{
                             fontSize: '11px',
                             fontWeight: 600,
@@ -1399,7 +1399,7 @@ export function RecyclifyCaseStudy() {
                         >
                           Evidence
                         </div>
-                        <ul 
+                        <ul
                           style={{
                             fontSize: '14px',
                             lineHeight: '1.7',
@@ -1415,7 +1415,7 @@ export function RecyclifyCaseStudy() {
                           ))}
                         </ul>
 
-                        <div 
+                        <div
                           style={{
                             marginTop: '16px',
                             padding: '16px',
@@ -1424,7 +1424,7 @@ export function RecyclifyCaseStudy() {
                             borderRadius: '4px'
                           }}
                         >
-                          <div 
+                          <div
                             style={{
                               fontSize: '11px',
                               fontWeight: 600,
@@ -1437,7 +1437,7 @@ export function RecyclifyCaseStudy() {
                           >
                             Design Outcome
                           </div>
-                          <p 
+                          <p
                             style={{
                               fontSize: '14px',
                               lineHeight: '1.6',
@@ -1460,7 +1460,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 9: PERSONAS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1488,7 +1488,7 @@ export function RecyclifyCaseStudy() {
 
           <div className="grid md:grid-cols-2" style={{ gap: '32px' }}>
             {/* Persona 1 */}
-            <div 
+            <div
               style={{
                 background: 'white',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -1496,7 +1496,7 @@ export function RecyclifyCaseStudy() {
                 padding: '28px'
               }}
             >
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -1506,7 +1506,7 @@ export function RecyclifyCaseStudy() {
                   borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '56px',
                     height: '56px',
@@ -1521,7 +1521,7 @@ export function RecyclifyCaseStudy() {
                   <ShoppingBag size={24} style={{ color: '#1D857E' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '17px',
                       fontWeight: 600,
@@ -1532,7 +1532,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Milana Nagaraj, 29
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       color: 'rgba(17, 24, 39, 0.6)',
@@ -1546,7 +1546,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1559,7 +1559,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Bio
                 </div>
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.6',
@@ -1574,7 +1574,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1587,7 +1587,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Goals
                 </div>
-                <ul 
+                <ul
                   style={{
                     fontSize: '14px',
                     lineHeight: '1.6',
@@ -1604,7 +1604,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1617,7 +1617,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Frustrations
                 </div>
-                <ul 
+                <ul
                   style={{
                     fontSize: '14px',
                     lineHeight: '1.6',
@@ -1634,7 +1634,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1649,7 +1649,7 @@ export function RecyclifyCaseStudy() {
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {['Explorer', 'Organized', 'Practical', 'Hardworking'].map((tag, idx) => (
-                    <span 
+                    <span
                       key={idx}
                       style={{
                         padding: '6px 12px',
@@ -1669,7 +1669,7 @@ export function RecyclifyCaseStudy() {
             </div>
 
             {/* Persona 2 */}
-            <div 
+            <div
               style={{
                 background: 'white',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -1677,7 +1677,7 @@ export function RecyclifyCaseStudy() {
                 padding: '28px'
               }}
             >
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -1687,7 +1687,7 @@ export function RecyclifyCaseStudy() {
                   borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '56px',
                     height: '56px',
@@ -1702,7 +1702,7 @@ export function RecyclifyCaseStudy() {
                   <Package size={24} style={{ color: '#8B5CF6' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '17px',
                       fontWeight: 600,
@@ -1713,7 +1713,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Samhith Acharya, 34
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       color: 'rgba(17, 24, 39, 0.6)',
@@ -1727,7 +1727,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1740,7 +1740,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Bio
                 </div>
-                <p 
+                <p
                   style={{
                     fontSize: '13px',
                     lineHeight: '1.6',
@@ -1755,7 +1755,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1768,7 +1768,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Goals
                 </div>
-                <ul 
+                <ul
                   style={{
                     fontSize: '14px',
                     lineHeight: '1.6',
@@ -1785,7 +1785,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1798,7 +1798,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Frustrations
                 </div>
-                <ul 
+                <ul
                   style={{
                     fontSize: '14px',
                     lineHeight: '1.6',
@@ -1815,7 +1815,7 @@ export function RecyclifyCaseStudy() {
               </div>
 
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '11px',
                     fontWeight: 600,
@@ -1830,7 +1830,7 @@ export function RecyclifyCaseStudy() {
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {['Problem Solver', 'Self-Assured', 'Productive', 'Resourceful'].map((tag, idx) => (
-                    <span 
+                    <span
                       key={idx}
                       style={{
                         padding: '6px 12px',
@@ -1853,7 +1853,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 10: EMPATHY MAP & JOURNEY MAP */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -1878,7 +1878,7 @@ export function RecyclifyCaseStudy() {
           >
             Understanding User Experience
           </h2>
-          <p 
+          <p
             style={{
               fontSize: '15px',
               lineHeight: '1.6',
@@ -2317,7 +2317,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 11: CARD SORTING & INFORMATION ARCHITECTURE */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -2357,7 +2357,7 @@ export function RecyclifyCaseStudy() {
               Card Sorting
             </h3>
             <div style={{ maxWidth: '780px', marginBottom: '24px' }}>
-              <p 
+              <p
                 style={{
                   fontSize: '15px',
                   lineHeight: '1.6',
@@ -2369,7 +2369,7 @@ export function RecyclifyCaseStudy() {
                 Conducted open card sorting with 8 participants to understand how users naturally categorize marketplace features and content. This informed the navigation structure and feature grouping.
               </p>
             </div>
-            <div 
+            <div
               style={{
                 background: 'rgba(29, 133, 126, 0.04)',
                 borderLeft: '3px solid rgba(29, 133, 126, 0.5)',
@@ -2379,7 +2379,7 @@ export function RecyclifyCaseStudy() {
                 marginBottom: '32px'
               }}
             >
-              <div 
+              <div
                 style={{
                   fontSize: '11px',
                   fontWeight: 600,
@@ -2392,7 +2392,7 @@ export function RecyclifyCaseStudy() {
               >
                 Outcome
               </div>
-              <p 
+              <p
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.6',
@@ -2404,9 +2404,9 @@ export function RecyclifyCaseStudy() {
                 Categories simplified from 12 to 6 main groups. Navigation reduced cognitive load by 40% in follow-up testing. Users preferred Browse, Sell, Messages, and Profile as primary tabs.
               </p>
             </div>
-            
+
             {/* Card Sorting Image */}
-            <div 
+            <div
               style={{
                 background: 'white',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -2415,14 +2415,14 @@ export function RecyclifyCaseStudy() {
                 maxWidth: '100%'
               }}
             >
-              <img 
-                src={cardSortingImg} 
-                alt="Card Sorting Session with Sticky Notes" 
-                style={{ 
-                  width: '100%', 
+              <img
+                src={cardSortingImg}
+                alt="Card Sorting Session with Sticky Notes"
+                style={{
+                  width: '100%',
                   height: 'auto',
                   display: 'block'
-                }} 
+                }}
               />
             </div>
           </div>
@@ -2446,7 +2446,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 12: USER FLOWS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -2473,9 +2473,9 @@ export function RecyclifyCaseStudy() {
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            
+
             {/* Login/Register Flow */}
-            <div 
+            <div
               style={{
                 background: 'white',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -2483,7 +2483,7 @@ export function RecyclifyCaseStudy() {
                 overflow: 'hidden'
               }}
             >
-              <div 
+              <div
                 style={{
                   padding: '24px',
                   display: 'flex',
@@ -2492,7 +2492,7 @@ export function RecyclifyCaseStudy() {
                   borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '44px',
                     height: '44px',
@@ -2507,7 +2507,7 @@ export function RecyclifyCaseStudy() {
                   <LogIn size={20} style={{ color: '#1D857E' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '16px',
                       fontWeight: 600,
@@ -2518,7 +2518,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Login/Register
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       color: 'rgba(17, 24, 39, 0.6)',
@@ -2530,7 +2530,7 @@ export function RecyclifyCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div 
+              <div
                 style={{
                   background: '#FAFAFA',
                   padding: '40px',
@@ -2540,20 +2540,20 @@ export function RecyclifyCaseStudy() {
                   overflowX: 'auto'
                 }}
               >
-                <img 
-                  src={loginRegisterFlowImg} 
-                  alt="Login and Registration Flow" 
-                  style={{ 
-                    maxWidth: '100%', 
+                <img
+                  src={loginRegisterFlowImg}
+                  alt="Login and Registration Flow"
+                  style={{
+                    maxWidth: '100%',
                     height: 'auto',
                     display: 'block'
-                  }} 
+                  }}
                 />
               </div>
             </div>
 
             {/* Sell Items Flow */}
-            <div 
+            <div
               style={{
                 background: 'white',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -2561,7 +2561,7 @@ export function RecyclifyCaseStudy() {
                 overflow: 'hidden'
               }}
             >
-              <div 
+              <div
                 style={{
                   padding: '24px',
                   display: 'flex',
@@ -2570,7 +2570,7 @@ export function RecyclifyCaseStudy() {
                   borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '44px',
                     height: '44px',
@@ -2585,7 +2585,7 @@ export function RecyclifyCaseStudy() {
                   <Package size={20} style={{ color: '#F59E0B' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '16px',
                       fontWeight: 600,
@@ -2596,7 +2596,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Sell old items/stuffs
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       color: 'rgba(17, 24, 39, 0.6)',
@@ -2608,7 +2608,7 @@ export function RecyclifyCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div 
+              <div
                 style={{
                   background: '#FAFAFA',
                   padding: '40px',
@@ -2618,20 +2618,20 @@ export function RecyclifyCaseStudy() {
                   overflowX: 'auto'
                 }}
               >
-                <img 
-                  src={sellItemsFlowImg} 
-                  alt="Sell old items/stuffs Flow" 
-                  style={{ 
-                    maxWidth: '100%', 
+                <img
+                  src={sellItemsFlowImg}
+                  alt="Sell old items/stuffs Flow"
+                  style={{
+                    maxWidth: '100%',
                     height: 'auto',
                     display: 'block'
-                  }} 
+                  }}
                 />
               </div>
             </div>
 
             {/* Buy Products Flow */}
-            <div 
+            <div
               style={{
                 background: 'white',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -2639,7 +2639,7 @@ export function RecyclifyCaseStudy() {
                 overflow: 'hidden'
               }}
             >
-              <div 
+              <div
                 style={{
                   padding: '24px',
                   display: 'flex',
@@ -2648,7 +2648,7 @@ export function RecyclifyCaseStudy() {
                   borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '44px',
                     height: '44px',
@@ -2663,7 +2663,7 @@ export function RecyclifyCaseStudy() {
                   <ShoppingCart size={20} style={{ color: '#10B981' }} />
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     style={{
                       fontSize: '16px',
                       fontWeight: 600,
@@ -2674,7 +2674,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Buy Recycled products
                   </h3>
-                  <p 
+                  <p
                     style={{
                       fontSize: '13px',
                       color: 'rgba(17, 24, 39, 0.6)',
@@ -2686,7 +2686,7 @@ export function RecyclifyCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div 
+              <div
                 style={{
                   background: '#FAFAFA',
                   padding: '40px',
@@ -2696,14 +2696,14 @@ export function RecyclifyCaseStudy() {
                   overflowX: 'auto'
                 }}
               >
-                <img 
-                  src={buyProductsFlowImg} 
-                  alt="Buy Recycled products Flow" 
-                  style={{ 
-                    maxWidth: '100%', 
+                <img
+                  src={buyProductsFlowImg}
+                  alt="Buy Recycled products Flow"
+                  style={{
+                    maxWidth: '100%',
                     height: 'auto',
                     display: 'block'
-                  }} 
+                  }}
                 />
               </div>
             </div>
@@ -2713,7 +2713,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 12.5: STYLE GUIDE */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -2739,7 +2739,7 @@ export function RecyclifyCaseStudy() {
             Style Guide
           </h2>
           <div style={{ maxWidth: '780px', marginBottom: '64px' }}>
-            <p 
+            <p
               style={{
                 fontSize: '15px',
                 lineHeight: '1.6',
@@ -2765,11 +2765,11 @@ export function RecyclifyCaseStudy() {
             >
               Typography
             </h3>
-            
+
             <div className="grid md:grid-cols-2" style={{ gap: '48px' }}>
               {/* Left: Logo & Sample */}
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '56px',
                     fontWeight: 700,
@@ -2781,7 +2781,7 @@ export function RecyclifyCaseStudy() {
                 >
                   Recyclify
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '120px',
                     fontWeight: 300,
@@ -2799,7 +2799,7 @@ export function RecyclifyCaseStudy() {
               <div>
                 {/* Heading Section */}
                 <div style={{ marginBottom: '32px' }}>
-                  <div 
+                  <div
                     style={{
                       fontSize: '14px',
                       fontWeight: 600,
@@ -2810,7 +2810,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Heading
                   </div>
-                  
+
                   {[
                     { label: 'HM1', size: '24/32', desc: 'SF Pro/bold/24' },
                     { label: 'HM2', size: '20/28', desc: 'SF Pro/Semibold/20' },
@@ -2820,7 +2820,7 @@ export function RecyclifyCaseStudy() {
                     <div key={index} style={{ marginBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
-                          <div 
+                          <div
                             style={{
                               fontSize: '11px',
                               color: 'rgba(17, 24, 39, 0.5)',
@@ -2830,7 +2830,7 @@ export function RecyclifyCaseStudy() {
                           >
                             {type.label} - {type.size}
                           </div>
-                          <div 
+                          <div
                             style={{
                               fontSize: '10px',
                               color: 'rgba(17, 24, 39, 0.4)',
@@ -2840,7 +2840,7 @@ export function RecyclifyCaseStudy() {
                             Letter spacing: 0
                           </div>
                         </div>
-                        <div 
+                        <div
                           style={{
                             fontSize: '13px',
                             fontWeight: 600,
@@ -2857,7 +2857,7 @@ export function RecyclifyCaseStudy() {
 
                 {/* Body Section */}
                 <div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '14px',
                       fontWeight: 600,
@@ -2868,7 +2868,7 @@ export function RecyclifyCaseStudy() {
                   >
                     Body
                   </div>
-                  
+
                   {[
                     { label: 'B1', weight: 'Medium', size: '16' },
                     { label: 'B1 Regular', weight: 'Regular', size: '16' },
@@ -2877,7 +2877,7 @@ export function RecyclifyCaseStudy() {
                     <div key={index} style={{ marginBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
-                          <div 
+                          <div
                             style={{
                               fontSize: '11px',
                               color: 'rgba(17, 24, 39, 0.5)',
@@ -2887,7 +2887,7 @@ export function RecyclifyCaseStudy() {
                           >
                             {type.label} - 18 / 24
                           </div>
-                          <div 
+                          <div
                             style={{
                               fontSize: '10px',
                               color: 'rgba(17, 24, 39, 0.4)',
@@ -2897,7 +2897,7 @@ export function RecyclifyCaseStudy() {
                             Letter spacing: 0
                           </div>
                         </div>
-                        <div 
+                        <div
                           style={{
                             fontSize: '13px',
                             fontWeight: index === 1 ? 400 : 500,
@@ -2941,7 +2941,7 @@ export function RecyclifyCaseStudy() {
                 { color: '#313131', label: 'Text' }
               ].map((swatch, index) => (
                 <div key={index} style={{ textAlign: 'center' }}>
-                  <div 
+                  <div
                     className="w-full aspect-square max-w-[140px] mx-auto mb-3 md:mb-4"
                     style={{
                       background: swatch.color,
@@ -2949,7 +2949,7 @@ export function RecyclifyCaseStudy() {
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
                     }}
                   />
-                  <div 
+                  <div
                     className="text-[14px] md:text-[16px]"
                     style={{
                       fontWeight: 600,
@@ -2960,7 +2960,7 @@ export function RecyclifyCaseStudy() {
                   >
                     {swatch.color}
                   </div>
-                  <div 
+                  <div
                     className="text-[12px] md:text-[13px]"
                     style={{
                       color: swatch.color,
@@ -2980,7 +2980,7 @@ export function RecyclifyCaseStudy() {
                 { color: '#DB3B21', label: 'Error' }
               ].map((swatch, index) => (
                 <div key={index} style={{ textAlign: 'center' }}>
-                  <div 
+                  <div
                     className="w-full aspect-square max-w-[140px] mx-auto mb-3 md:mb-4"
                     style={{
                       background: swatch.color,
@@ -2988,7 +2988,7 @@ export function RecyclifyCaseStudy() {
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
                     }}
                   />
-                  <div 
+                  <div
                     className="text-[14px] md:text-[16px]"
                     style={{
                       fontWeight: 600,
@@ -2999,7 +2999,7 @@ export function RecyclifyCaseStudy() {
                   >
                     {swatch.color}
                   </div>
-                  <div 
+                  <div
                     className="text-[12px] md:text-[13px]"
                     style={{
                       color: swatch.color,
@@ -3029,7 +3029,7 @@ export function RecyclifyCaseStudy() {
 
             {/* Outlined Icons */}
             <div style={{ marginBottom: '32px' }}>
-              <div 
+              <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 500,
@@ -3057,7 +3057,7 @@ export function RecyclifyCaseStudy() {
                   <Focus size={28} />,
                   <Sparkles size={28} />
                 ].map((icon, index) => (
-                  <div 
+                  <div
                     key={index}
                     style={{
                       color: 'rgba(107, 114, 128, 1)',
@@ -3074,7 +3074,7 @@ export function RecyclifyCaseStudy() {
 
             {/* Filled Icons */}
             <div>
-              <div 
+              <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 500,
@@ -3102,7 +3102,7 @@ export function RecyclifyCaseStudy() {
                   <Focus size={28} />,
                   <Sparkles size={28} />
                 ].map((icon, index) => (
-                  <div 
+                  <div
                     key={index}
                     style={{
                       color: '#8C7347',
@@ -3121,7 +3121,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 13: DESIGN SOLUTIONS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -3147,7 +3147,7 @@ export function RecyclifyCaseStudy() {
             Design Solutions
           </h2>
           <div style={{ maxWidth: '780px', marginBottom: '48px' }}>
-            <p 
+            <p
               style={{
                 fontSize: '15px',
                 lineHeight: '1.6',
@@ -3173,7 +3173,7 @@ export function RecyclifyCaseStudy() {
             >
               Wireframes & Early Explorations
             </h3>
-            <img 
+            <img
               src={wireframesImage}
               alt="Low-fidelity wireframes showing key screens"
               style={{
@@ -3199,7 +3199,7 @@ export function RecyclifyCaseStudy() {
             >
               High-Fidelity UI
             </h3>
-            
+
             {/* Onboarding & Login Screens */}
             <div style={{ marginBottom: '48px' }}>
               <h4
@@ -3213,7 +3213,7 @@ export function RecyclifyCaseStudy() {
               >
                 Onboarding & Authentication
               </h4>
-              <img 
+              <img
                 src={hiFiOnboardingImg}
                 alt="Onboarding screens showing splash, sell old things, buy recycled products, rewards, and login/OTP flows"
                 style={{
@@ -3239,7 +3239,7 @@ export function RecyclifyCaseStudy() {
               >
                 Home Screen
               </h4>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -3250,7 +3250,7 @@ export function RecyclifyCaseStudy() {
               >
                 Home screen lets users navigate to sell and buy sections, search products, shop by brand, and change location
               </p>
-              <img 
+              <img
                 src={hiFiHomeScreenImg}
                 alt="Home screen with detailed annotations showing navigation, categories, and recommendations"
                 style={{
@@ -3276,7 +3276,7 @@ export function RecyclifyCaseStudy() {
               >
                 Selling Old Items
               </h4>
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -3287,7 +3287,7 @@ export function RecyclifyCaseStudy() {
               >
                 Users can sell items such as clothes, paper, plastic, electronics, and more. Complete flow from category selection to pickup confirmation and rewards
               </p>
-              <img 
+              <img
                 src={hiFiSellingCompleteImg}
                 alt="Complete selling flow showing category selection, item details, scheduling, pickup confirmation, earnings approval, and congratulations screen"
                 style={{
@@ -3304,7 +3304,7 @@ export function RecyclifyCaseStudy() {
 
         {/* SECTION 14: CHALLENGES & LEARNINGS */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               fontSize: '11px',
               fontWeight: 600,
@@ -3333,7 +3333,7 @@ export function RecyclifyCaseStudy() {
           <div className="grid md:grid-cols-2" style={{ gap: '40px' }}>
             {/* What Didn't Work */}
             <div>
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -3341,7 +3341,7 @@ export function RecyclifyCaseStudy() {
                   marginBottom: '20px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '36px',
                     height: '36px',
@@ -3355,7 +3355,7 @@ export function RecyclifyCaseStudy() {
                 >
                   <AlertTriangle size={18} style={{ color: '#EF4444' }} />
                 </div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -3366,7 +3366,7 @@ export function RecyclifyCaseStudy() {
                   What Didn't Work
                 </h3>
               </div>
-              <ul 
+              <ul
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.7',
@@ -3390,7 +3390,7 @@ export function RecyclifyCaseStudy() {
 
             {/* Key Takeaways */}
             <div>
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -3398,7 +3398,7 @@ export function RecyclifyCaseStudy() {
                   marginBottom: '20px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     width: '36px',
                     height: '36px',
@@ -3412,7 +3412,7 @@ export function RecyclifyCaseStudy() {
                 >
                   <Lightbulb size={18} style={{ color: '#10B981' }} />
                 </div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '17px',
                     fontWeight: 600,
@@ -3423,7 +3423,7 @@ export function RecyclifyCaseStudy() {
                   Key Takeaways
                 </h3>
               </div>
-              <ul 
+              <ul
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.7',

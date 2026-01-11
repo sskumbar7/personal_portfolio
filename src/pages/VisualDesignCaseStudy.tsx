@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Sparkles, Layout, Palette, Zap } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import moodAnalysisImg from 'figma:asset/c72fbfb729e96bbd53b49e81ce5eaff15459a8b3.png';
-import salesDashboardWebImg from 'figma:asset/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
-import salesDashboardMobileImg from 'figma:asset/e02a31deda600c6c9743f1084295215f9f0d9422.png';
-import enterprisePortalLightImg from 'figma:asset/27a65817732aa7028be464a92ac4c60b55f78e20.png';
-import enterprisePortalDarkImg from 'figma:asset/0b20820c391d24f5e7b7273eaf098bd14eb76f0f.png';
-import aiAssistantImg from 'figma:asset/2ba6e613e10f8f70ff75326ae963e88ed02f12b4.png';
-import landingPageImg from 'figma:asset/bbf8a972e71238478714f2b57020667ce7e187cb.png';
+import moodAnalysisImg from '../assets/mood-analysis-screens.png';
+import salesDashboardWebImg from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
+import salesDashboardMobileImg from '../assets/e02a31deda600c6c9743f1084295215f9f0d9422.png';
+import enterprisePortalLightImg from '../assets/27a65817732aa7028be464a92ac4c60b55f78e20.png';
+import enterprisePortalDarkImg from '../assets/0b20820c391d24f5e7b7273eaf098bd14eb76f0f.png';
+import aiAssistantImg from '../assets/2ba6e613e10f8f70ff75326ae963e88ed02f12b4.png';
+import landingPageImg from '../assets/bbf8a972e71238478714f2b57020667ce7e187cb.png';
+
 
 export function VisualDesignCaseStudy() {
   return (
@@ -17,7 +18,7 @@ export function VisualDesignCaseStudy() {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section 
+      <section
         className="relative overflow-hidden"
         style={{
           background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.11) 0%, rgba(29, 133, 126, 0.06) 40%, #FFFFFF 80%)'
@@ -47,9 +48,9 @@ export function VisualDesignCaseStudy() {
           </Link>
 
           {/* Title */}
-          <h1 
+          <h1
             className="text-[32px] md:text-[52px]"
-            style={{ 
+            style={{
               lineHeight: '1.1',
               color: '#111827',
               fontFamily: 'Inter, sans-serif',
@@ -62,9 +63,9 @@ export function VisualDesignCaseStudy() {
           </h1>
 
           {/* Value statement */}
-          <p 
+          <p
             className="text-[15px] md:text-[17px]"
-            style={{ 
+            style={{
               lineHeight: '1.5',
               color: 'rgba(17, 24, 39, 0.7)',
               fontFamily: 'Work Sans, sans-serif',
@@ -76,7 +77,7 @@ export function VisualDesignCaseStudy() {
           </p>
 
           {/* Meta row */}
-          <div 
+          <div
             className="flex flex-col md:flex-row gap-3 md:gap-5"
             style={{
               marginBottom: '32px'
@@ -88,7 +89,7 @@ export function VisualDesignCaseStudy() {
               { label: 'Platforms', value: 'Mobile, Web, Dashboard, Enterprise' }
             ].map((item, index) => (
               <div key={index} style={{ display: 'flex', gap: '6px' }}>
-                <span 
+                <span
                   style={{
                     fontSize: '13px',
                     fontWeight: 600,
@@ -98,7 +99,7 @@ export function VisualDesignCaseStudy() {
                 >
                   {item.label}:
                 </span>
-                <span 
+                <span
                   style={{
                     fontSize: '13px',
                     color: 'rgba(17, 24, 39, 0.8)',
@@ -193,7 +194,7 @@ export function VisualDesignCaseStudy() {
                     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       width: '44px',
                       height: '44px',
@@ -296,7 +297,7 @@ export function VisualDesignCaseStudy() {
             </div>
 
             {/* Image Layout */}
-            <div 
+            <div
               style={{
                 background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.05) 0%, rgba(139, 92, 71, 0.05) 100%)',
                 borderRadius: '16px',
@@ -379,7 +380,7 @@ export function VisualDesignCaseStudy() {
 
             {/* Image Layout - Web + Mobile */}
             <div className="grid md:grid-cols-[1.8fr_1fr]" style={{ gap: '32px', alignItems: 'center' }}>
-              <div 
+              <div
                 style={{
                   background: 'white',
                   borderRadius: '8px',
@@ -399,7 +400,7 @@ export function VisualDesignCaseStudy() {
                   }}
                 />
               </div>
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   justifyContent: 'center'
@@ -480,7 +481,7 @@ export function VisualDesignCaseStudy() {
             </div>
 
             {/* Image Layout - Split Light/Dark with Unified Background */}
-            <div 
+            <div
               style={{
                 background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.04) 0%, rgba(139, 92, 71, 0.04) 100%)',
                 borderRadius: '16px',
@@ -490,7 +491,7 @@ export function VisualDesignCaseStudy() {
             >
               <div className="grid md:grid-cols-2" style={{ gap: '24px' }}>
                 <div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '11px',
                       fontWeight: 600,
@@ -516,7 +517,7 @@ export function VisualDesignCaseStudy() {
                   />
                 </div>
                 <div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '11px',
                       fontWeight: 600,
@@ -603,7 +604,7 @@ export function VisualDesignCaseStudy() {
             </div>
 
             {/* Image Layout - Composed Web + Mobile */}
-            <div 
+            <div
               style={{
                 background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.03) 0%, rgba(139, 92, 71, 0.03) 100%)',
                 borderRadius: '16px',
@@ -688,7 +689,7 @@ export function VisualDesignCaseStudy() {
             </div>
 
             {/* Image Layout */}
-            <div 
+            <div
               style={{
                 background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.04) 0%, rgba(139, 92, 71, 0.04) 100%)',
                 borderRadius: '16px',
@@ -826,7 +827,7 @@ export function VisualDesignCaseStudy() {
 
         {/* SECTION 5: CLOSING SUMMARY */}
         <section className="pb-12 md:pb-24">
-          <div 
+          <div
             style={{
               background: 'rgba(29, 133, 126, 0.04)',
               borderRadius: '16px',
