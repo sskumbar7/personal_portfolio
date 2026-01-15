@@ -1,1 +1,0 @@
-import{j as e}from"./index-Hu-88tJR.js";function t(){return e.jsxs("div",{style:{padding:100},children:[e.jsx("h1",{children:"Work Page Test"}),e.jsx("p",{children:"If you see this, the routing works, and the content was the issue."})]})}export{t as WorkPage};
