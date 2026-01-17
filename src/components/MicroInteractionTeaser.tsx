@@ -94,44 +94,7 @@ export function MicroInteractionTeaser() {
                 Every interaction is choreographed with intention—timing, easing, and purpose working together to guide attention without demanding it.
               </p>
 
-              {/* CTA */}
-              <motion.a
-                href="#case-studies"
-                className="inline-flex items-center gap-2 group"
-                style={{
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  color: '#1D857E',
-                  textDecoration: 'none',
-                  width: 'fit-content'
-                }}
-                whileHover={{ x: prefersReducedMotion ? 0 : 2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span style={{ position: 'relative' }}>
-                  Explore interaction work
-                  <motion.span
-                    style={{
-                      position: 'absolute',
-                      bottom: '-2px',
-                      left: 0,
-                      right: 0,
-                      height: '1px',
-                      backgroundColor: '#1D857E',
-                      transformOrigin: 'left'
-                    }}
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                  />
-                </span>
-                <motion.div
-                  animate={{ x: isHovered && !prefersReducedMotion ? 3 : 0 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
-                >
-                  <ArrowRight className="w-4 h-4" strokeWidth={2} />
-                </motion.div>
-              </motion.a>
+
             </div>
 
             {/* Right column - Motion timing system */}
