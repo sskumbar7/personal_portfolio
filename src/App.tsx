@@ -1,53 +1,29 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+// import { lazy, Suspense } from "react";
 
 // Eager load homepage
 import { HomePage } from "./pages/HomePage";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import { TooltipProvider } from "./components/ui/tooltip";
+import { Toaster } from "./components/ui/sonner";
+import { SkipLink } from "./components/SkipLink";
 
-// Lazy pages
-const ContactPage = lazy(() => import("./pages/ContactPage"));
-const WorkPage = lazy(() => import("./pages/WorkPage"));
-const CaseStudyPage = lazy(() => import("./pages/CaseStudyPage"));
-const DiscussionForumCaseStudy = lazy(() => import("./pages/DiscussionForumCaseStudy"));
-const RecyclifyCaseStudy = lazy(() => import("./pages/RecyclifyCaseStudy"));
-const VisualDesignCaseStudy = lazy(() => import("./pages/VisualDesignCaseStudy"));
-const ConfidentialCaseStudy = lazy(() => import("./pages/ConfidentialCaseStudy"));
-const ConfidentialCaseStudy2 = lazy(() => import("./pages/ConfidentialCaseStudy2"));
-const ConfidentialCaseStudy3 = lazy(() => import("./pages/ConfidentialCaseStudy3"));
-const StyleGuidePage = lazy(() => import("./pages/StyleGuidePage"));
-
-const PageLoader = () => (
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      minHeight: "100vh",
-      background: "white",
-    }}
-  >
-    <div
-      style={{
-        width: "40px",
-        height: "40px",
-        border: "3px solid rgba(29,133,126,0.2)",
-        borderTop: "3px solid #1D857E",
-        borderRadius: "50%",
-        animation: "spin 0.8s linear infinite",
-      }}
-    />
-    <style>{`
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    `}</style>
-  </div>
-);
+// Eager load all pages to fix GitHub Pages navigation crash (React #306)
+import { ContactPage } from "./pages/ContactPage";
+import { WorkPage } from "./pages/WorkPage";
+import { CaseStudyPage } from "./pages/CaseStudyPage";
+import { DiscussionForumCaseStudy } from "./pages/DiscussionForumCaseStudy";
+import { RecyclifyCaseStudy } from "./pages/RecyclifyCaseStudy";
+import { VisualDesignCaseStudy } from "./pages/VisualDesignCaseStudy";
+import { ConfidentialCaseStudy } from "./pages/ConfidentialCaseStudy";
+import { ConfidentialCaseStudy2 } from "./pages/ConfidentialCaseStudy2";
+import { ConfidentialCaseStudy3 } from "./pages/ConfidentialCaseStudy3";
+import StyleGuidePage from "./pages/StyleGuidePage";
 
 export default function App() {
   return (
-    <Suspense fallback={<PageLoader />}>
+    <ErrorBoundary>
+      <SkipLink />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkPage />} />
@@ -61,6 +37,6 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/style-guide" element={<StyleGuidePage />} />
       </Routes>
-    </Suspense>
+    </ErrorBoundary>
   );
 }

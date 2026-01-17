@@ -4,6 +4,8 @@ import portraitImage from '../assets/29ef344e7da5848a42de9cbdc17ff00a75af6555.pn
 import { Button } from './ui/Button';
 import { Tag } from './ui/Tag';
 
+import { Link } from 'react-router-dom';
+
 export function Hero() {
   const tags = [
     'Agentic AI Design',
@@ -13,9 +15,8 @@ export function Hero() {
     'Micro-interactions'
   ];
 
+  /* ... imports ... */
   const [hoveredWord, setHoveredWord] = useState<string | null>(null);
-  const [isPrimaryHovered, setIsPrimaryHovered] = useState(false);
-  const [isSecondaryHovered, setIsSecondaryHovered] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -45,6 +46,7 @@ export function Hero() {
   };
 
   const GradientWord = ({ children, wordKey }: { children: string; wordKey: string }) => {
+    /* ... existing implementation ... */
     const isHovered = hoveredWord === wordKey;
 
     return (
@@ -87,7 +89,7 @@ export function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
           {/* Left column */}
           <div className="space-y-10">
-            <h1 className="leading-tight text-[28px] md:text-[36px]" style={{
+            <h1 className="leading-tight text-[28px] md:text-[36px] font-semibold" style={{
               color: '#111827',
               lineHeight: '1.2'
             }}>
@@ -141,8 +143,8 @@ export function Hero() {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 pt-4" style={{ order: 3 }}>
-              <Button variant="primary" className="w-full md:w-auto">
-                View Case Studies
+              <Button variant="default" className="w-full md:w-auto" asChild>
+                <Link to="/work">View Case Studies</Link>
               </Button>
               <Button variant="secondary" className="w-full md:w-auto" onClick={handleCopyEmail}>
                 {emailCopied ? 'Email Copied!' : 'Contact Me'}

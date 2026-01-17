@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Tag } from './ui/Tag';
 
 export function MicroInteractionTeaser() {
   const prefersReducedMotion = useReducedMotion();
@@ -8,21 +9,21 @@ export function MicroInteractionTeaser() {
   const [playingToken, setPlayingToken] = useState<string | null>(null);
 
   const timingTokens = [
-    { 
-      label: 'Fast', 
-      duration: 150, 
+    {
+      label: 'Fast',
+      duration: 150,
       description: 'Instant feedback',
       ease: 'easeOut'
     },
-    { 
-      label: 'Medium', 
-      duration: 300, 
+    {
+      label: 'Medium',
+      duration: 300,
       description: 'State transitions',
       ease: 'easeOut'
     },
-    { 
-      label: 'Slow', 
-      duration: 500, 
+    {
+      label: 'Slow',
+      duration: 500,
       description: 'Emphasis & focus',
       ease: 'easeOut'
     }
@@ -44,7 +45,7 @@ export function MicroInteractionTeaser() {
   return (
     <section className="bg-white relative overflow-hidden">
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-20 md:pb-20">
-        <motion.div 
+        <motion.div
           className="relative rounded-3xl overflow-hidden"
           style={{
             background: 'linear-gradient(135deg, rgba(250, 250, 250, 0.6) 0%, rgba(249, 253, 252, 0.9) 100%)',
@@ -65,32 +66,34 @@ export function MicroInteractionTeaser() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 p-12 md:p-16">
             {/* Left column - Text content and CTA */}
             <div className="flex flex-col justify-center">
-              <div className="section-label mb-4">Interaction Craft</div>
-              
-              <h2 
-                className="text-[24px] md:text-[32px]"
-                style={{ 
-                  color: '#111827', 
+              <div className="mb-4">
+                <Tag variant="section-label">Interaction Craft</Tag>
+              </div>
+
+              <h2
+                className="text-[24px] md:text-[32px] font-semibold"
+                style={{
+                  color: '#111827',
                   marginBottom: '20px',
                   lineHeight: '1.3',
                   letterSpacing: '-0.02em'
                 }}
               >
-                I craft <span style={{ 
+                I craft <span style={{
                   color: '#1D857E',
                   position: 'relative'
                 }}>micro-interactions</span> that enhance clarity, rhythm, and emotional intent.
               </h2>
-              
-              <p className="caption mb-8" style={{ 
-                fontSize: '17px', 
+
+              <p className="caption mb-8" style={{
+                fontSize: '17px',
                 lineHeight: '1.6',
                 color: '#6B7280',
                 maxWidth: '480px'
               }}>
                 Every interaction is choreographed with intention—timing, easing, and purpose working together to guide attention without demanding it.
               </p>
-              
+
               {/* CTA */}
               <motion.a
                 href="#case-studies"
@@ -206,8 +209,8 @@ export function MicroInteractionTeaser() {
                     </div>
 
                     {/* Visual easing curve - hidden on mobile */}
-                    <div className="hidden md:block" style={{ 
-                      width: '80px', 
+                    <div className="hidden md:block" style={{
+                      width: '80px',
                       height: '40px',
                       position: 'relative'
                     }}>
@@ -242,13 +245,13 @@ export function MicroInteractionTeaser() {
                         animate={
                           playingToken === token.label && !prefersReducedMotion
                             ? {
-                                x: [0, 120, 0],
-                                opacity: [0.4, 1, 0.4]
-                              }
+                              x: [0, 120, 0],
+                              opacity: [0.4, 1, 0.4]
+                            }
                             : {
-                                x: 0,
-                                opacity: 0.4
-                              }
+                              x: 0,
+                              opacity: 0.4
+                            }
                         }
                         transition={{
                           duration: token.duration / 1000,
@@ -256,7 +259,7 @@ export function MicroInteractionTeaser() {
                           times: [0, 0.5, 1]
                         }}
                       />
-                      
+
                       {/* Track line - responsive width */}
                       <div className="absolute left-0 h-[1px] w-full max-w-[120px]" style={{
                         backgroundColor: 'rgba(29, 133, 126, 0.12)'

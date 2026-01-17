@@ -17,7 +17,7 @@ export function Experience() {
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-20 md:pb-20 relative">
         <div className="max-w-[1100px] mx-auto">
           {/* Section Title */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -62,13 +62,14 @@ export function Experience() {
               11+ Years of Experience
             </motion.div>
           </div>
-          
+
           {/* MOBILE: Vertical Timeline Container */}
           <div className="relative max-w-3xl mx-auto md:hidden">
             {/* Vertical Center Timeline Line */}
-            <motion.div 
+            <motion.div
               className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[0.75px]"
-              style={{ 
+              aria-hidden="true"
+              style={{
                 background: 'rgba(29, 133, 126, 0.2)'
               }}
               initial={{ scaleY: 0 }}
@@ -81,7 +82,7 @@ export function Experience() {
             <div className="relative space-y-8">
               {companies.map((company, index) => {
                 const isLeft = index % 2 === 0;
-                
+
                 return (
                   <motion.div
                     key={company.name}
@@ -89,15 +90,15 @@ export function Experience() {
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-50px' }}
-                    transition={{ 
-                      duration: 0.5, 
+                    transition={{
+                      duration: 0.5,
                       delay: 0.3 + index * 0.08,
                       ease: [0.16, 1, 0.3, 1]
                     }}
                   >
                     {/* Left Side Content */}
                     {isLeft ? (
-                      <motion.div 
+                      <motion.div
                         className="flex-1 pr-8 text-right space-y-1"
                         whileHover={{ x: -2 }}
                         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -115,7 +116,7 @@ export function Experience() {
                         >
                           {company.name}
                         </div>
-                        
+
                         <div
                           className="caption"
                           style={{
@@ -137,7 +138,7 @@ export function Experience() {
                     {/* Center Dot */}
                     <motion.div
                       className="relative z-10 flex-shrink-0"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.15
                       }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -162,7 +163,7 @@ export function Experience() {
                           }}
                         />
                       )}
-                      
+
                       {/* Dot */}
                       <motion.div
                         className="rounded-full bg-[#1D857E] cursor-default relative"
@@ -191,7 +192,7 @@ export function Experience() {
 
                     {/* Right Side Content */}
                     {!isLeft ? (
-                      <motion.div 
+                      <motion.div
                         className="flex-1 pl-8 text-left space-y-1"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -209,7 +210,7 @@ export function Experience() {
                         >
                           {company.name}
                         </div>
-                        
+
                         <div
                           className="caption"
                           style={{
@@ -249,9 +250,10 @@ export function Experience() {
           {/* DESKTOP: Horizontal Timeline Container */}
           <div className="hidden md:block relative" style={{ paddingTop: '0px', paddingBottom: '80px' }}>
             {/* Horizontal Timeline Line */}
-            <motion.div 
+            <motion.div
               className="absolute left-0 right-0 h-[0.75px]"
-              style={{ 
+              aria-hidden="true"
+              style={{
                 background: 'rgba(29, 133, 126, 0.2)',
                 top: '0px'
               }}
@@ -272,8 +274,8 @@ export function Experience() {
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-50px' }}
-                    transition={{ 
-                      duration: 0.5, 
+                    transition={{
+                      duration: 0.5,
                       delay: 0.3 + index * 0.08,
                       ease: [0.16, 1, 0.3, 1]
                     }}
@@ -281,11 +283,11 @@ export function Experience() {
                     {/* Center Dot - overlapping the line */}
                     <motion.div
                       className="relative z-10 flex-shrink-0"
-                      style={{ 
+                      style={{
                         marginTop: '-4px', // Half of dot height (8px) to center on line
                         marginBottom: '16px'
                       }}
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.15
                       }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -310,7 +312,7 @@ export function Experience() {
                           }}
                         />
                       )}
-                      
+
                       {/* Dot */}
                       <motion.div
                         className="rounded-full bg-[#1D857E] cursor-default relative"
@@ -338,7 +340,7 @@ export function Experience() {
                     </motion.div>
 
                     {/* Content - positioned below the dots */}
-                    <motion.div 
+                    <motion.div
                       className="text-center space-y-1"
                       whileHover={{ y: 2 }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -357,7 +359,7 @@ export function Experience() {
                       >
                         {company.name}
                       </div>
-                      
+
                       <div
                         className="caption"
                         style={{

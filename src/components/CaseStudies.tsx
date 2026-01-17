@@ -2,13 +2,14 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { Tag } from './ui/Tag';
 import { publicCaseStudies } from '../data/caseStudies';
 
 // Artifact hint component (same as WorkPage)
 const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) => {
   const baseColor = isClient ? 'rgba(26, 26, 26, 0.15)' : 'rgba(29, 133, 126, 0.18)';
   const accentColor = isClient ? 'rgba(107, 114, 128, 0.12)' : 'rgba(29, 133, 126, 0.12)';
-  
+
   switch (type) {
     case 'token-table':
       return (
@@ -23,16 +24,16 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="73%" y="65%" width="12%" height="8" rx="2" fill={accentColor} />
         </svg>
       );
-    
+
     case 'easing-curve':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.4px)' }}>
           {/* Bezier curve */}
-          <path 
-            d="M 15 75 C 25 75, 35 20, 50 20 C 65 20, 75 75, 85 75" 
-            stroke={baseColor} 
-            strokeWidth="3" 
-            fill="none" 
+          <path
+            d="M 15 75 C 25 75, 35 20, 50 20 C 65 20, 75 75, 85 75"
+            stroke={baseColor}
+            strokeWidth="3"
+            fill="none"
             strokeLinecap="round"
           />
           {/* Control points */}
@@ -42,7 +43,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <line x1="15" y1="78" x2="85" y2="78" stroke={baseColor} strokeWidth="1.5" opacity="0.4" />
         </svg>
       );
-    
+
     case 'schema-blocks':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
@@ -55,7 +56,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <line x1="50%" y1="57%" x2="50%" y2="61%" stroke={accentColor} strokeWidth="2" />
         </svg>
       );
-    
+
     case 'motion-timeline':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.7, filter: 'blur(0.3px)' }}>
@@ -73,7 +74,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="40%" y="66%" width="35%" height="6" rx="2" fill={baseColor} opacity="0.7" />
         </svg>
       );
-    
+
     case 'component-grid':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
@@ -86,7 +87,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="66%" y="48%" width="16%" height="20%" rx="3" fill={accentColor} />
         </svg>
       );
-    
+
     case 'dashboard-panels':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.4px)' }}>
@@ -94,11 +95,11 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="15%" y="20%" width="32%" height="28%" rx="3" fill={baseColor} />
           <rect x="52%" y="20%" width="33%" height="28%" rx="3" fill={accentColor} opacity="0.8" />
           {/* Chart silhouette inside first panel */}
-          <path 
-            d="M 20 40 L 28 35 L 35 38 L 42 30" 
-            stroke={accentColor} 
-            strokeWidth="2.5" 
-            fill="none" 
+          <path
+            d="M 20 40 L 28 35 L 35 38 L 42 30"
+            stroke={accentColor}
+            strokeWidth="2.5"
+            fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -112,7 +113,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="58%" y="63%" width="16%" height="8" rx="2" fill={accentColor} opacity="0.5" />
         </svg>
       );
-    
+
     case 'flow-diagram':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
@@ -133,7 +134,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           </defs>
         </svg>
       );
-    
+
     case 'system-diagram':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
@@ -154,7 +155,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <line x1="56%" y1="54%" x2="56%" y2="64%" stroke={accentColor} strokeWidth="1.5" opacity="0.5" />
         </svg>
       );
-    
+
     default:
       return null;
   }
@@ -164,7 +165,7 @@ export function CaseStudies() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section 
+    <section
       className="relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #F9FDFC 0%, #FFFFFF 100%)'
@@ -173,8 +174,8 @@ export function CaseStudies() {
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-20 md:pb-20 relative">
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
-          <div className="section-label" style={{ color: '#1D857E', textTransform: 'uppercase' }}>Selected Work</div>
-          <h2 style={{ color: '#111827' }}>Case Studies</h2>
+          <Tag variant="section-label">Selected Work</Tag>
+          <h2 style={{ color: '#111827', fontWeight: 600 }}>Case Studies</h2>
           <p className="caption max-w-2xl mx-auto" style={{ fontSize: '17px', lineHeight: '1.5', color: '#6B7280' }}>
             Purposeful, research-driven, strategic outcomes.
           </p>
@@ -213,7 +214,7 @@ export function CaseStudies() {
                   transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
                 >
                   {/* Hybrid preview header with artifact hint */}
-                  <div 
+                  <div
                     style={{
                       height: '106px',
                       background: study.gradient,
@@ -236,23 +237,23 @@ export function CaseStudies() {
                     }}>
                       <ArtifactHint type={study.artifactType} isClient={false} />
                     </div>
-                    
+
                     {/* Icon */}
-                    <IconComponent 
-                      size={31} 
-                      style={{ 
+                    <IconComponent
+                      size={31}
+                      style={{
                         color: 'rgba(29, 133, 126, 0.5)',
                         strokeWidth: 1.5,
                         position: 'relative',
                         zIndex: 1
-                      }} 
+                      }}
                     />
                   </div>
-                  
+
                   {/* Content - matching Work page */}
                   <div style={{ padding: '16px 20px' }}>
-                    <h3 
-                      style={{ 
+                    <h3
+                      style={{
                         fontSize: '19px',
                         fontWeight: 600,
                         letterSpacing: '-0.01em',
@@ -264,10 +265,10 @@ export function CaseStudies() {
                     >
                       {study.title}
                     </h3>
-                    
+
                     {/* Description - strictly 2 lines */}
-                    <p 
-                      style={{ 
+                    <p
+                      style={{
                         fontSize: '14px',
                         lineHeight: '1.35',
                         color: 'rgba(17, 24, 39, 0.7)',
@@ -281,9 +282,9 @@ export function CaseStudies() {
                     >
                       {study.description}
                     </p>
-                    
+
                     {/* Tags */}
-                    <div style={{ 
+                    <div style={{
                       display: 'flex',
                       flexWrap: 'wrap',
                       gap: '5px',
@@ -293,8 +294,8 @@ export function CaseStudies() {
                         <span
                           key={index}
                           className="px-2 py-0.5 rounded"
-                          style={{ 
-                            fontSize: '11px', 
+                          style={{
+                            fontSize: '11px',
                             fontWeight: 500,
                             fontFamily: 'Work Sans, sans-serif',
                             background: 'rgba(29, 133, 126, 0.1)',
@@ -305,9 +306,9 @@ export function CaseStudies() {
                         </span>
                       ))}
                     </div>
-                    
+
                     {/* CTA */}
-                    <div 
+                    <div
                       className="inline-flex items-center gap-1.5"
                       style={{
                         fontSize: '13px',
@@ -316,9 +317,9 @@ export function CaseStudies() {
                         fontFamily: 'Work Sans, sans-serif'
                       }}
                     >
-                      View case study 
-                      <ArrowRight 
-                        size={13} 
+                      View case study
+                      <ArrowRight
+                        size={13}
                         style={{
                           transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
                           transition: 'transform 0.2s ease-out'
