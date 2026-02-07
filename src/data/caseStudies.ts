@@ -1,4 +1,7 @@
 import { Users, Layers, Smartphone, Settings, BarChart3 } from 'lucide-react';
+import recyclifyHero from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
+import discussionHero from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
+import visualDesignHero from '../assets/mood-analysis-screens.png';
 
 export const publicCaseStudies = [
   {
@@ -11,7 +14,8 @@ export const publicCaseStudies = [
     icon: Users,
     gradient: 'linear-gradient(135deg, rgba(29, 133, 126, 0.09) 0%, rgba(167, 243, 208, 0.06) 100%)',
     category: 'strategy',
-    artifactType: 'component-grid'
+    artifactType: 'component-grid',
+    imageUrl: discussionHero
   },
   {
     id: 'case-2',
@@ -23,7 +27,8 @@ export const publicCaseStudies = [
     icon: Layers,
     gradient: 'linear-gradient(135deg, rgba(29, 133, 126, 0.09) 0%, rgba(167, 243, 208, 0.06) 100%)',
     category: 'strategy',
-    artifactType: 'component-grid'
+    artifactType: 'component-grid',
+    imageUrl: recyclifyHero
   },
   {
     id: 'case-3',
@@ -35,7 +40,8 @@ export const publicCaseStudies = [
     icon: Smartphone,
     gradient: 'linear-gradient(135deg, rgba(29, 133, 126, 0.09) 0%, rgba(167, 243, 208, 0.06) 100%)',
     category: 'strategy',
-    artifactType: 'component-grid'
+    artifactType: 'component-grid',
+    imageUrl: visualDesignHero
   }
 ];
 

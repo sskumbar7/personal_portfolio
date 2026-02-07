@@ -377,10 +377,10 @@ export function WorkPage() {
                         overflow: 'hidden'
                       }}
                     >
-                      {/* Hybrid preview header with artifact hint */}
+                      {/* Hybrid preview header with artifact hint COMPONENT */}
                       <div
                         style={{
-                          height: '106px',
+                          height: '200px', // Increased height for better image display
                           background: study.gradient,
                           borderRadius: '20px 20px 0 0',
                           display: 'flex',
@@ -390,28 +390,44 @@ export function WorkPage() {
                           overflow: 'hidden'
                         }}
                       >
-                        {/* Artifact hint layer */}
-                        <div style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          pointerEvents: 'none'
-                        }}>
-                          <ArtifactHint type={study.artifactType} isClient={true} />
-                        </div>
+                        {(study as any).imageUrl ? (
+                          <img
+                            src={(study as any).imageUrl}
+                            alt={`${study.title} preview`}
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover',
+                              transition: 'transform 0.5s ease'
+                            }}
+                            className="group-hover:scale-105"
+                          />
+                        ) : (
+                          <>
+                            {/* Artifact hint layer */}
+                            <div style={{
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              bottom: 0,
+                              pointerEvents: 'none'
+                            }}>
+                              <ArtifactHint type={study.artifactType} isClient={true} />
+                            </div>
 
-                        {/* Icon */}
-                        <IconComponent
-                          size={31}
-                          style={{
-                            color: 'rgba(26, 26, 26, 0.4)',
-                            strokeWidth: 1.5,
-                            position: 'relative',
-                            zIndex: 1
-                          }}
-                        />
+                            {/* Icon */}
+                            <IconComponent
+                              size={32}
+                              style={{
+                                color: 'rgba(26, 26, 26, 0.4)',
+                                strokeWidth: 1.5,
+                                position: 'relative',
+                                zIndex: 1
+                              }}
+                            />
+                          </>
+                        )}
                       </div>
 
                       {/* Content - reduced padding */}
