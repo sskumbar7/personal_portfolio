@@ -144,6 +144,7 @@ export function About() {
                 >
                   <item.icon
                     className="w-6 h-6"
+                    aria-hidden="true"
                     style={{
                       color: '#1D857E',
                       strokeWidth: 1.5

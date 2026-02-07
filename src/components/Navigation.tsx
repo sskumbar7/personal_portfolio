@@ -91,8 +91,8 @@ export function Navigation() {
 
       <nav
         className={`border-b sticky top-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-white/70 backdrop-blur-xl shadow-sm'
-            : 'bg-white'
+          ? 'bg-white/70 backdrop-blur-xl shadow-sm'
+          : 'bg-white'
           }`}
         style={{
           borderColor: isScrolled ? 'rgba(221, 233, 231, 0.4)' : '#DDE9E7'
@@ -110,7 +110,7 @@ export function Navigation() {
                 color: '#111827'
               }}
             >
-              Sandeep
+              Sandeep S Kumbar
             </Link>
 
             {/* Desktop Navigation */}

@@ -13,7 +13,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
   switch (type) {
     case 'token-table':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.7, filter: 'blur(0.3px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.7, filter: 'blur(0.3px)' }}>
           {/* Token table rows */}
           <rect x="15%" y="20%" width="70%" height="8" rx="2" fill={baseColor} />
           <rect x="15%" y="35%" width="50%" height="8" rx="2" fill={baseColor} />
@@ -27,7 +27,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'easing-curve':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.4px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.4px)' }}>
           {/* Bezier curve */}
           <path
             d="M 15 75 C 25 75, 35 20, 50 20 C 65 20, 75 75, 85 75"
@@ -46,7 +46,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'schema-blocks':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
           {/* Layered schema blocks */}
           <rect x="20%" y="25%" width="60%" height="14" rx="3" fill={baseColor} />
           <rect x="25%" y="43%" width="50%" height="14" rx="3" fill={accentColor} />
@@ -59,7 +59,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'motion-timeline':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.7, filter: 'blur(0.3px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.7, filter: 'blur(0.3px)' }}>
           {/* Timeline track */}
           <rect x="15%" y="35%" width="70%" height="3" rx="1.5" fill={baseColor} opacity="0.5" />
           {/* Keyframes */}
@@ -77,7 +77,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'component-grid':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
           {/* Component grid */}
           <rect x="18%" y="22%" width="20%" height="20%" rx="3" fill={baseColor} />
           <rect x="42%" y="22%" width="20%" height="20%" rx="3" fill={accentColor} />
@@ -90,7 +90,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'dashboard-panels':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.4px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.4px)' }}>
           {/* Dashboard panels */}
           <rect x="15%" y="20%" width="32%" height="28%" rx="3" fill={baseColor} />
           <rect x="52%" y="20%" width="33%" height="28%" rx="3" fill={accentColor} opacity="0.8" />
@@ -116,7 +116,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'flow-diagram':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
           {/* Flow nodes */}
           <rect x="18%" y="25%" width="18%" height="22%" rx="3" fill={baseColor} />
           <rect x="42%" y="25%" width="18%" height="22%" rx="3" fill={accentColor} />
@@ -137,7 +137,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 
     case 'system-diagram':
       return (
-        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
+        <svg width="100%" height="100%" aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
           {/* Hierarchical system blocks */}
           <rect x="35%" y="18%" width="30%" height="15" rx="3" fill={accentColor} />
           {/* Second level */}
@@ -241,6 +241,7 @@ export function CaseStudies() {
                     {/* Icon */}
                     <IconComponent
                       size={31}
+                      aria-hidden="true"
                       style={{
                         color: 'rgba(29, 133, 126, 0.5)',
                         strokeWidth: 1.5,
@@ -320,6 +321,7 @@ export function CaseStudies() {
                       View case study
                       <ArrowRight
                         size={13}
+                        aria-hidden="true"
                         style={{
                           transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
                           transition: 'transform 0.2s ease-out'

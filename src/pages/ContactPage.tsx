@@ -230,7 +230,7 @@ export function ContactPage() {
                       marginBottom: '16px'
                     }}
                   >
-                    Good fit if you're:
+                    Good fit if you are
                   </h3>
 
                   {/* Role pills in 2-column grid */}
@@ -249,7 +249,7 @@ export function ContactPage() {
                           fontFamily: 'Work Sans, sans-serif',
                           letterSpacing: '0.01em',
                           lineHeight: '1.3',
-                          borderColor: 'rgba(29, 133, 126, 0.25)',
+                          borderColor: 'rgba(17, 24, 39, 0.2)',
                           color: 'rgba(17, 24, 39, 0.8)'
                         }}
                       >
@@ -281,15 +281,15 @@ export function ContactPage() {
                     ].map((topic, index) => (
                       <span
                         key={index}
-                        className="px-2.5 py-1 rounded border bg-transparent text-center"
+                        className="px-3 py-2 rounded border bg-transparent text-center"
                         style={{
-                          fontSize: '13px',
+                          fontSize: '14px',
                           fontWeight: 500,
                           fontFamily: 'Work Sans, sans-serif',
                           letterSpacing: '0.01em',
-                          lineHeight: '1.2',
-                          borderColor: 'rgba(29, 133, 126, 0.4)',
-                          color: '#1D857E'
+                          lineHeight: '1.3',
+                          borderColor: 'rgba(17, 24, 39, 0.2)',
+                          color: 'rgba(17, 24, 39, 0.8)'
                         }}
                       >
                         {topic}

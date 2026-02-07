@@ -9,7 +9,7 @@ interface SEOProps {
   type?: string;
 }
 
-export function SEO({ 
+export function SEO({
   title = 'Sandeep S Kumbar - Lead Experience Designer',
   description = 'Senior UX Designer specializing in design systems, AI-assisted workflows, and strategic product design. Portfolio featuring enterprise design systems, interaction design, and UX research.',
   keywords = 'UX Designer, Design Systems, Product Designer, UI/UX, Experience Design, Interaction Design, AI Design, Agentic AI, User Research, KPMG, Google EPAM',
@@ -27,13 +27,13 @@ export function SEO({
     const updateMetaTag = (name: string, content: string, isProperty = false) => {
       const attribute = isProperty ? 'property' : 'name';
       let element = document.querySelector(`meta[${attribute}="${name}"]`);
-      
+
       if (!element) {
         element = document.createElement('meta');
         element.setAttribute(attribute, name);
         document.head.appendChild(element);
       }
-      
+
       element.setAttribute('content', content);
     };
 
@@ -74,7 +74,13 @@ export function SEO({
 
   }, [title, description, keywords, image, type, url]);
 
-  return null;
+  const jsonLd = type === 'website' ? structuredDataConfig.website : structuredDataConfig.person;
+
+  return (
+    <script type="application/ld+json">
+      {JSON.stringify(jsonLd)}
+    </script>
+  );
 }
 
 // Predefined SEO configurations for different pages
@@ -113,5 +119,35 @@ export const seoConfig = {
     title: 'Research-Driven Website Revamp - Client Case Study',
     description: 'Enterprise UX project focusing on research-driven website redesign and strategic user experience improvements.',
     keywords: 'Enterprise UX, Website Redesign, UX Research, Client Work'
+  }
+};
+
+export const structuredDataConfig = {
+  person: {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Sandeep S Kumbar',
+    url: 'https://sandeepskumbar.com',
+    image: 'https://sandeepskumbar.com/assets/portrait-placeholder.jpg', // Replace with actual URL
+    sameAs: [
+      'https://www.linkedin.com/in/sskumbar7',
+      'https://github.com/sskumbar7'
+    ],
+    jobTitle: 'Lead Experience Designer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'KPMG'
+    },
+    description: 'Senior UX Designer specializing in design systems, AI-assisted workflows, and strategic product design.'
+  },
+  website: {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Sandeep S Kumbar Portfolio',
+    url: 'https://sandeepskumbar.com',
+    author: {
+      '@type': 'Person',
+      name: 'Sandeep S Kumbar'
+    }
   }
 };

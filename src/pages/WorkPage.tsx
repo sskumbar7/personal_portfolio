@@ -5,13 +5,13 @@ import { Lock, ArrowRight, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { publicCaseStudies, clientCaseStudies } from '../data/caseStudies';
 
-type FilterType = 'All' | 'Public' | 'Client' | 'Design Systems' | 'Interaction' | 'AI + Design';
+type FilterType = 'All' | 'Public' | 'Client' | 'Design Systems' | 'Interaction';
 
 // Artifact hint component
 const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) => {
   const baseColor = isClient ? 'rgba(26, 26, 26, 0.15)' : 'rgba(29, 133, 126, 0.18)';
   const accentColor = isClient ? 'rgba(107, 114, 128, 0.12)' : 'rgba(29, 133, 126, 0.12)';
-  
+
   switch (type) {
     case 'token-table':
       return (
@@ -26,16 +26,16 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="73%" y="65%" width="12%" height="8" rx="2" fill={accentColor} />
         </svg>
       );
-    
+
     case 'easing-curve':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.4px)' }}>
           {/* Bezier curve */}
-          <path 
-            d="M 15 75 C 25 75, 35 20, 50 20 C 65 20, 75 75, 85 75" 
-            stroke={baseColor} 
-            strokeWidth="3" 
-            fill="none" 
+          <path
+            d="M 15 75 C 25 75, 35 20, 50 20 C 65 20, 75 75, 85 75"
+            stroke={baseColor}
+            strokeWidth="3"
+            fill="none"
             strokeLinecap="round"
           />
           {/* Control points */}
@@ -45,7 +45,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <line x1="15" y1="78" x2="85" y2="78" stroke={baseColor} strokeWidth="1.5" opacity="0.4" />
         </svg>
       );
-    
+
     case 'schema-blocks':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
@@ -58,7 +58,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <line x1="50%" y1="57%" x2="50%" y2="61%" stroke={accentColor} strokeWidth="2" />
         </svg>
       );
-    
+
     case 'motion-timeline':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.7, filter: 'blur(0.3px)' }}>
@@ -76,7 +76,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="40%" y="66%" width="35%" height="6" rx="2" fill={baseColor} opacity="0.7" />
         </svg>
       );
-    
+
     case 'component-grid':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
@@ -89,7 +89,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="66%" y="48%" width="16%" height="20%" rx="3" fill={accentColor} />
         </svg>
       );
-    
+
     case 'dashboard-panels':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.4px)' }}>
@@ -97,11 +97,11 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="15%" y="20%" width="32%" height="28%" rx="3" fill={baseColor} />
           <rect x="52%" y="20%" width="33%" height="28%" rx="3" fill={accentColor} opacity="0.8" />
           {/* Chart silhouette inside first panel */}
-          <path 
-            d="M 20 40 L 28 35 L 35 38 L 42 30" 
-            stroke={accentColor} 
-            strokeWidth="2.5" 
-            fill="none" 
+          <path
+            d="M 20 40 L 28 35 L 35 38 L 42 30"
+            stroke={accentColor}
+            strokeWidth="2.5"
+            fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -115,7 +115,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <rect x="58%" y="63%" width="16%" height="8" rx="2" fill={accentColor} opacity="0.5" />
         </svg>
       );
-    
+
     case 'flow-diagram':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
@@ -136,7 +136,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           </defs>
         </svg>
       );
-    
+
     case 'system-diagram':
       return (
         <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.68, filter: 'blur(0.3px)' }}>
@@ -157,7 +157,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
           <line x1="56%" y1="54%" x2="56%" y2="64%" stroke={accentColor} strokeWidth="1.5" opacity="0.5" />
         </svg>
       );
-    
+
     default:
       return null;
   }
@@ -167,14 +167,36 @@ export function WorkPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [activeFilter, setActiveFilter] = useState<FilterType>('All');
 
-  const filters: FilterType[] = ['All', 'Public', 'Client', 'Design Systems', 'Interaction', 'AI + Design'];
+  const filters: FilterType[] = ['All', 'Public', 'Client', 'Design Systems', 'Interaction'];
+
+  // Helper to filter studies
+  const getFilteredStudies = (studies: typeof publicCaseStudies, filter: FilterType) => {
+    if (filter === 'All' || filter === 'Public' || filter === 'Client') return studies;
+
+    return studies.filter(study => {
+      if (filter === 'Design Systems') {
+        return study.tags.some(t => t.includes('System') || t.includes('UI Kit') || t.includes('Visual Design'));
+      }
+      if (filter === 'Interaction') {
+        return (study as any).category === 'interaction' || study.tags.some(t => t.includes('Interaction') || t.includes('Mobile') || t.includes('Prototyping') || t.includes('Motion'));
+      }
+      if (filter === 'AI + Design') {
+        return study.tags.some(t => t.includes('AI') || t.includes('Intelligence'));
+      }
+      return true;
+    });
+  };
+
+  // derived state
+  const filteredPublic = activeFilter === 'Client' ? [] : getFilteredStudies(publicCaseStudies, activeFilter);
+  const filteredClient = activeFilter === 'Public' ? [] : getFilteredStudies(clientCaseStudies, activeFilter);
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* HERO SECTION - Contact Page Style */}
-      <section 
+      <section
         className="relative overflow-hidden"
         style={{
           minHeight: '450px',
@@ -184,9 +206,9 @@ export function WorkPage() {
         <div className="max-w-[1180px] mx-auto px-8 pt-24 pb-28 relative">
           <div className="text-center max-w-[720px] mx-auto space-y-10">
             {/* Headline with selective green emphasis */}
-            <h1 
+            <h1
               className="leading-tight"
-              style={{ 
+              style={{
                 color: '#111827',
                 fontSize: '36px',
                 lineHeight: '1.2'
@@ -197,8 +219,8 @@ export function WorkPage() {
             </h1>
 
             {/* Supporting text */}
-            <p 
-              style={{ 
+            <p
+              style={{
                 fontSize: '17px',
                 lineHeight: '1.5',
                 color: 'rgba(17, 24, 39, 0.7)',
@@ -208,10 +230,10 @@ export function WorkPage() {
             >
               A focused collection of personal explorations and selected client engagements.
             </p>
-            
+
             {/* Secondary text - info chip style */}
-            <div 
-              style={{ 
+            <div
+              style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -227,18 +249,18 @@ export function WorkPage() {
                 margin: '0 auto 20px'
               }}
             >
-              <Info 
-                size={16} 
-                style={{ 
+              <Info
+                size={16}
+                style={{
                   color: 'rgba(29, 133, 126, 0.6)',
                   flexShrink: 0
-                }} 
+                }}
               />
               <span>Personal case studies are public. Client work is shared on request.</span>
             </div>
 
             {/* Inline text link - subtle hover */}
-            <Link 
+            <Link
               to="/contact"
               className="inline-link"
               style={{
@@ -255,7 +277,7 @@ export function WorkPage() {
               }}
             >
               Looking for client work details? Reach out
-              <ArrowRight 
+              <ArrowRight
                 size={14}
                 className="arrow-icon"
                 style={{
@@ -325,337 +347,346 @@ export function WorkPage() {
       </section>
 
       {/* PUBLIC CASE STUDIES GRID */}
-      <section className="relative bg-white">
-        <div className="max-w-[1180px] mx-auto px-8 pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {publicCaseStudies.map((study) => {
-              const IconComponent = study.icon;
-              return (
-                <Link
-                  key={study.id}
-                  to={study.link}
-                  className="block"
-                  style={{ textDecoration: 'none' }}
-                  onMouseEnter={() => setHoveredCard(study.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  <div
-                    className="h-full transition-all"
-                    style={{
-                      background: 'rgba(250, 250, 250, 0.6)',
-                      borderRadius: '20px',
-                      padding: '0',
-                      border: '1px solid rgba(0, 0, 0, 0.04)',
-                      boxShadow: hoveredCard === study.id
-                        ? '0 6px 20px rgba(0, 0, 0, 0.06)'
-                        : '0 4px 16px rgba(0, 0, 0, 0.04)',
-                      transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
-                      transition: 'all 0.25s ease-out',
-                      overflow: 'hidden'
-                    }}
+      {filteredPublic.length > 0 && (
+        <section className="relative bg-white">
+          <div className="max-w-[1180px] mx-auto px-8 pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredPublic.map((study) => {
+                const IconComponent = study.icon;
+                return (
+                  <Link
+                    key={study.id}
+                    to={study.link}
+                    className="block"
+                    style={{ textDecoration: 'none' }}
+                    onMouseEnter={() => setHoveredCard(study.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
                   >
-                    {/* Hybrid preview header with artifact hint */}
-                    <div 
+                    <div
+                      className="h-full transition-all"
                       style={{
-                        height: '106px',
-                        background: study.gradient,
-                        borderRadius: '20px 20px 0 0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        position: 'relative',
+                        background: 'rgba(250, 250, 250, 0.6)',
+                        borderRadius: '20px',
+                        padding: '0',
+                        border: '1px solid rgba(0, 0, 0, 0.04)',
+                        boxShadow: hoveredCard === study.id
+                          ? '0 6px 20px rgba(0, 0, 0, 0.06)'
+                          : '0 4px 16px rgba(0, 0, 0, 0.04)',
+                        transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
+                        transition: 'all 0.25s ease-out',
                         overflow: 'hidden'
                       }}
                     >
-                      {/* Artifact hint layer */}
-                      <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        pointerEvents: 'none'
-                      }}>
-                        <ArtifactHint type={study.artifactType} isClient={true} />
-                      </div>
-                      
-                      {/* Icon */}
-                      <IconComponent 
-                        size={31} 
-                        style={{ 
-                          color: 'rgba(26, 26, 26, 0.4)',
-                          strokeWidth: 1.5,
+                      {/* Hybrid preview header with artifact hint */}
+                      <div
+                        style={{
+                          height: '106px',
+                          background: study.gradient,
+                          borderRadius: '20px 20px 0 0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
                           position: 'relative',
-                          zIndex: 1
-                        }} 
-                      />
-                    </div>
-                    
-                    {/* Content - reduced padding */}
-                    <div style={{ padding: '16px 20px' }}>
-                      <h3 
-                        style={{ 
-                          fontSize: '19px',
-                          fontWeight: 600,
-                          letterSpacing: '-0.01em',
-                          color: '#111827',
-                          fontFamily: 'Inter, sans-serif',
-                          lineHeight: '1.3',
-                          marginBottom: '8px'
-                        }}
-                      >
-                        {study.title}
-                      </h3>
-                      
-                      {/* Description - strictly 2 lines */}
-                      <p 
-                        style={{ 
-                          fontSize: '14px',
-                          lineHeight: '1.35',
-                          color: 'rgba(17, 24, 39, 0.7)',
-                          fontFamily: 'Work Sans, sans-serif',
-                          marginBottom: '12px',
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
                           overflow: 'hidden'
                         }}
                       >
-                        {study.description}
-                      </p>
-                      
-                      {/* Tags */}
-                      <div style={{ 
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        gap: '5px',
-                        marginBottom: '12px'
-                      }}>
-                        {study.tags.map((tag, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-0.5 rounded"
-                            style={{ 
-                              fontSize: '11px', 
-                              fontWeight: 500,
-                              fontFamily: 'Work Sans, sans-serif',
-                              background: 'rgba(29, 133, 126, 0.1)',
-                              color: 'rgba(29, 133, 126, 0.8)'
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      {/* CTA */}
-                      <div 
-                        className="inline-flex items-center gap-1.5"
-                        style={{
-                          fontSize: '13px',
-                          fontWeight: 500,
-                          color: '#1D857E',
-                          fontFamily: 'Work Sans, sans-serif'
-                        }}
-                      >
-                        View case study 
-                        <ArrowRight 
-                          size={13} 
+                        {/* Artifact hint layer */}
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          pointerEvents: 'none'
+                        }}>
+                          <ArtifactHint type={study.artifactType} isClient={true} />
+                        </div>
+
+                        {/* Icon */}
+                        <IconComponent
+                          size={31}
                           style={{
-                            transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
-                            transition: 'transform 0.2s ease-out'
+                            color: 'rgba(26, 26, 26, 0.4)',
+                            strokeWidth: 1.5,
+                            position: 'relative',
+                            zIndex: 1
                           }}
                         />
                       </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* SECTION DIVIDER */}
-      <section 
-        className="relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.03) 0%, rgba(29, 133, 126, 0.02) 50%, rgba(29, 133, 126, 0.03) 100%)'
-        }}
-      >
-        <div className="max-w-[1180px] mx-auto px-8 py-12">
-          <div className="max-w-[680px]">
-            <div 
-              className="section-label"
-              style={{ 
-                fontSize: '13px',
-                fontWeight: 600,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'rgba(29, 133, 126, 0.7)',
-                fontFamily: 'Inter, sans-serif',
-                marginBottom: '8px'
-              }}
-            >
-              Selected Client Engagements
-            </div>
-            <p 
-              style={{ 
-                fontSize: '15px',
-                lineHeight: '1.5',
-                color: 'rgba(17, 24, 39, 0.55)',
-                fontFamily: 'Work Sans, sans-serif'
-              }}
-            >
-              A snapshot of enterprise and confidential work. Full details available on request.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CLIENT CASE STUDIES GRID */}
-      <section className="relative bg-white">
-        <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {clientCaseStudies.map((study) => {
-              const IconComponent = study.icon;
-              return (
-                <Link
-                  key={study.id}
-                  to={study.link}
-                  className="block"
-                  style={{ textDecoration: 'none' }}
-                  onMouseEnter={() => setHoveredCard(study.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  <div
-                    className="h-full transition-all"
-                    style={{
-                      background: 'rgba(250, 250, 250, 0.4)',
-                      borderRadius: '20px',
-                      padding: '0',
-                      border: '1px solid rgba(0, 0, 0, 0.03)',
-                      boxShadow: hoveredCard === study.id
-                        ? '0 6px 20px rgba(0, 0, 0, 0.05)'
-                        : '0 4px 16px rgba(0, 0, 0, 0.03)',
-                      transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
-                      transition: 'all 0.25s ease-out',
-                      overflow: 'hidden'
-                    }}
-                  >
-                    {/* Gradient header with icon */}
-                    <div 
-                      style={{
-                        height: '85px',
-                        background: study.gradient,
-                        borderRadius: '20px 20px 0 0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <IconComponent 
-                        size={36} 
-                        style={{ 
-                          color: 'rgba(26, 26, 26, 0.4)',
-                          strokeWidth: 1.5
-                        }} 
-                      />
-                    </div>
-                    
-                    {/* Content - reduced padding */}
-                    <div style={{ padding: '16px 20px' }}>
-                      <div className="flex items-start gap-2 mb-8">
-                        <h3 
-                          style={{ 
+                      {/* Content - reduced padding */}
+                      <div style={{ padding: '16px 20px' }}>
+                        <h3
+                          style={{
                             fontSize: '19px',
                             fontWeight: 600,
                             letterSpacing: '-0.01em',
-                            color: 'rgba(17, 24, 39, 0.75)',
+                            color: '#111827',
                             fontFamily: 'Inter, sans-serif',
-                            lineHeight: '1.3'
+                            lineHeight: '1.3',
+                            marginBottom: '8px'
                           }}
                         >
                           {study.title}
                         </h3>
-                        <Lock 
-                          size={13} 
-                          style={{ 
-                            color: 'rgba(17, 24, 39, 0.3)',
-                            marginTop: '2px',
-                            flexShrink: 0
-                          }} 
-                        />
-                      </div>
-                      
-                      {/* Description - strictly 2 lines */}
-                      <p 
-                        style={{ 
-                          fontSize: '14px',
-                          lineHeight: '1.35',
-                          color: 'rgba(17, 24, 39, 0.6)',
-                          fontFamily: 'Work Sans, sans-serif',
-                          marginBottom: '12px',
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden'
-                        }}
-                      >
-                        {study.description}
-                      </p>
-                      
-                      {/* Tags */}
-                      <div style={{ 
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        gap: '5px',
-                        marginBottom: '12px'
-                      }}>
-                        {study.tags.map((tag, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-0.5 rounded"
-                            style={{ 
-                              fontSize: '11px', 
-                              fontWeight: 500,
-                              fontFamily: 'Work Sans, sans-serif',
-                              background: 'rgba(0, 0, 0, 0.04)',
-                              color: 'rgba(17, 24, 39, 0.5)'
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      {/* CTA */}
-                      <div 
-                        className="inline-flex items-center gap-1.5"
-                        style={{
-                          fontSize: '13px',
-                          fontWeight: 500,
-                          color: 'rgba(29, 133, 126, 0.6)',
-                          fontFamily: 'Work Sans, sans-serif'
-                        }}
-                      >
-                        Preview available — reach out 
-                        <ArrowRight 
-                          size={13} 
+
+                        {/* Description - strictly 2 lines */}
+                        <p
                           style={{
-                            transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
-                            transition: 'transform 0.2s ease-out'
+                            fontSize: '14px',
+                            lineHeight: '1.35',
+                            color: 'rgba(17, 24, 39, 0.7)',
+                            fontFamily: 'Work Sans, sans-serif',
+                            marginBottom: '12px',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                          }}
+                        >
+                          {study.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div style={{
+                          display: 'flex',
+                          flexWrap: 'wrap',
+                          gap: '5px',
+                          marginBottom: '12px'
+                        }}>
+                          {study.tags.map((tag, index) => (
+                            <span
+                              key={index}
+                              className="px-2 py-0.5 rounded"
+                              style={{
+                                fontSize: '11px',
+                                fontWeight: 500,
+                                fontFamily: 'Work Sans, sans-serif',
+                                background: 'rgba(29, 133, 126, 0.1)',
+                                color: 'rgba(29, 133, 126, 0.8)'
+                              }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* CTA */}
+                        <div
+                          className="inline-flex items-center gap-1.5"
+                          style={{
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            color: '#1D857E',
+                            fontFamily: 'Work Sans, sans-serif'
+                          }}
+                        >
+                          View case study
+                          <ArrowRight
+                            size={13}
+                            style={{
+                              transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
+                              transition: 'transform 0.2s ease-out'
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SECTION DIVIDER */}
+      {filteredClient.length > 0 && (
+        <section
+          className="relative overflow-hidden"
+          style={{
+            background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.03) 0%, rgba(29, 133, 126, 0.02) 50%, rgba(29, 133, 126, 0.03) 100%)'
+          }}
+        >
+          <div className="max-w-[1180px] mx-auto px-8 py-12">
+            <div className="max-w-[680px]">
+              <div
+                className="section-label"
+                style={{
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(29, 133, 126, 0.7)',
+                  fontFamily: 'Inter, sans-serif',
+                  marginBottom: '8px'
+                }}
+              >
+                Selected Client Engagements
+              </div>
+              <p
+                style={{
+                  fontSize: '15px',
+                  lineHeight: '1.5',
+                  color: 'rgba(17, 24, 39, 0.55)',
+                  fontFamily: 'Work Sans, sans-serif'
+                }}
+              >
+                A snapshot of enterprise and confidential work. Full details available on request.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CLIENT CASE STUDIES GRID */}
+      {filteredClient.length > 0 && (
+        <section
+          className="relative"
+          style={{ background: 'rgba(29, 133, 126, 0.03)' }}
+        >
+          <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredClient.map((study) => {
+                const IconComponent = study.icon;
+                return (
+                  <Link
+                    key={study.id}
+                    to={study.link}
+                    className="block"
+                    style={{ textDecoration: 'none' }}
+                    onMouseEnter={() => setHoveredCard(study.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    <div
+                      className="h-full transition-all"
+                      style={{
+                        background: 'rgba(250, 250, 250, 0.4)',
+                        borderRadius: '20px',
+                        padding: '0',
+                        border: '1px solid rgba(0, 0, 0, 0.03)',
+                        boxShadow: hoveredCard === study.id
+                          ? '0 6px 20px rgba(0, 0, 0, 0.05)'
+                          : '0 4px 16px rgba(0, 0, 0, 0.03)',
+                        transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
+                        transition: 'all 0.25s ease-out',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      {/* Gradient header with icon */}
+                      <div
+                        style={{
+                          height: '85px',
+                          background: study.gradient,
+                          borderRadius: '20px 20px 0 0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        <IconComponent
+                          size={36}
+                          style={{
+                            color: 'rgba(26, 26, 26, 0.4)',
+                            strokeWidth: 1.5
                           }}
                         />
                       </div>
+
+                      {/* Content - reduced padding */}
+                      <div style={{ padding: '16px 20px' }}>
+                        <div className="flex items-start gap-2 mb-8">
+                          <h3
+                            style={{
+                              fontSize: '19px',
+                              fontWeight: 600,
+                              letterSpacing: '-0.01em',
+                              color: 'rgba(17, 24, 39, 0.75)',
+                              fontFamily: 'Inter, sans-serif',
+                              lineHeight: '1.3'
+                            }}
+                          >
+                            {study.title}
+                          </h3>
+                          <Lock
+                            size={13}
+                            style={{
+                              color: 'rgba(17, 24, 39, 0.3)',
+                              marginTop: '2px',
+                              flexShrink: 0
+                            }}
+                          />
+                        </div>
+
+                        {/* Description - strictly 2 lines */}
+                        <p
+                          style={{
+                            fontSize: '14px',
+                            lineHeight: '1.35',
+                            color: 'rgba(17, 24, 39, 0.6)',
+                            fontFamily: 'Work Sans, sans-serif',
+                            marginBottom: '12px',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                          }}
+                        >
+                          {study.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div style={{
+                          display: 'flex',
+                          flexWrap: 'wrap',
+                          gap: '5px',
+                          marginBottom: '12px'
+                        }}>
+                          {study.tags.map((tag, index) => (
+                            <span
+                              key={index}
+                              className="px-2 py-0.5 rounded"
+                              style={{
+                                fontSize: '11px',
+                                fontWeight: 500,
+                                fontFamily: 'Work Sans, sans-serif',
+                                background: 'rgba(0, 0, 0, 0.04)',
+                                color: 'rgba(17, 24, 39, 0.5)'
+                              }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* CTA */}
+                        <div
+                          className="inline-flex items-center gap-1.5"
+                          style={{
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            color: 'rgba(29, 133, 126, 0.6)',
+                            fontFamily: 'Work Sans, sans-serif'
+                          }}
+                        >
+                          Preview available — reach out
+                          <ArrowRight
+                            size={13}
+                            style={{
+                              transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
+                              transition: 'transform 0.2s ease-out'
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Footer */}
       <div className="max-w-[1180px] mx-auto px-8 pb-20 md:pb-24">

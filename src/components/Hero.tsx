@@ -10,7 +10,7 @@ export function Hero() {
   const tags = [
     'Agentic AI Design',
     'Explainable AI (XAI)',
-    'Google (EPAM)',
+    // 'Google (EPAM)', // Moved to top badge
     'UX Strategy',
     'Micro-interactions'
   ];
@@ -89,12 +89,21 @@ export function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
           {/* Left column */}
           <div className="space-y-10">
-            <h1 className="leading-tight text-[28px] md:text-[36px] font-semibold" style={{
-              color: '#111827',
-              lineHeight: '1.2'
-            }}>
-              Lead <GradientWord wordKey="exp-designer">Experience Designer</GradientWord> shaping <GradientWord wordKey="calm">calm</GradientWord>, <GradientWord wordKey="meaningful">meaningful</GradientWord> digital products.
-            </h1>
+            <div>
+              {/* Status Badge */}
+              <div className="mb-6">
+                <Tag variant="badge">
+                  Currently at KPMG
+                </Tag>
+              </div>
+
+              <h1 className="leading-tight text-[28px] md:text-[36px] font-semibold" style={{
+                color: '#111827',
+                lineHeight: '1.2'
+              }}>
+                Lead <GradientWord wordKey="exp-designer">Experience Designer</GradientWord> shaping <GradientWord wordKey="calm">calm</GradientWord>, <GradientWord wordKey="meaningful">meaningful</GradientWord> digital products.
+              </h1>
+            </div>
 
             <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', maxWidth: '580px' }}>
               With 11+ years of expertise spanning UX research, strategic design thinking, interaction design,

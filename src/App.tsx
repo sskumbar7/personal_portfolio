@@ -7,6 +7,8 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Toaster } from "./components/ui/sonner";
 import { SkipLink } from "./components/SkipLink";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { BackToTop } from "./components/BackToTop";
 
 // Eager load all pages to fix GitHub Pages navigation crash (React #306)
 import { ContactPage } from "./pages/ContactPage";
@@ -24,6 +26,9 @@ export default function App() {
   return (
     <ErrorBoundary>
       <SkipLink />
+      <SkipLink />
+      <ScrollToTop />
+      <BackToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkPage />} />
