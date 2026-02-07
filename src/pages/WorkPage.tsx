@@ -9,8 +9,9 @@ type FilterType = 'All' | 'Public' | 'Client' | 'Design Systems' | 'Interaction'
 
 // Artifact hint component
 const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) => {
-  const baseColor = isClient ? 'rgba(26, 26, 26, 0.15)' : 'rgba(29, 133, 126, 0.18)';
-  const accentColor = isClient ? 'rgba(107, 114, 128, 0.12)' : 'rgba(29, 133, 126, 0.12)';
+  // Cool Slate / Navy for Client Work (Enterprise feel)
+  const baseColor = isClient ? 'rgba(30, 41, 59, 0.12)' : 'rgba(29, 133, 126, 0.18)';
+  const accentColor = isClient ? 'rgba(71, 85, 105, 0.12)' : 'rgba(29, 133, 126, 0.12)';
 
   switch (type) {
     case 'token-table':

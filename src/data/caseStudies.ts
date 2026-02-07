@@ -55,7 +55,7 @@ export const clientCaseStudies = [
     isConfidential: true,
     link: '/work/confidential',
     icon: BarChart3,
-    gradient: 'linear-gradient(135deg, rgba(107, 114, 128, 0.07) 0%, rgba(156, 163, 175, 0.04) 100%)',
+    gradient: 'linear-gradient(135deg, rgba(30, 41, 59, 0.06) 0%, rgba(71, 85, 105, 0.03) 100%)',
     category: 'strategy',
     artifactType: 'component-grid'
   },
