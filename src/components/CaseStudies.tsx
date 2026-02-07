@@ -216,7 +216,7 @@ export function CaseStudies() {
                   {/* Hybrid preview header with artifact hint */}
                   <div
                     style={{
-                      height: '106px',
+                      height: '200px', // Increased height to match Work page
                       background: study.gradient,
                       borderRadius: '20px 20px 0 0',
                       display: 'flex',
@@ -226,29 +226,45 @@ export function CaseStudies() {
                       overflow: 'hidden'
                     }}
                   >
-                    {/* Artifact hint layer */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      pointerEvents: 'none'
-                    }}>
-                      <ArtifactHint type={study.artifactType} isClient={false} />
-                    </div>
+                    {(study as any).imageUrl ? (
+                      <img
+                        src={(study as any).imageUrl}
+                        alt={`${study.title} preview`}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transition: 'transform 0.5s ease'
+                        }}
+                        className="group-hover:scale-105"
+                      />
+                    ) : (
+                      <>
+                        {/* Artifact hint layer */}
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          pointerEvents: 'none'
+                        }}>
+                          <ArtifactHint type={study.artifactType} isClient={false} />
+                        </div>
 
-                    {/* Icon */}
-                    <IconComponent
-                      size={31}
-                      aria-hidden="true"
-                      style={{
-                        color: 'rgba(29, 133, 126, 0.5)',
-                        strokeWidth: 1.5,
-                        position: 'relative',
-                        zIndex: 1
-                      }}
-                    />
+                        {/* Icon */}
+                        <IconComponent
+                          size={32}
+                          aria-hidden="true"
+                          style={{
+                            color: 'rgba(29, 133, 126, 0.5)',
+                            strokeWidth: 1.5,
+                            position: 'relative',
+                            zIndex: 1
+                          }}
+                        />
+                      </>
+                    )}
                   </div>
 
                   {/* Content - matching Work page */}

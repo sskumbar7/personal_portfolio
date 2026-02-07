@@ -1,7 +1,8 @@
 import { Users, Layers, Smartphone, Settings, BarChart3 } from 'lucide-react';
 import recyclifyHero from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
 import discussionHero from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
-import visualDesignHero from '../assets/mood-analysis-screens.png';
+// Using Sales Dashboard image for better visual impact as requested
+import visualDesignHero from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
 
 export const publicCaseStudies = [
   {
