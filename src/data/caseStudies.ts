@@ -57,7 +57,7 @@ export const clientCaseStudies = [
     icon: BarChart3,
     gradient: 'linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%)',
     category: 'strategy',
-    artifactType: 'component-grid'
+    artifactType: 'ux-research'
   },
   {
     id: 'conf-2',
@@ -69,7 +69,7 @@ export const clientCaseStudies = [
     icon: BarChart3,
     gradient: 'linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%)',
     category: 'interaction',
-    artifactType: 'dashboard-panels'
+    artifactType: 'flow-diagram'
   },
   {
     id: 'conf-3',
@@ -81,6 +81,6 @@ export const clientCaseStudies = [
     icon: Settings,
     gradient: 'linear-gradient(135deg, rgba(107, 114, 128, 0.06) 0%, rgba(156, 163, 175, 0.03) 100%)',
     category: 'strategy',
-    artifactType: 'dashboard-panels'
+    artifactType: 'usability-report'
   }
 ];

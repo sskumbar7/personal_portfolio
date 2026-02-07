@@ -159,6 +159,52 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
         </svg>
       );
 
+    case 'ux-research':
+      return (
+        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
+          {/* Research Report Layout */}
+          {/* Main Chart Area */}
+          <rect x="15%" y="20%" width="45%" height="35%" rx="3" fill={baseColor} />
+          <rect x="18%" y="45%" width="8%" height="8%" rx="1" fill={accentColor} opacity="0.8" />
+          <rect x="28%" y="35%" width="8%" height="18%" rx="1" fill={accentColor} opacity="0.6" />
+          <rect x="38%" y="25%" width="8%" height="28%" rx="1" fill={accentColor} />
+
+          {/* Side stats */}
+          <rect x="65%" y="20%" width="20%" height="15%" rx="3" fill={baseColor} opacity="0.8" />
+          <rect x="65%" y="40%" width="20%" height="15%" rx="3" fill={baseColor} opacity="0.8" />
+
+          {/* Text lines/Analysis */}
+          <rect x="15%" y="62%" width="70%" height="6" rx="2" fill={baseColor} />
+          <rect x="15%" y="72%" width="50%" height="6" rx="2" fill={baseColor} />
+          <rect x="68%" y="72%" width="17%" height="6" rx="2" fill={accentColor} opacity="0.5" />
+        </svg>
+      );
+
+    case 'usability-report':
+      return (
+        <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.65, filter: 'blur(0.3px)' }}>
+          {/* Usability Audit/Scorecard */}
+          {/* Header row */}
+          <rect x="15%" y="20%" width="70%" height="10%" rx="3" fill={baseColor} />
+
+          {/* Review Rows with status indicators */}
+          {/* Row 1 - Pass */}
+          <rect x="15%" y="35%" width="70%" height="12%" rx="3" fill={baseColor} opacity="0.5" />
+          <circle cx="20%" cy="41%" r="3" fill={accentColor} /> {/* Status dot */}
+          <rect x="25%" y="39%" width="40%" height="4" rx="2" fill={baseColor} opacity="0.8" />
+
+          {/* Row 2 - Warning/Fail */}
+          <rect x="15%" y="50%" width="70%" height="12%" rx="3" fill={baseColor} opacity="0.5" />
+          <circle cx="20%" cy="56%" r="3" fill={baseColor} opacity="0.8" />
+          <rect x="25%" y="54%" width="30%" height="4" rx="2" fill={baseColor} opacity="0.8" />
+
+          {/* Row 3 - Pass */}
+          <rect x="15%" y="65%" width="70%" height="12%" rx="3" fill={baseColor} opacity="0.5" />
+          <circle cx="20%" cy="71%" r="3" fill={accentColor} />
+          <rect x="25%" y="69%" width="45%" height="4" rx="2" fill={baseColor} opacity="0.8" />
+        </svg>
+      );
+
     default:
       return null;
   }
