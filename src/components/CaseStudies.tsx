@@ -174,7 +174,7 @@ export function CaseStudies() {
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-20 md:pb-20 relative">
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
-          <Tag variant="section-label">Selected Work</Tag>
+          <Tag variant="section-label">Featured Work</Tag>
           <h2 style={{ color: '#111827', fontWeight: 600 }}>Case Studies</h2>
           <p className="caption max-w-2xl mx-auto" style={{ fontSize: '17px', lineHeight: '1.5', color: '#6B7280' }}>
             Purposeful, research-driven, strategic outcomes.

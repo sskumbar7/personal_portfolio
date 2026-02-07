@@ -522,7 +522,7 @@ export function WorkPage() {
                   marginBottom: '8px'
                 }}
               >
-                Selected Client Engagements
+                Key Client Engagements
               </div>
               <p
                 style={{
