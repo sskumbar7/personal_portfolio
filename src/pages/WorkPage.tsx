@@ -380,7 +380,7 @@ export function WorkPage() {
                       {/* Hybrid preview header with artifact hint COMPONENT */}
                       <div
                         style={{
-                          height: '200px', // Increased height for better image display
+                          height: '240px', // Increased height for better image display on wider cards
                           background: study.gradient,
                           borderRadius: '20px 20px 0 0',
                           display: 'flex',
@@ -398,6 +398,7 @@ export function WorkPage() {
                               width: '100%',
                               height: '100%',
                               objectFit: 'cover',
+                              objectPosition: 'top center', // Anchor to top for UI screenshots
                               transition: 'transform 0.5s ease'
                             }}
                             className="group-hover:scale-105"

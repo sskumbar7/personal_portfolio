@@ -216,7 +216,7 @@ export function CaseStudies() {
                   {/* Hybrid preview header with artifact hint */}
                   <div
                     style={{
-                      height: '200px', // Increased height to match Work page
+                      height: '240px', // Increased height to match Work page
                       background: study.gradient,
                       borderRadius: '20px 20px 0 0',
                       display: 'flex',
@@ -234,6 +234,7 @@ export function CaseStudies() {
                           width: '100%',
                           height: '100%',
                           objectFit: 'cover',
+                          objectPosition: 'top center', // Anchor to top
                           transition: 'transform 0.5s ease'
                         }}
                         className="group-hover:scale-105"
