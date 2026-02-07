@@ -35,7 +35,7 @@ export function SkillsSnapshot() {
         {/* Section Header */}
         <div className="mb-16">
           <div className="mb-4">
-            <Tag variant="section-label">Core Expertise</Tag>
+            <Tag variant="section-label">Strategic Expertise</Tag>
           </div>
           <p style={{
             fontSize: '16px',
