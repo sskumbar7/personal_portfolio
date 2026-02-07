@@ -594,22 +594,39 @@ export function WorkPage() {
                         overflow: 'hidden'
                       }}
                     >
-                      {/* Gradient header with icon */}
+                      {/* Hybrid preview header with artifact hint for Client Work */}
                       <div
                         style={{
-                          height: '85px',
+                          height: '240px', // Increased height to match Public Work cards
                           background: study.gradient,
                           borderRadius: '20px 20px 0 0',
                           display: 'flex',
                           alignItems: 'center',
-                          justifyContent: 'center'
+                          justifyContent: 'center',
+                          position: 'relative',
+                          overflow: 'hidden'
                         }}
                       >
+                        {/* Artifact hint layer - Client Mode */}
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          pointerEvents: 'none'
+                        }}>
+                          <ArtifactHint type={study.artifactType} isClient={true} />
+                        </div>
+
+                        {/* Icon */}
                         <IconComponent
-                          size={36}
+                          size={32}
                           style={{
                             color: 'rgba(26, 26, 26, 0.4)',
-                            strokeWidth: 1.5
+                            strokeWidth: 1.5,
+                            position: 'relative',
+                            zIndex: 1
                           }}
                         />
                       </div>
