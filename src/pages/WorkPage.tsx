@@ -9,9 +9,9 @@ type FilterType = 'All' | 'Public' | 'Client' | 'Design Systems' | 'Interaction'
 
 // Artifact hint component
 const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) => {
-  // Dark Mode: White/Light patterns for high contrast on dark backgrounds
-  const baseColor = isClient ? 'rgba(255, 255, 255, 0.1)' : 'rgba(29, 133, 126, 0.18)';
-  const accentColor = isClient ? 'rgba(255, 255, 255, 0.2)' : 'rgba(29, 133, 126, 0.12)';
+  // Professional Slate: Light background with visible slate pattern (Physical folder look)
+  const baseColor = isClient ? 'rgba(71, 85, 105, 0.15)' : 'rgba(29, 133, 126, 0.18)';
+  const accentColor = isClient ? 'rgba(51, 65, 85, 0.15)' : 'rgba(29, 133, 126, 0.12)';
 
   switch (type) {
     case 'token-table':
@@ -624,7 +624,7 @@ export function WorkPage() {
                         <IconComponent
                           size={32}
                           style={{
-                            color: 'rgba(255, 255, 255, 0.9)',
+                            color: 'rgba(51, 65, 85, 0.9)',
                             strokeWidth: 1.5,
                             position: 'relative',
                             zIndex: 1
