@@ -543,7 +543,11 @@ export function WorkPage() {
       {filteredClient.length > 0 && (
         <section
           className="relative"
-          style={{ background: 'rgba(29, 133, 126, 0.03)' }}
+          style={{
+            backgroundColor: 'rgba(29, 133, 126, 0.03)',
+            backgroundImage: 'radial-gradient(rgba(29, 133, 126, 0.2) 1px, transparent 1px)',
+            backgroundSize: '24px 24px'
+          }}
         >
           <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
