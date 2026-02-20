@@ -20,6 +20,7 @@ export function Hero() {
   /* ... imports ... */
   const [hoveredWord, setHoveredWord] = useState<string | null>(null);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [isPhotoHovered, setIsPhotoHovered] = useState(false);
 
   const handleCopyEmail = () => {
     const email = 'sskumbar7@gmail.com';
@@ -138,17 +139,42 @@ export function Hero() {
                   style={{ background: '#1D857E' }}
                 />
 
-                <div className="relative w-full max-w-md">
+                <div
+                  className="relative w-full max-w-md cursor-pointer"
+                  onMouseEnter={() => setIsPhotoHovered(true)}
+                  onMouseLeave={() => setIsPhotoHovered(false)}
+                >
                   <div className="relative p-1 rounded-xl" style={{
                     background: 'linear-gradient(to bottom right, rgba(29, 133, 126, 0.3), rgba(78, 205, 196, 0.3), rgba(29, 133, 126, 0.3))'
                   }}>
+                    {/* Speech Bubble */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 10, x: -20 }}
+                      animate={{
+                        opacity: isPhotoHovered ? 1 : 0,
+                        scale: isPhotoHovered ? 1 : 0.8,
+                        y: isPhotoHovered ? 0 : 10,
+                        x: -20
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                        mass: 0.8
+                      }}
+                      className="absolute -top-6 -right-4 z-20 pointer-events-none"
+                    >
+                      <div className="relative bg-white text-[#1D857E] px-4 py-2 rounded-2xl rounded-bl-sm font-inter font-semibold text-sm shadow-[0_8px_24px_rgba(29,133,126,0.15)] whitespace-nowrap border border-[rgba(29,133,126,0.1)]">
+                        Hi there! 👋
+                      </div>
+                    </motion.div>
                     <img
                       src={portraitImage}
                       alt="Sandeep S Kumbar - Lead Experience Designer"
                       loading="eager"
-                      className="w-full h-auto rounded-xl shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] cursor-default"
+                      className="w-full h-auto rounded-xl shadow-xl transition-all duration-500"
                       style={{
-                        filter: 'grayscale(100%)',
+                        filter: isPhotoHovered ? 'grayscale(0%)' : 'grayscale(100%)',
                         aspectRatio: '1/1',
                         objectFit: 'cover',
                         transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -179,16 +205,40 @@ export function Hero() {
                 style={{ background: '#1D857E' }}
               />
 
-              <div className="relative w-full max-w-md">
+              <div
+                className="relative w-full max-w-md cursor-pointer"
+                onMouseEnter={() => setIsPhotoHovered(true)}
+                onMouseLeave={() => setIsPhotoHovered(false)}
+              >
                 <div className="relative p-1 rounded-xl" style={{
                   background: 'linear-gradient(to bottom right, rgba(29, 133, 126, 0.3), rgba(78, 205, 196, 0.3), rgba(29, 133, 126, 0.3))'
                 }}>
+                  {/* Speech Bubble */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                    animate={{
+                      opacity: isPhotoHovered ? 1 : 0,
+                      scale: isPhotoHovered ? 1 : 0.8,
+                      y: isPhotoHovered ? 0 : 10,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 25,
+                      mass: 0.8
+                    }}
+                    className="absolute -top-6 -right-4 z-20 pointer-events-none"
+                  >
+                    <div className="relative bg-white text-[#1D857E] px-4 py-2 rounded-2xl rounded-bl-sm font-inter font-semibold text-sm shadow-[0_8px_24px_rgba(29,133,126,0.15)] whitespace-nowrap border border-[rgba(29,133,126,0.1)]">
+                      Hi there! 👋
+                    </div>
+                  </motion.div>
                   <img
                     src={portraitImage}
                     alt="Sandeep S Kumbar - Lead Experience Designer"
-                    className="w-full h-auto rounded-xl shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] cursor-default"
+                    className="w-full h-auto rounded-xl shadow-xl transition-all duration-500"
                     style={{
-                      filter: 'grayscale(100%)',
+                      filter: isPhotoHovered ? 'grayscale(0%)' : 'grayscale(100%)',
                       aspectRatio: '1/1',
                       objectFit: 'cover',
                       transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
