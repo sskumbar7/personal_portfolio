@@ -1,737 +1,476 @@
+import { useState, useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { useState } from 'react';
-import { Copy, Check, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Tag } from '../components/ui/Tag';
 import { SEO } from '../components/SEO';
+import { Copy, Check, Moon, Sun, Type, Layout, Palette, Box, Eye, Monitor, Layers, Grid } from 'lucide-react';
+import { motion } from 'motion/react';
+
 
 export function DesignSystemPage() {
+  // Safe check for mounted status to prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
   const [copiedToken, setCopiedToken] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState('foundation');
 
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Scroll Spy Implementation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
+  if (!mounted) return null;
+
+  const isDark = false;
+
+  // Copy to Clipboard
   const copyToClipboard = (text: string, tokenName: string) => {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    textarea.style.position = 'fixed';
-    textarea.style.left = '-9999px';
-    textarea.style.top = '0';
-    textarea.setAttribute('readonly', '');
-    document.body.appendChild(textarea);
-
-    try {
-      textarea.select();
-      textarea.setSelectionRange(0, textarea.value.length);
-      document.execCommand('copy');
-
+    navigator.clipboard.writeText(text).then(() => {
       setCopiedToken(tokenName);
       setTimeout(() => setCopiedToken(null), 2000);
-    } catch (err) {
-      console.error('Copy failed:', err);
-    } finally {
-      document.body.removeChild(textarea);
-    }
+    });
   };
 
-  // Color Tokens
+  // EXTENDED Color Tokens
   const colorTokens = {
     primary: [
-      { name: 'Primary Teal', value: '#1D857E', hex: '#1D857E', usage: 'Primary buttons, links, accents, active states' },
-      { name: 'Primary Hover', value: '#178076', hex: '#178076', usage: 'Hover state for primary actions' },
-      { name: 'Primary Light', value: '#CDE9E6', hex: '#CDE9E6', usage: 'Subtle backgrounds, badge tints' },
+      { name: 'Primary Teal', value: '#1D857E', darkValue: '#2DD4BF', usage: 'Primary actions, links, accents' },
+      { name: 'Primary Hover', value: '#178076', darkValue: '#14B8A6', usage: 'Hover states' },
+      { name: 'Primary Light', value: '#CDE9E6', darkValue: 'rgba(45, 212, 191, 0.2)', usage: 'Subtle backgrounds' },
     ],
     neutral: [
-      { name: 'Charcoal', value: '#1A1A1A', hex: '#1A1A1A', usage: 'Headings, primary text (high contrast)' },
-      { name: 'Grey 900', value: '#111827', hex: '#111827', usage: 'Headings, primary text' },
-      { name: 'Grey 700', value: 'rgba(17, 24, 39, 0.7)', hex: 'rgba(17, 24, 39, 0.7)', usage: 'Body text, paragraphs' },
-      { name: 'Grey 500', value: '#6B7280', hex: '#6B7280', usage: 'Secondary text, captions, subtitles' },
-      { name: 'Soft Grey', value: '#FAFAFA', hex: '#FAFAFA', usage: 'Page background, card tints' },
-      { name: 'Border Soft', value: 'rgba(0, 0, 0, 0.06)', hex: 'rgba(0, 0, 0, 0.06)', usage: 'Subtle borders, dividers' },
+      { name: 'Paper', value: '#FFFFFF', darkValue: '#111827', usage: 'Card backgrounds' },
+      { name: 'Soft Grey', value: '#FAFAFA', darkValue: '#1F2937', usage: 'Page backgrounds' },
+      { name: 'Border', value: '#E5E7EB', darkValue: '#374151', usage: 'Dividers, borders' },
+      { name: 'Text Main', value: '#111827', darkValue: '#F9FAFB', usage: 'Primary text' },
+      { name: 'Text Muted', value: '#6B7280', darkValue: '#9CA3AF', usage: 'Secondary text' },
     ],
     semantic: [
-      { name: 'Success', value: '#10B981', hex: '#10B981', usage: 'Success states, positive feedback' },
-      { name: 'Warning', value: '#F59E0B', hex: '#F59E0B', usage: 'Warning states, caution' },
-      { name: 'Error', value: '#EF4444', hex: '#EF4444', usage: 'Error states, critical actions' },
-      { name: 'Info', value: '#3B82F6', hex: '#3B82F6', usage: 'Informational states, hints' },
+      { name: 'Success', value: '#10B981', darkValue: '#34D399', usage: 'Success states' },
+      { name: 'Warning', value: '#F59E0B', darkValue: '#FBBF24', usage: 'Warning states' },
+      { name: 'Error', value: '#EF4444', darkValue: '#F87171', usage: 'Error states' },
+      { name: 'Info', value: '#3B82F6', darkValue: '#60A5FA', usage: 'Information' },
+    ],
+    gradients: [
+      { name: 'Brand Gradient', value: 'linear-gradient(135deg, #1D857E 0%, #3BC5A1 100%)', darkValue: 'linear-gradient(135deg, #2DD4BF 0%, #14B8A6 100%)', usage: 'Primary buttons, hero accents' },
+      { name: 'Surface Gradient', value: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 100%)', darkValue: 'linear-gradient(180deg, rgba(17,24,39,0) 0%, #111827 100%)', usage: 'Content fade-outs' }
     ]
   };
 
   const typography = [
-    {
-      name: 'Hero Display',
-      element: 'h1',
-      size: '36px',
-      mobile: '28px',
-      weight: '600',
-      lineHeight: '1.2',
-      letterSpacing: '-0.02em',
-      family: 'Inter',
-      usage: 'Hero headings, main page titles'
-    },
-    {
-      name: 'Heading 1',
-      element: 'h1',
-      size: '32px',
-      mobile: '27px',
-      weight: '600',
-      lineHeight: '1.2',
-      letterSpacing: '-0.02em',
-      family: 'Inter',
-      usage: 'Primary section headings'
-    },
-    {
-      name: 'Heading 2',
-      element: 'h2',
-      size: '24px',
-      mobile: '22px',
-      weight: '600',
-      lineHeight: '1.2',
-      letterSpacing: '-0.01em',
-      family: 'Inter',
-      usage: 'Secondary section headings'
-    },
-    {
-      name: 'Heading 3',
-      element: 'h3',
-      size: '18px',
-      mobile: '16px',
-      weight: '600',
-      lineHeight: '1.3',
-      letterSpacing: '0',
-      family: 'Inter',
-      usage: 'Card titles, subsections'
-    },
-    {
-      name: 'Body Large',
-      element: 'p',
-      size: '17px',
-      mobile: '17px',
-      weight: '400',
-      lineHeight: '1.5',
-      letterSpacing: '0',
-      family: 'Work Sans',
-      usage: 'Lead paragraphs, important body text'
-    },
-    {
-      name: 'Body Regular',
-      element: 'p',
-      size: '16px',
-      mobile: '16px',
-      weight: '400',
-      lineHeight: '1.5',
-      letterSpacing: '0',
-      family: 'Work Sans',
-      usage: 'Standard body text, descriptions'
-    },
-    {
-      name: 'Caption',
-      element: 'span',
-      size: '14px',
-      mobile: '14px',
-      weight: '400',
-      lineHeight: '1.5',
-      letterSpacing: '0',
-      family: 'Work Sans',
-      usage: 'Captions, metadata, small text'
-    },
-    {
-      name: 'Code Tag',
-      element: 'code',
-      size: '13px',
-      mobile: '13px',
-      weight: '500',
-      lineHeight: '1.2',
-      letterSpacing: '0.025em',
-      family: 'JetBrains Mono',
-      usage: 'Skill tags, code-style badges'
-    },
-    {
-      name: 'Section Label',
-      element: 'span',
-      size: '14px',
-      mobile: '14px',
-      weight: '600',
-      lineHeight: '1.2',
-      letterSpacing: '0.12em',
-      family: 'Inter',
-      usage: 'Uppercase section labels, eyebrows'
-    },
+    { name: 'Display', element: 'H1', size: '36px', mobile: '32px', weight: '600', family: 'Inter', usage: 'Hero headings' },
+    { name: 'Heading 1', element: 'H1', size: '32px', mobile: '28px', weight: '600', family: 'Inter', usage: 'Page titles' },
+    { name: 'Heading 2', element: 'H2', size: '24px', mobile: '22px', weight: '600', family: 'Inter', usage: 'Section titles' },
+    { name: 'Heading 3', element: 'H3', size: '18px', mobile: '18px', weight: '600', family: 'Inter', usage: 'Card titles' },
+    { name: 'Body Large', element: 'P', size: '17px', mobile: '16px', weight: '400', family: 'Work Sans', usage: 'Lead text' },
+    { name: 'Body', element: 'P', size: '16px', mobile: '15px', weight: '400', family: 'Work Sans', usage: 'Standard text' },
+    { name: 'Caption', element: 'Span', size: '14px', mobile: '13px', weight: '400', family: 'Work Sans', usage: 'Metadata' },
+    { name: 'Mono', element: 'Code', size: '13px', mobile: '12px', weight: '500', family: 'JetBrains Mono', usage: 'Code snippets' },
   ];
 
-  const spacing = [
-    { token: '96px', value: '96px', usage: 'Hero spacing, major page sections (Editorial scale)' },
-    { token: '64px', value: '64px', usage: 'Large section breaks (Editorial scale)' },
-    { token: '40px', value: '40px', usage: 'Section spacing (Editorial scale)' },
-    { token: '32px', value: '32px', usage: 'Moderate section spacing (Editorial scale)' },
-    { token: '24px', value: '24px', usage: 'Card padding, element spacing' },
-    { token: '16px', value: '16px', usage: 'Standard padding, gaps' },
-    { token: '12px', value: '12px', usage: 'Compact spacing' },
-    { token: '8px', value: '8px', usage: 'Tight spacing, small gaps' },
-    { token: '4px', value: '4px', usage: 'Minimal spacing, icon padding' },
-  ];
-
-  const radius = [
-    { token: 'Cards', value: '16px', usage: 'Main cards, containers' },
-    { token: 'Buttons', value: '12px', usage: 'Buttons, form inputs' },
-    { token: 'Tags', value: '6px', usage: 'Skill tags, badges' },
-    { token: 'Pills', value: '9999px', usage: 'Pill buttons, status dots' },
-  ];
+  const spacing = [96, 64, 40, 32, 24, 16, 12, 8, 4];
 
   const shadows = [
-    { name: 'Card Default', value: '0 4px 20px rgba(0, 0, 0, 0.04)', usage: 'Default card elevation' },
-    { name: 'Card Hover', value: '0 8px 24px rgba(0, 0, 0, 0.08)', usage: 'Card hover state' },
-    { name: 'Primary Button', value: '0 4px 14px rgba(29, 133, 126, 0.22), 0 2px 6px rgba(29, 133, 126, 0.08)', usage: 'Primary button default' },
-    { name: 'Primary Hover', value: '0 6px 20px rgba(29, 133, 126, 0.28), 0 2px 8px rgba(29, 133, 126, 0.12)', usage: 'Primary button hover' },
+    { name: 'sm', value: '0 1px 2px 0 rgb(0 0 0 / 0.05)', usage: 'Subtle emphasis' },
+    { name: 'md', value: '0 4px 6px -1px rgb(0 0 0 / 0.1)', usage: 'Dropdowns, Cards' },
+    { name: 'lg', value: '0 10px 15px -3px rgb(0 0 0 / 0.1)', usage: 'Modals, Hover states' },
+    { name: 'xl', value: '0 20px 25px -5px rgb(0 0 0 / 0.1)', usage: 'Floating commands' },
   ];
 
-  const ColorSwatch = ({ name, value, usage }: { name: string; value: string; usage: string }) => (
-    <div className="group relative">
-      <div
-        className="h-20 rounded-2xl mb-3 border transition-all cursor-pointer"
-        style={{
-          background: value,
-          borderColor: 'rgba(0, 0, 0, 0.06)'
-        }}
-        onClick={() => copyToClipboard(value, name)}
-      />
-      <div className="space-y-1">
-        <div className="flex items-center justify-between gap-2">
-          <p className="text-sm font-semibold" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>{name}</p>
-          <button
-            onClick={() => copyToClipboard(value, name)}
-            className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-gray-100 rounded"
-            title="Copy value"
-          >
-            {copiedToken === name ? (
-              <Check className="w-3.5 h-3.5 text-green-600" />
-            ) : (
-              <Copy className="w-3.5 h-3.5 text-gray-500" />
-            )}
-          </button>
-        </div>
-        <code className="text-xs font-mono block" style={{ color: '#1D857E' }}>{value}</code>
-        <p className="text-xs leading-tight" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>{usage}</p>
-      </div>
-    </div>
-  );
+  const navItems = [
+    { id: 'foundation', label: 'Colors & Gradients', icon: Palette },
+    { id: 'typography', label: 'Typography', icon: Type },
+    { id: 'layout', label: 'Layout & Spacing', icon: Layout },
+    { id: 'shadows', label: 'Shadows & Depth', icon: Layers },
+    { id: 'components', label: 'Components', icon: Box },
+    { id: 'accessibility', label: 'Accessibility', icon: Eye },
+  ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <SEO
-        title="Design System - Sandeep S Kumbar"
-        description="Complete design system documentation including colors, typography, spacing, and components"
-        pathname="/design-system"
+        title="Design System | Sandeep S Kumbar"
+        description="Comprehensive design system documentation including colors, typography, components, and accessibility guidelines."
       />
+
       <Navigation />
 
-      <main id="main-content">
-        {/* Hero */}
-        <section
-          className="relative overflow-hidden"
-          style={{
-            background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.08) 0%, rgba(29, 133, 126, 0.04) 40%, #FFFFFF 80%)'
-          }}
-        >
-          <div className="max-w-[1180px] mx-auto px-8 pt-24 pb-16 md:pt-32 md:pb-20">
-            <div className="max-w-[800px]">
-              <span
-                className="section-label"
-                style={{
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: '#1D857E',
-                  fontFamily: 'Inter, sans-serif'
-                }}
-              >
-                Portfolio Design System
-              </span>
+      <main className="relative pt-24 pb-20">
 
-              <h1
-                className="mt-4 mb-6"
-                style={{
-                  fontSize: '36px',
-                  lineHeight: '1.2',
-                  fontWeight: 600,
-                  letterSpacing: '-0.02em',
-                  color: '#111827',
-                  fontFamily: 'Inter, sans-serif'
-                }}
-              >
-                Design tokens, components, and patterns
+        {/* Header */}
+        <div className="relative overflow-hidden border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+          <div className="max-w-[1180px] mx-auto px-6 py-20 md:py-32 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400">
+                  System v2.1
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+                  Live
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight font-display">
+                Design System
               </h1>
 
-              <p
-                style={{
-                  fontSize: '17px',
-                  lineHeight: '1.5',
-                  color: 'rgba(17, 24, 39, 0.7)',
-                  fontFamily: 'Work Sans, sans-serif',
-                  maxWidth: '640px'
-                }}
-              >
-                A comprehensive design system built with primary teal (#1D857E), soft grey (#FAFAFA), and charcoal (#1A1A1A).
-                Featuring clean typography, editorial spacing (96/64/40/32px), and thoughtful micro-interactions.
+              <p className="text-xl md:text-2xl max-w-2xl leading-relaxed text-gray-600 dark:text-gray-400">
+                The visual language used to build this portfolio.
+                Values automatically adapt to the <span className="text-teal-600 dark:text-teal-400 font-medium">current theme</span>.
               </p>
-
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Tag variant="skill">Design Tokens</Tag>
-                <Tag variant="skill">Component Library</Tag>
-                <Tag variant="skill">Accessibility First</Tag>
-              </div>
-            </div>
+            </motion.div>
           </div>
-        </section>
 
-        <div className="max-w-[1180px] mx-auto px-8 py-12 md:py-20">
-
-          {/* SECTION 1: Color System */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                01 — Foundation
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Color System
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                Our color palette centers on primary teal (#1D857E) to convey trust, calm professionalism, and human-centered design.
-                The neutral scale ensures excellent readability and visual hierarchy.
-              </p>
-            </div>
-
-            {/* Primary Colors */}
-            <div className="mb-12">
-              <h3 className="mb-6" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Primary Colors
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {colorTokens.primary.map((color) => (
-                  <ColorSwatch key={color.name} name={color.name} value={color.value} usage={color.usage} />
-                ))}
-              </div>
-            </div>
-
-            {/* Neutral Colors */}
-            <div className="mb-12">
-              <h3 className="mb-6" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Neutral Scale
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {colorTokens.neutral.map((color) => (
-                  <ColorSwatch key={color.name} name={color.name} value={color.value} usage={color.usage} />
-                ))}
-              </div>
-            </div>
-
-            {/* Semantic Colors */}
-            <div className="mb-12">
-              <h3 className="mb-6" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Semantic Colors
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {colorTokens.semantic.map((color) => (
-                  <ColorSwatch key={color.name} name={color.name} value={color.value} usage={color.usage} />
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 2: Typography */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                02 — Typography
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Type Scale
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                <strong style={{ fontWeight: 600 }}>Inter</strong> for headings (clarity, modern).
-                <strong style={{ fontWeight: 600 }}> Work Sans</strong> for body text (readability, warmth).
-                <strong style={{ fontWeight: 600 }}> JetBrains Mono</strong> for code elements (technical authenticity).
-              </p>
-            </div>
-
-            <div className="space-y-10">
-              {typography.map((type, index) => (
-                <div key={index} className="pb-10 border-b" style={{ borderColor: 'rgba(0, 0, 0, 0.06)' }}>
-                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                    {/* Preview */}
-                    <div className="lg:col-span-3">
-                      <div
-                        style={{
-                          fontSize: type.size,
-                          lineHeight: type.lineHeight,
-                          fontWeight: type.weight,
-                          letterSpacing: type.letterSpacing,
-                          fontFamily: type.family === 'Inter' ? 'Inter, sans-serif' :
-                            type.family === 'Work Sans' ? 'Work Sans, sans-serif' :
-                              'JetBrains Mono, monospace',
-                          color: '#111827',
-                          textTransform: type.name === 'Section Label' ? 'uppercase' : 'none'
-                        }}
-                      >
-                        {type.name === 'Section Label' ? 'Section Label Example' :
-                          type.name === 'Code Tag' ? '<skill-tag>' :
-                            'The quick brown fox jumps over the lazy dog'}
-                      </div>
-                    </div>
-
-                    {/* Specs */}
-                    <div className="lg:col-span-2 space-y-3">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>Style</p>
-                        <p className="text-sm font-mono" style={{ color: '#111827' }}>{type.name}</p>
-                      </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>Size</p>
-                          <p className="text-sm font-mono" style={{ color: '#1D857E' }}>{type.size}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>Weight</p>
-                          <p className="text-sm font-mono" style={{ color: '#1D857E' }}>{type.weight}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>Line Height</p>
-                          <p className="text-sm font-mono" style={{ color: '#1D857E' }}>{type.lineHeight}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>Family</p>
-                          <p className="text-sm font-mono" style={{ color: '#1D857E' }}>{type.family}</p>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>Usage</p>
-                        <p className="text-xs leading-tight" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>{type.usage}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* SECTION 3: Spacing */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                03 — Layout
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Spacing Scale
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                Editorial spacing scale (96/64/40/32px) creates intentional breathing room and clear visual hierarchy.
-                Smaller increments (16/12/8/4px) handle micro-spacing within components.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {spacing.map((space) => (
-                <div
-                  key={space.token}
-                  className="flex items-center gap-6 p-5 rounded-2xl border transition-all hover:border-gray-200"
-                  style={{ borderColor: 'rgba(0, 0, 0, 0.06)', background: 'rgba(250, 250, 250, 0.4)' }}
-                >
-                  <div
-                    className="rounded"
-                    style={{
-                      width: space.value,
-                      height: '32px',
-                      minWidth: space.value,
-                      background: 'linear-gradient(to right, #1D857E, #178076)'
-                    }}
-                  />
-                  <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <code className="text-sm font-mono font-semibold" style={{ color: '#111827' }}>{space.token}</code>
-                    </div>
-                    <div>
-                      <code className="text-sm font-mono" style={{ color: '#1D857E' }}>{space.value}</code>
-                    </div>
-                    <div>
-                      <p className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>{space.usage}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* SECTION 4: Border Radius */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <h2 className="mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Border Radius
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                Consistent corner rounding (16px for cards) creates a soft, approachable, modern aesthetic.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {radius.map((r) => (
-                <div key={r.token} className="text-center">
-                  <div
-                    className="h-28 mb-4 mx-auto"
-                    style={{
-                      borderRadius: r.value,
-                      maxWidth: '140px',
-                      background: 'linear-gradient(135deg, #1D857E 0%, #3BC5A1 100%)'
-                    }}
-                  />
-                  <p className="text-sm font-semibold mb-1" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>{r.token}</p>
-                  <code className="text-sm font-mono block mb-2" style={{ color: '#1D857E' }}>{r.value}</code>
-                  <p className="text-xs" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>{r.usage}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* SECTION 5: Shadows */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <h2 className="mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Shadow System
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                Subtle shadows create depth without overwhelming the minimal aesthetic. Primary shadows use teal tints for brand cohesion.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {shadows.map((shadow) => (
-                <div key={shadow.name} className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)' }}>
-                  <div
-                    className="h-28 bg-white rounded-2xl mb-4"
-                    style={{ boxShadow: shadow.value }}
-                  />
-                  <p className="text-sm font-semibold mb-1" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>{shadow.name}</p>
-                  <code className="text-xs font-mono block mb-2" style={{ color: '#1D857E' }}>{shadow.value}</code>
-                  <p className="text-xs" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>{shadow.usage}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* SECTION 6: Components */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                04 — Components
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Component Library
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                Reusable, accessible components with consistent states and micro-interactions.
-              </p>
-            </div>
-
-            {/* Buttons */}
-            <div className="mb-12">
-              <h3 className="mb-6" style={{ fontSize: '24px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Buttons
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                  <p className="text-sm font-semibold mb-4" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>Primary Button</p>
-                  <Button variant="default" icon="arrow">
-                    View Case Studies
-                  </Button>
-                  <code className="text-xs font-mono block mt-3" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>
-                    variant="default"
-                  </code>
-                </div>
-
-                <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                  <p className="text-sm font-semibold mb-4" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>Secondary Button</p>
-                  <Button variant="secondary">
-                    Contact Me
-                  </Button>
-                  <code className="text-xs font-mono block mt-3" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>
-                    variant="secondary"
-                  </code>
-                </div>
-
-                <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                  <p className="text-sm font-semibold mb-4" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>Outline Button</p>
-                  <Button variant="outline">
-                    All Work
-                  </Button>
-                  <code className="text-xs font-mono block mt-3" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>
-                    variant="outline"
-                  </code>
-                </div>
-              </div>
-            </div>
-
-            {/* Tags */}
-            <div className="mb-12">
-              <h3 className="mb-6" style={{ fontSize: '24px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Tags
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                  <p className="text-sm font-semibold mb-4" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>Skill Tag</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Tag variant="skill">Figma</Tag>
-                    <Tag variant="skill">Prototyping</Tag>
-                    <Tag variant="skill">User Research</Tag>
-                  </div>
-                  <code className="text-xs font-mono block mt-3" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>
-                    variant="skill"
-                  </code>
-                </div>
-
-                <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                  <p className="text-sm font-semibold mb-4" style={{ fontFamily: 'Inter, sans-serif', color: '#111827' }}>Badge Tag</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Tag variant="badge">Design Systems</Tag>
-                    <Tag variant="badge">Accessibility</Tag>
-                  </div>
-                  <code className="text-xs font-mono block mt-3" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>
-                    variant="badge"
-                  </code>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 7: Grid System */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                05 — Grid & Layout
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                12-Column Grid
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                Max container width: 1200-1280px. Responsive breakpoints ensure optimal reading experience across all devices.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-              <div className="grid grid-cols-12 gap-4">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="h-16 rounded flex items-center justify-center text-xs font-mono"
-                    style={{ background: 'rgba(29, 133, 126, 0.15)', color: '#1D857E' }}
-                  >
-                    {i + 1}
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-center mt-4" style={{ color: 'rgba(17, 24, 39, 0.45)' }}>12-column responsive grid with 16-24px gutters</p>
-            </div>
-          </section>
-
-          {/* SECTION 8: Accessibility */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                06 — Accessibility
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                WCAG 2.1 AA Compliant
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', fontFamily: 'Work Sans, sans-serif', maxWidth: '720px' }}>
-                95%+ compliance with proper ARIA attributes, keyboard navigation, skip links, semantic HTML, focus states, and motion preferences support.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                <h3 className="mb-3" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                  Color Contrast
-                </h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-                    <span className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>Primary text: 4.5:1 contrast ratio</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-                    <span className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>Large text: 3:1 contrast ratio</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-                    <span className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>UI elements: 3:1 contrast</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                <h3 className="mb-3" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                  Interactive Elements
-                </h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-                    <span className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>Keyboard navigation support</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-                    <span className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>Focus visible on all interactive elements</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-                    <span className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)' }}>Motion preferences respected</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 9: Design Principles */}
-          <section className="mb-20 md:mb-32">
-            <div className="mb-12">
-              <span className="section-label" style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1D857E', fontFamily: 'Inter, sans-serif' }}>
-                07 — Philosophy
-              </span>
-              <h2 className="mt-4 mb-4" style={{ fontSize: '32px', lineHeight: '1.2', fontWeight: 600, letterSpacing: '-0.02em', color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                Design Principles
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-8 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                <h3 className="mb-3" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                  Calm & Strategic
-                </h3>
-                <p className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)', lineHeight: '1.5' }}>
-                  Deliberate use of space and restraint creates a senior, thoughtful aesthetic that conveys strategic thinking.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                <h3 className="mb-3" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                  Human-Centered
-                </h3>
-                <p className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)', lineHeight: '1.5' }}>
-                  Accessibility-first approach ensures usability for all users, with clear hierarchy and readable typography.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl" style={{ background: 'rgba(250, 250, 250, 0.6)', border: '1px solid rgba(0, 0, 0, 0.06)' }}>
-                <h3 className="mb-3" style={{ fontSize: '18px', fontWeight: 600, color: '#111827', fontFamily: 'Inter, sans-serif' }}>
-                  Modern Polish
-                </h3>
-                <p className="text-sm" style={{ color: 'rgba(17, 24, 39, 0.7)', lineHeight: '1.5' }}>
-                  Subtle micro-interactions and glassmorphism details add contemporary sophistication without distraction.
-                </p>
-              </div>
-            </div>
-          </section>
-
+          <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }}
+          />
         </div>
 
-        {/* Footer */}
-        <div className="max-w-[1180px] mx-auto px-8 pb-20 md:pb-24">
+        <div className="max-w-[1180px] mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+            {/* Sidebar Navigation */}
+            <aside className="lg:col-span-3 lg:sticky lg:top-32 h-fit mb-12 lg:mb-0 hidden lg:block">
+              <nav className="space-y-1">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${activeSection === item.id
+                      ? 'bg-teal-50 text-teal-700 dark:bg-teal-900/20 dark:text-teal-400 translate-x-1'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      }`}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+            </aside>
+
+            {/* Main Content */}
+            <div className="lg:col-span-9 space-y-32">
+
+              {/* Foundation / Colors */}
+              <section id="foundation" className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
+                  <span className="p-3 rounded-lg bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400">
+                    <Palette className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-bold">Color System</h2>
+                    <p className="text-gray-600 dark:text-gray-400">Context-aware color palette.</p>
+                  </div>
+                </div>
+
+                <div className="space-y-16">
+                  {Object.entries(colorTokens).map(([category, tokens]) => (
+                    <div key={category}>
+                      <h3 className="text-sm font-semibold uppercase tracking-wider mb-6 opacity-60 flex items-center gap-2">
+                        {category} Tokens
+                        <span className="h-px flex-1 bg-current opacity-20"></span>
+                      </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {tokens.map((token) => (
+                          <div
+                            key={token.name}
+                            className="group rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-md hover:-translate-y-1"
+                          >
+                            <div
+                              className="h-28 w-full cursor-pointer relative"
+                              style={{ background: isDark ? token.darkValue : token.value }}
+                              onClick={() => copyToClipboard(isDark ? token.darkValue : token.value, token.name)}
+                            >
+                              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 backdrop-blur-[2px]">
+                                <Copy className="w-6 h-6 text-white drop-shadow-lg" />
+                              </div>
+                            </div>
+                            <div className="p-5">
+                              <div className="flex justify-between items-start mb-2">
+                                <span className="font-semibold text-sm">{token.name}</span>
+                                <span className={copiedToken === token.name ? 'opacity-100' : 'opacity-0'}>
+                                  <Check className="w-4 h-4 text-green-500" />
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-2 mb-3">
+                                <code className="text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 font-mono text-gray-600 dark:text-gray-300">
+                                  {isDark ? token.darkValue : token.value}
+                                </code>
+                              </div>
+                              <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800 pt-2 mt-2">
+                                {token.usage}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Typography */}
+              <section id="typography" className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
+                  <span className="p-3 rounded-lg bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">
+                    <Type className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-bold">Typography</h2>
+                    <p className="text-gray-600 dark:text-gray-400">Responsive type scale.</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-900/50">
+                  {typography.map((type, index) => (
+                    <div
+                      key={type.name}
+                      className="p-6 md:p-8 flex flex-col md:flex-row gap-8 items-baseline border-b border-gray-100 dark:border-gray-800 last:border-0 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                    >
+                      <div className="w-32 shrink-0">
+                        <span className="text-xs font-semibold uppercase tracking-wider block mb-1 text-gray-400 dark:text-gray-500">
+                          {type.element}
+                        </span>
+                        <span className="font-medium text-sm text-gray-900 dark:text-gray-100">{type.name}</span>
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <p
+                          style={{
+                            fontSize: type.size,
+                            fontWeight: type.weight,
+                            fontFamily: type.family === 'Inter' ? 'Inter, sans-serif' : type.family === 'Work Sans' ? 'Work Sans, sans-serif' : 'JetBrains Mono, monospace'
+                          }}
+                          className="truncate text-gray-900 dark:text-gray-100"
+                        >
+                          The quick brown fox jumps over the lazy dog
+                        </p>
+                        <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
+                          {type.family} • {type.weight}
+                        </p>
+                      </div>
+
+                      <div className="w-48 shrink-0 text-right md:text-left">
+                        <div className="flex flex-col gap-1">
+                          <code className="text-xs font-mono text-teal-600 dark:text-teal-400">
+                            Desktop: {type.size}
+                          </code>
+                          <code className="text-xs font-mono text-gray-500 dark:text-gray-400">
+                            Mobile: {type.mobile}
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Layout & Spacing */}
+              <section id="layout" className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
+                  <span className="p-3 rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+                    <Layout className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-bold">Layout & Spacing</h2>
+                    <p className="text-gray-600 dark:text-gray-400">8pt grid system.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider mb-6 opacity-60">Spacing Scale</h3>
+                    <div className="flex flex-col gap-4">
+                      {spacing.map((val) => (
+                        <div key={val} className="flex items-center gap-6 group">
+                          <div className="w-16 text-right font-mono text-sm opacity-40 group-hover:opacity-100 transition-opacity">{val}px</div>
+                          <div
+                            className="h-8 rounded bg-teal-500/20 dark:bg-teal-500/40 relative"
+                            style={{ width: `${val}px` }}
+                          >
+                            <div className="absolute inset-0 flex items-center justify-center text-[10px] text-teal-700 dark:text-teal-300 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap px-1">
+                              {val}px
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 grid grid-cols-12 gap-4 px-8 opacity-10">
+                      {Array.from({ length: 12 }).map((_, i) => (
+                        <div key={i} className="h-full bg-red-500"></div>
+                      ))}
+                    </div>
+                    <div className="text-center relative z-10">
+                      <Grid className="w-12 h-12 mx-auto text-gray-400 mb-4" />
+                      <h4 className="font-semibold mb-2">12 Column Grid</h4>
+                      <p className="text-sm text-gray-500 max-w-xs mx-auto">
+                        Max-width: 1180px<br />
+                        Gaps: 16px - 32px<br />
+                        Margins: 24px - 48px
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Shadows */}
+              <section id="shadows" className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
+                  <span className="p-3 rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400">
+                    <Layers className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-bold">Shadows & Depth</h2>
+                    <p className="text-gray-600 dark:text-gray-400">Elevation scale.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                  {shadows.map((shadow) => (
+                    <div key={shadow.name} className="flex flex-col items-center">
+                      <div
+                        className="w-24 h-24 rounded-xl bg-white dark:bg-gray-900 mb-6 transition-all duration-300"
+                        style={{ boxShadow: shadow.value }}
+                      ></div>
+                      <code className="text-sm font-semibold mb-1">shadow-{shadow.name}</code>
+                      <p className="text-xs text-center text-gray-500">{shadow.usage}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Components */}
+              <section id="components" className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
+                  <span className="p-3 rounded-lg bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400">
+                    <Box className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-bold">Components</h2>
+                    <p className="text-gray-600 dark:text-gray-400">Interactive elements.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Buttons */}
+                  <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50">
+                    <h3 className="text-lg font-semibold mb-6">Buttons</h3>
+                    <div className="flex flex-wrap gap-4">
+                      <Button variant="default">Primary</Button>
+                      <Button variant="secondary">Secondary</Button>
+                      <Button variant="outline">Outline</Button>
+                      <Button variant="ghost">Ghost</Button>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50">
+                    <h3 className="text-lg font-semibold mb-6">Tags & Badges</h3>
+                    <div className="flex flex-wrap gap-3">
+                      <Tag variant="code">Code / Default</Tag>
+                      <Tag variant="skill">Skill Tag</Tag>
+                      <Tag variant="badge">System Badge</Tag>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Accessibility */}
+              <section id="accessibility" className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
+                  <span className="p-3 rounded-lg bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400">
+                    <Eye className="w-6 h-6" />
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-bold">Accessibility</h2>
+                    <p className="text-gray-600 dark:text-gray-400">WCAG 2.1 Compliance.</p>
+                  </div>
+                </div>
+
+                <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                      <h3 className="font-semibold mb-6 flex items-center gap-2">
+                        <Monitor className="w-4 h-4" />
+                        Contrast Ratios
+                      </h3>
+                      <ul className="space-y-4">
+                        {[
+                          { label: 'Normal Text', val: '4.5:1', pass: true, desc: 'Body text against background' },
+                          { label: 'Large Text', val: '3.0:1', pass: true, desc: 'Headings (18pt+) against background' },
+                          { label: 'UI Components', val: '3.0:1', pass: true, desc: 'Inputs, Borders, Icons' },
+                        ].map((item) => (
+                          <li key={item.label} className="flex flex-col gap-2 pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                            <div className="flex justify-between items-center">
+                              <span className="font-medium text-sm">{item.label}</span>
+                              <span className="flex items-center gap-2 font-mono text-xs bg-green-500/10 text-green-600 dark:text-green-400 px-2 py-1 rounded">
+                                {item.val} <Check className="w-3 h-3" />
+                              </span>
+                            </div>
+                            <span className="text-xs text-gray-500 dark:text-gray-400">{item.desc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-6">Focus States</h3>
+                      <div className="space-y-6">
+                        <div className="p-6 bg-gray-50 dark:bg-gray-950 rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
+                          <p className="text-sm mb-4 text-center text-gray-500">
+                            Try tabbing through these elements
+                          </p>
+                          <div className="flex justify-center gap-4">
+                            <button className="px-4 py-2 rounded bg-teal-500 text-white focus:ring-4 focus:ring-teal-500/40 focus:outline-none transition-shadow">
+                              Button
+                            </button>
+                            <input
+                              type="text"
+                              placeholder="Input"
+                              className="w-24 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:ring-4 focus:ring-teal-500/40 focus:outline-none focus:border-teal-500 bg-white dark:bg-gray-900"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-[1180px] mx-auto px-8 mt-20">
           <Footer />
         </div>
       </main>

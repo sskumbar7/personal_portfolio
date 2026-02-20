@@ -654,33 +654,79 @@ export function WorkPage() {
                           overflow: 'hidden'
                         }}
                       >
-                        {/* Artifact hint layer - Client Mode */}
-                        <div style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          pointerEvents: 'none'
-                        }}>
-                          <ArtifactHint type={study.artifactType} isClient={true} />
-                        </div>
+                        {/* Client Image with Locked Overlay Style */}
+                        {(study as any).imageUrl ? (
+                          <>
+                            <div className="absolute inset-0 z-0">
+                              <img
+                                src={(study as any).imageUrl}
+                                alt={`${study.title} preview`}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                style={{ objectPosition: 'top center' }}
+                              />
+                            </div>
 
-                        {/* Icon */}
-                        <IconComponent
-                          size={32}
-                          style={{
-                            color: 'rgba(51, 65, 85, 0.9)',
-                            strokeWidth: 1.5,
-                            position: 'relative',
-                            zIndex: 1
-                          }}
-                        />
+                            {/* Locked Blur Overlay */}
+                            <div
+                              style={{
+                                position: 'absolute',
+                                top: '25%', // Match detail page style
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                backdropFilter: 'blur(12px)',
+                                WebkitBackdropFilter: 'blur(12px)',
+                                background: 'rgba(255, 255, 255, 0.4)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                zIndex: 10
+                              }}
+                            >
+                              <div
+                                style={{
+                                  fontSize: '12px',
+                                  fontWeight: 500,
+                                  color: 'rgba(29, 133, 126, 0.9)',
+                                  fontFamily: 'Work Sans, sans-serif',
+                                  background: 'rgba(255, 255, 255, 0.95)',
+                                  padding: '8px 16px',
+                                  borderRadius: '6px',
+                                  border: '1px solid rgba(29, 133, 126, 0.2)',
+                                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  textAlign: 'center'
+                                }}
+                              >
+                                <span>🔒</span> Confidential content
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="absolute inset-0 z-0 opacity-100">
+                            <ArtifactHint type={(study as any).artifactType} isClient={true} />
+                          </div>
+                        )}
+
+                        {/* Icon - Only show if NO image */}
+                        {!(study as any).imageUrl && (
+                          <IconComponent
+                            size={32}
+                            style={{
+                              color: 'rgba(51, 65, 85, 0.9)',
+                              strokeWidth: 1.5,
+                              position: 'relative',
+                              zIndex: 1
+                            }}
+                          />
+                        )}
                       </div>
 
                       {/* Content - reduced padding */}
                       <div style={{ padding: '16px 20px' }}>
-                        <div className="flex items-start gap-2 mb-8">
+                        <div className="flex items-start gap-2 mb-2">
                           <h3
                             style={{
                               fontSize: '19px',
@@ -697,7 +743,7 @@ export function WorkPage() {
                             size={13}
                             style={{
                               color: 'rgba(17, 24, 39, 0.3)',
-                              marginTop: '2px',
+                              marginTop: '5px',
                               flexShrink: 0
                             }}
                           />
@@ -725,7 +771,7 @@ export function WorkPage() {
                           display: 'flex',
                           flexWrap: 'wrap',
                           gap: '5px',
-                          marginBottom: '12px'
+                          marginBottom: '16px'
                         }}>
                           {study.tags.map((tag, index) => (
                             <span

@@ -37,6 +37,10 @@ const buttonVariants = cva(
   },
 );
 
+import { motion } from "motion/react";
+
+// ... imports remain the same
+
 function Button({
   className,
   variant,
@@ -47,12 +51,26 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button";
+  // Cast to any to avoid complex type union issues between Framer Motion and Radix/HTML props
+  const MotionComp = motion.button as any;
+
+  if (asChild) {
+    return (
+      <Slot
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      />
+    );
+  }
 
   return (
-    <Comp
+    <MotionComp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
       {...props}
     />
   );

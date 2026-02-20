@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Globe, Menu, X, Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { FadeIn } from './animations/FadeIn';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function Navigation() {
@@ -86,93 +88,102 @@ export function Navigation() {
 
   return (
     <>
-      {/* Skip to main content link for keyboard navigation */}
-
-
       <nav
         className={`border-b sticky top-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-white/70 backdrop-blur-xl shadow-sm'
           : 'bg-white'
           }`}
         style={{
-          borderColor: isScrolled ? 'rgba(221, 233, 231, 0.4)' : '#DDE9E7'
+          borderColor: isScrolled
+            ? 'var(--color-border)'
+            : 'transparent' // Cleaner look when not scrolled
         }}
       >
         <div className="max-w-[1180px] mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <Link
-              to="/"
-              className="tracking-tight transition-colors"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '18px',
-                fontWeight: 600,
-                color: '#111827'
-              }}
-            >
-              Sandeep S Kumbar
-            </Link>
+            <FadeIn direction="down" delay={0.1}>
+              <Link
+                to="/"
+                className="tracking-tight transition-colors"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  color: 'var(--color-foreground)' // Dynamic color
+                }}
+              >
+                Sandeep S Kumbar
+              </Link>
+            </FadeIn>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-12">
-              {/* Work link - uses router */}
-              <Link
-                to="/work"
-                className="relative transition-colors text-[15px]"
-                style={{
-                  fontFamily: 'Work Sans, sans-serif',
-                  color: '#111827'
-                }}
-                onMouseEnter={() => setHoveredLink('Work')}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                Work
-                <span
-                  className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300"
+              <FadeIn direction="down" delay={0.2}>
+                {/* Work link - uses router */}
+                <Link
+                  to="/work"
+                  className="relative transition-colors text-[15px]"
                   style={{
-                    width: hoveredLink === 'Work' || location.pathname.startsWith('/work') ? '100%' : '0%',
-                    backgroundColor: '#1D857E'
+                    fontFamily: 'Work Sans, sans-serif',
+                    color: 'var(--color-foreground)'
                   }}
-                />
-              </Link>
+                  onMouseEnter={() => setHoveredLink('Work')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Work
+                  <span
+                    className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300"
+                    style={{
+                      width: hoveredLink === 'Work' || location.pathname.startsWith('/work') ? '100%' : '0%',
+                      backgroundColor: '#1D857E'
+                    }}
+                  />
+                </Link>
+              </FadeIn>
 
-              {/* Contact link - uses router */}
-              <Link
-                to="/contact"
-                className="relative transition-colors text-[15px]"
-                style={{
-                  fontFamily: 'Work Sans, sans-serif',
-                  color: '#111827'
-                }}
-                onMouseEnter={() => setHoveredLink('Contact')}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                Contact
-                <span
-                  className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300"
+              <FadeIn direction="down" delay={0.3}>
+                {/* Contact link - uses router */}
+                <Link
+                  to="/contact"
+                  className="relative transition-colors text-[15px]"
                   style={{
-                    width: hoveredLink === 'Contact' || location.pathname === '/contact' ? '100%' : '0%',
-                    backgroundColor: '#1D857E'
+                    fontFamily: 'Work Sans, sans-serif',
+                    color: 'var(--color-foreground)'
                   }}
-                />
-              </Link>
+                  onMouseEnter={() => setHoveredLink('Contact')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Contact
+                  <span
+                    className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300"
+                    style={{
+                      width: hoveredLink === 'Contact' || location.pathname === '/contact' ? '100%' : '0%',
+                      backgroundColor: '#1D857E'
+                    }}
+                  />
+                </Link>
+              </FadeIn>
             </div>
 
-            {/* Mobile Hamburger Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-3 rounded-lg transition-colors flex items-center justify-center"
-              style={{
-                color: '#1D857E',
-                minWidth: '48px',
-                minHeight: '48px'
-              }}
-              aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Actions (Menu) */}
+            <div className="flex md:hidden items-center gap-4">
+
+              {/* Mobile Hamburger Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-3 rounded-lg transition-colors flex items-center justify-center"
+                style={{
+                  color: '#1D857E',
+                  minWidth: '48px',
+                  minHeight: '48px'
+                }}
+                aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -201,7 +212,7 @@ export function Navigation() {
                   className="block py-3 transition-colors text-[16px]"
                   style={{
                     fontFamily: 'Work Sans, sans-serif',
-                    color: location.pathname.startsWith('/work') ? '#1D857E' : '#111827',
+                    color: location.pathname.startsWith('/work') ? '#1D857E' : 'var(--color-foreground)',
                     minHeight: '48px',
                     display: 'flex',
                     alignItems: 'center'
@@ -215,7 +226,7 @@ export function Navigation() {
                   className="block py-3 transition-colors text-[16px]"
                   style={{
                     fontFamily: 'Work Sans, sans-serif',
-                    color: location.pathname === '/contact' ? '#1D857E' : '#111827',
+                    color: location.pathname === '/contact' ? '#1D857E' : 'var(--color-foreground)',
                     minHeight: '48px',
                     display: 'flex',
                     alignItems: 'center'
@@ -227,7 +238,7 @@ export function Navigation() {
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
+      </nav >
     </>
   );
 }

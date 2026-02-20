@@ -6,6 +6,8 @@ import { Tag } from './ui/Tag';
 
 import { Link } from 'react-router-dom';
 
+import { FadeIn } from './animations/FadeIn';
+
 export function Hero() {
   const tags = [
     'Agentic AI Design',
@@ -76,12 +78,12 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Soft gradient background */}
+    <section className="relative overflow-hidden transition-colors duration-300">
+      {/* Soft gradient background - Adaptive */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          background: 'linear-gradient(135deg, #1D857E 0%, #FFFFFF 100%)'
+          background: 'linear-gradient(135deg, #1D857E 0%, transparent 100%)'
         }}
       />
 
@@ -90,35 +92,42 @@ export function Hero() {
           {/* Left column */}
           <div className="space-y-10">
             <div>
-              {/* Status Badge */}
-              <div className="mb-6">
-                <Tag variant="badge">
-                  Currently at KPMG
-                </Tag>
-              </div>
+              <FadeIn delay={0.1}>
+                <div className="mb-6">
+                  <Tag variant="badge">
+                    Currently at KPMG
+                  </Tag>
+                </div>
+              </FadeIn>
 
-              <h1 className="leading-tight text-[28px] md:text-[36px] font-semibold" style={{
-                color: '#111827',
-                lineHeight: '1.2'
-              }}>
-                Lead <GradientWord wordKey="exp-designer">Experience Designer</GradientWord> shaping <GradientWord wordKey="calm">calm</GradientWord>, <GradientWord wordKey="meaningful">meaningful</GradientWord> digital products.
-              </h1>
+              <FadeIn delay={0.2}>
+                <h1 className="leading-tight text-[28px] md:text-[36px] font-semibold" style={{
+                  color: 'var(--color-foreground)',
+                  lineHeight: '1.2'
+                }}>
+                  Lead <GradientWord wordKey="exp-designer">Experience Designer</GradientWord> shaping <GradientWord wordKey="calm">calm</GradientWord>, <GradientWord wordKey="meaningful">meaningful</GradientWord> digital products.
+                </h1>
+              </FadeIn>
             </div>
 
-            <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', maxWidth: '580px' }}>
-              With 11+ years of expertise spanning UX research, strategic design thinking, interaction design,
-              micro-motion choreography, and agentic AI workflows—I craft experiences that feel purposeful,
-              human, and technically sound.
-            </p>
+            <FadeIn delay={0.3}>
+              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'var(--color-muted-foreground)', maxWidth: '580px' }}>
+                With 11+ years of expertise spanning UX research, strategic design thinking, interaction design,
+                micro-motion choreography, and agentic AI workflows—I craft experiences that feel purposeful,
+                human, and technically sound.
+              </p>
+            </FadeIn>
 
             {/* Pill tags */}
-            <div className="flex flex-wrap gap-2 -mt-2">
-              {tags.map((tag, index) => (
-                <Tag key={index} variant="code">
-                  {tag}
-                </Tag>
-              ))}
-            </div>
+            <FadeIn delay={0.4}>
+              <div className="flex flex-wrap gap-2 -mt-2">
+                {tags.map((tag, index) => (
+                  <Tag key={index} variant="code">
+                    {tag}
+                  </Tag>
+                ))}
+              </div>
+            </FadeIn>
 
             {/* Portrait - Mobile Only (order: 2) */}
             <div className="relative md:hidden" style={{ order: 2 }}>
@@ -137,8 +146,7 @@ export function Hero() {
                       src={portraitImage}
                       alt="Sandeep S Kumbar - Lead Experience Designer"
                       loading="eager"
-                      fetchpriority="high"
-                      className="w-full h-auto rounded-xl shadow-xl"
+                      className="w-full h-auto rounded-xl shadow-xl transition-opacity"
                       style={{
                         filter: 'grayscale(100%)',
                         aspectRatio: '1/1',
@@ -177,7 +185,7 @@ export function Hero() {
                   <img
                     src={portraitImage}
                     alt="Sandeep S Kumbar - Lead Experience Designer"
-                    className="w-full h-auto rounded-xl shadow-xl"
+                    className="w-full h-auto rounded-xl shadow-xl transition-opacity"
                     style={{
                       filter: 'grayscale(100%)',
                       aspectRatio: '1/1',

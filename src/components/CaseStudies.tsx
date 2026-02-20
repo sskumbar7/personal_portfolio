@@ -1,14 +1,16 @@
 import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Tag } from './ui/Tag';
 import { publicCaseStudies } from '../data/caseStudies';
 
+
 // Artifact hint component (same as WorkPage)
-const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) => {
-  const baseColor = isClient ? 'rgba(26, 26, 26, 0.15)' : 'rgba(29, 133, 126, 0.18)';
-  const accentColor = isClient ? 'rgba(107, 114, 128, 0.12)' : 'rgba(29, 133, 126, 0.12)';
+const ArtifactHint = ({ type }: { type: string }) => {
+  // Static colors for light mode (teal theme)
+  const baseColor = 'rgba(29, 133, 126, 0.18)';
+  const accentColor = 'rgba(29, 133, 126, 0.12)';
 
   switch (type) {
     case 'token-table':
@@ -166,7 +168,7 @@ export function CaseStudies() {
 
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden transition-colors duration-300"
       style={{
         background: 'linear-gradient(180deg, #F9FDFC 0%, #FFFFFF 100%)'
       }}
@@ -175,13 +177,13 @@ export function CaseStudies() {
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
           <Tag variant="section-label">Featured Work</Tag>
-          <h2 style={{ color: '#111827', fontWeight: 600 }}>Case Studies</h2>
-          <p className="caption max-w-2xl mx-auto" style={{ fontSize: '17px', lineHeight: '1.5', color: '#6B7280' }}>
+          <h2 style={{ color: 'var(--color-foreground)', fontWeight: 600 }}>Case Studies</h2>
+          <p className="caption max-w-2xl mx-auto" style={{ fontSize: '17px', lineHeight: '1.5', color: 'var(--color-muted-foreground)' }}>
             Purposeful, research-driven, strategic outcomes.
           </p>
         </div>
 
-        {/* 3 Card Grid - matching Work page design */}
+        {/* 3 Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {publicCaseStudies.map((study) => {
             const IconComponent = study.icon;
@@ -191,32 +193,30 @@ export function CaseStudies() {
                 to={study.link}
                 className="block"
                 style={{ textDecoration: 'none' }}
-                onMouseEnter={() => setHoveredCard(study.id)}
-                onMouseLeave={() => setHoveredCard(null)}
               >
                 <motion.div
-                  className="h-full transition-all"
+                  className="h-full transition-all group"
                   style={{
                     background: 'rgba(250, 250, 250, 0.6)',
                     borderRadius: '20px',
                     padding: '0',
                     border: '1px solid rgba(0, 0, 0, 0.04)',
-                    boxShadow: hoveredCard === study.id
-                      ? '0 6px 20px rgba(0, 0, 0, 0.06)'
-                      : '0 4px 16px rgba(0, 0, 0, 0.04)',
-                    transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
-                    transition: 'all 0.25s ease-out',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    position: 'relative' // For absolute positioning of children if needed
                   }}
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{
+                    y: -6,
+                    boxShadow: '0 12px 30px rgba(0, 0, 0, 0.06)',
+                  }}
                 >
                   {/* Hybrid preview header with artifact hint */}
                   <div
                     style={{
-                      height: '240px', // Increased height to match Work page
+                      height: '240px',
                       background: study.gradient,
                       borderRadius: '20px 20px 0 0',
                       display: 'flex',
@@ -234,7 +234,7 @@ export function CaseStudies() {
                           width: '100%',
                           height: '100%',
                           objectFit: 'cover',
-                          objectPosition: 'top center', // Anchor to top
+                          objectPosition: 'top center',
                           transition: 'transform 0.5s ease'
                         }}
                         className="group-hover:scale-105"
@@ -250,7 +250,7 @@ export function CaseStudies() {
                           bottom: 0,
                           pointerEvents: 'none'
                         }}>
-                          <ArtifactHint type={study.artifactType} isClient={false} />
+                          <ArtifactHint type={study.artifactType} />
                         </div>
 
                         {/* Icon */}
@@ -268,14 +268,15 @@ export function CaseStudies() {
                     )}
                   </div>
 
-                  {/* Content - matching Work page */}
+                  {/* Content */}
                   <div style={{ padding: '16px 20px' }}>
                     <h3
+                      className="dark:text-gray-100"
                       style={{
                         fontSize: '19px',
                         fontWeight: 600,
                         letterSpacing: '-0.01em',
-                        color: '#111827',
+                        color: 'var(--color-foreground)',
                         fontFamily: 'Inter, sans-serif',
                         lineHeight: '1.3',
                         marginBottom: '8px'
@@ -284,12 +285,13 @@ export function CaseStudies() {
                       {study.title}
                     </h3>
 
-                    {/* Description - strictly 2 lines */}
+                    {/* Description */}
                     <p
+                      className="dark:text-gray-400"
                       style={{
                         fontSize: '14px',
                         lineHeight: '1.35',
-                        color: 'rgba(17, 24, 39, 0.7)',
+                        color: 'var(--color-muted-foreground)',
                         fontFamily: 'Work Sans, sans-serif',
                         marginBottom: '12px',
                         display: '-webkit-box',

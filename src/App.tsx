@@ -21,6 +21,7 @@ import { ConfidentialCaseStudy } from "./pages/ConfidentialCaseStudy";
 import { ConfidentialCaseStudy2 } from "./pages/ConfidentialCaseStudy2";
 import { ConfidentialCaseStudy3 } from "./pages/ConfidentialCaseStudy3";
 import StyleGuidePage from "./pages/StyleGuidePage";
+import { DesignSystemPage } from "./pages/DesignSystemPage";
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/work/confidential-case-study-3" element={<ConfidentialCaseStudy3 />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/style-guide" element={<StyleGuidePage />} />
+        <Route path="/design-system" element={<DesignSystemPage />} />
       </Routes>
     </ErrorBoundary>
   );

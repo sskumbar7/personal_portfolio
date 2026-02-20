@@ -4,7 +4,7 @@ import { About } from '../components/About';
 import { SkillsSnapshot } from '../components/SkillsSnapshot';
 import { Experience } from '../components/Experience';
 import { CaseStudies } from '../components/CaseStudies';
-import { MicroInteractionTeaser } from '../components/MicroInteractionTeaser';
+import { AIWorkflowTeaser } from '../components/AIWorkflowTeaser';
 import { BottomCTA } from '../components/BottomCTA';
 import { SEO, seoConfig } from '../components/SEO';
 
@@ -19,7 +19,7 @@ export function HomePage() {
         <SkillsSnapshot />
         <Experience />
         <CaseStudies />
-        <MicroInteractionTeaser />
+        <AIWorkflowTeaser />
         <BottomCTA />
       </main>
     </div>

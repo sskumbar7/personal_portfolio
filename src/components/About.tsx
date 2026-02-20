@@ -1,172 +1,141 @@
-import { Target, Search, Sparkles, Workflow } from 'lucide-react';
+import { Heart, BarChart3, Accessibility, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
 
 export function About() {
-  const capabilities = [
+  const principles = [
     {
-      icon: Target,
-      title: 'UX Strategy',
-      description: 'Building cohesive design vision that aligns business goals with user needs.'
+      icon: Heart,
+      title: 'Human-Centered',
+      width: '100%' // Full width for concept
     },
     {
-      icon: Search,
-      title: 'Research & Systems',
-      description: 'Deep user insights translated into scalable, systematic design frameworks.'
+      icon: BarChart3,
+      title: 'Data-Informed',
+      width: '90%'
     },
     {
-      icon: Sparkles,
-      title: 'Interaction & Micro-motion',
-      description: 'Choreographing delightful details that bring personality and clarity to interfaces.'
+      icon: Accessibility,
+      title: 'Accessible', // Using Accessibility icon if available, else fallback to something else in next step
+      width: '95%'
     },
     {
-      icon: Workflow,
-      title: 'Agentic AI Workflow Design',
-      description: 'Designing intelligent, explainable AI experiences that augment human capability.'
+      icon: RefreshCw,
+      title: 'Iterative',
+      width: '85%'
     }
   ];
 
   return (
     <section className="bg-white relative overflow-hidden">
-      <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-20 md:pb-20 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 relative">
+      <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-24 md:pb-24 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative items-start">
           {/* Left column */}
           <div className="relative">
-            {/* Soft gradient background behind text */}
-            <div
-              className="absolute inset-0 -left-8 -right-4 rounded-3xl opacity-[0.04]"
-              style={{
-                background: 'radial-gradient(ellipse at center, #1D857E 0%, transparent 70%)',
-                filter: 'blur(40px)',
-                zIndex: 0
-              }}
-            />
-
-            {/* Subtle vertical accent line */}
-            <div
-              className="absolute left-0 top-0 bottom-0 w-[2px] rounded-full opacity-20"
-              style={{
-                background: 'linear-gradient(to bottom, transparent 0%, #1D857E 20%, #1D857E 80%, transparent 100%)'
-              }}
-            />
-
-            <div className="relative z-10 pl-8 max-w-[520px]">
-              <div className="mb-6">
-                <div className="mb-3">
-                  <h2 className="sr-only">About Me</h2>
-                  <Tag variant="section-label">About Me</Tag>
-                </div>
-                <p style={{
-                  fontSize: '16px',
-                  color: '#6B7280',
-                  lineHeight: '1.6',
-                  fontWeight: 400
-                }}>
-                  Blending systems thinking, interaction craft, and human insight.
-                </p>
+            {/* Header */}
+            <div className="mb-8">
+              <div className="mb-4">
+                <Tag variant="section-label">About Me</Tag>
               </div>
 
-              {/* Pull quote / Design belief */}
+              <p style={{
+                fontSize: '16px',
+                color: '#6B7280',
+                lineHeight: '1.6',
+                fontWeight: 400,
+                marginBottom: '32px'
+              }}>
+                Blending systems thinking, interaction craft, and human insight.
+              </p>
+
+              {/* Quote */}
               <motion.div
-                className="mb-8 pb-6 border-b"
-                style={{ borderColor: 'rgba(29, 133, 126, 0.1)' }}
-                initial={{ opacity: 0, y: 4 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+                className="mb-10"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
               >
-                <p style={{
-                  fontSize: '18px',
-                  lineHeight: '1.5',
-                  color: 'rgba(29, 133, 126, 0.85)',
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 500,
-                  fontStyle: 'italic',
-                  letterSpacing: '-0.01em'
-                }}>
+                <p
+                  className="text-xl md:text-2xl font-medium italic text-[#1D857E]"
+                  style={{ fontFamily: 'Work Sans, sans-serif' }}
+                >
                   "Great design is systematic, strategic, and deeply human."
                 </p>
               </motion.div>
 
-              <div className="space-y-5">
-                <p style={{ fontSize: '17px', lineHeight: '1.6', color: '#111827' }}>
-                  I believe great design isn't just about aesthetics—it's about <span style={{ color: '#1D857E', fontWeight: 500 }}>systems thinking</span>,
+              {/* Body Text */}
+              <div className="space-y-6 text-[17px] leading-relaxed text-gray-700">
+                <p>
+                  I believe great design isn't just about aesthetics—it's about <span className="font-semibold text-[#1D857E]">systems thinking</span>,
                   strategic clarity, and building products that truly understand human behavior.
                 </p>
 
-                <p style={{ fontSize: '17px', lineHeight: '1.6', color: '#111827' }}>
-                  My work bridges UX research, <span style={{ color: '#1D857E', fontWeight: 500 }}>interaction design</span>, and emerging <span style={{ color: '#1D857E', fontWeight: 500 }}>AI workflows</span> to
-                  create experiences that feel both intelligent and deeply human.
+                <p>
+                  My work bridges UX research, <span className="font-semibold text-[#1D857E]">interaction design</span>, and
+                  emerging <span className="font-semibold text-[#1D857E]">AI workflows</span> to create experiences that
+                  feel both intelligent and deeply human.
                 </p>
 
-                <p style={{ fontSize: '17px', lineHeight: '1.6', color: 'rgba(17, 24, 39, 0.7)' }}>
-                  Every project is an opportunity to build something calm, purposeful, and meaningful—rooted in research, refined through craft, and delivered with clarity.
+                <p className="text-gray-600">
+                  Every project is an opportunity to build something calm, purposeful, and meaningful—rooted
+                  in research, refined through craft, and delivered with clarity.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right column - 2x2 grid of cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {capabilities.map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-3xl border border-[rgba(29,133,126,0.08)] shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
-                style={{
-                  padding: '32px'
-                }}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{
-                  duration: 0.3,
-                  delay: index * 0.08,
-                  ease: 'easeOut'
-                }}
-                whileHover={{
-                  y: -4,
-                  boxShadow: '0 12px 32px rgba(29, 133, 126, 0.08)',
-                  borderColor: 'rgba(29, 133, 126, 0.2)'
-                }}
+          {/* Right column - Design Principles */}
+          <div className="relative pt-2">
+            <div className="text-center mb-10 md:mb-12">
+              <h3
+                className="text-xs font-bold tracking-widest uppercase text-[#1D857E] opacity-60 mb-2"
+                style={{ fontFamily: 'Inter, sans-serif' }}
               >
-                {/* Icon with circular background */}
+                Design Principles
+              </h3>
+              <p className="text-sm text-gray-400">
+                Core values that guide every decision
+              </p>
+            </div>
+
+            <div className="space-y-10">
+              {principles.map((item, index) => (
                 <motion.div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
-                  style={{
-                    backgroundColor: 'rgba(205, 233, 230, 0.3)'
-                  }}
-                  whileHover={{
-                    y: -2,
-                    rotate: 3,
-                    scale: 1.05
-                  }}
-                  transition={{ duration: 0.2 }}
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <item.icon
-                    className="w-6 h-6"
-                    aria-hidden="true"
-                    style={{
-                      color: '#1D857E',
-                      strokeWidth: 1.5
-                    }}
-                  />
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#1D857E]/5 text-[#1D857E]">
+                      <item.icon size={20} strokeWidth={1.5} />
+                    </div>
+                    <span className="text-lg font-medium text-gray-800">
+                      {item.title}
+                    </span>
+                  </div>
+
+                  {/* Progress Bar Container */}
+                  <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full bg-[#1D857E]/50 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: item.width }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
+                    />
+                  </div>
                 </motion.div>
+              ))}
+            </div>
 
-                <h4 style={{
-                  fontSize: '18px',
-                  fontWeight: 600,
-                  letterSpacing: '-0.01em',
-                  color: '#111827',
-                  marginBottom: '12px'
-                }}>
-                  {item.title}
-                </h4>
-
-                <p className="caption" style={{ lineHeight: '1.5' }}>
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+            <div className="mt-12 text-center">
+              <p className="text-xs text-gray-300 font-medium tracking-wide">
+                Balanced approach across all principles
+              </p>
+            </div>
           </div>
         </div>
       </div>
