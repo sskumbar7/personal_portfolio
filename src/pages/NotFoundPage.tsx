@@ -1,6 +1,7 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/ui/Button';
+import { Tag } from '../components/ui/Tag';
 import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -24,9 +25,9 @@ export function NotFoundPage() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="inline-block mb-6 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm text-gray-500 font-mono text-sm shadow-teal-900/5"
+                        className="mb-8 flex justify-center"
                     >
-                        Error 404
+                        <Tag variant="code">404 Error</Tag>
                     </motion.div>
 
                     <motion.h1
@@ -51,17 +52,17 @@ export function NotFoundPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                        className="flex items-center justify-center gap-4"
+                        className="flex items-center justify-center gap-6"
                     >
-                        <Button asChild variant="outline" className="gap-2 px-6 h-12 text-base shadow-sm">
+                        <Button asChild variant="secondary" className="gap-2">
                             <Link to="/">
                                 <ArrowLeft className="w-4 h-4" />
                                 Go back
                             </Link>
                         </Button>
-                        <Button asChild className="gap-2 px-6 h-12 text-base shadow-sm bg-gray-900 hover:bg-gray-800">
+                        <Button asChild variant="default" className="gap-2">
                             <Link to="/">
-                                <Home className="w-4 h-4 text-gray-400" />
+                                <Home className="w-4 h-4 text-white" />
                                 Home page
                             </Link>
                         </Button>
