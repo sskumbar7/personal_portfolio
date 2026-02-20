@@ -114,42 +114,48 @@ export function DesignSystemPage() {
 
       <Navigation />
 
-      <main className="relative pt-24 pb-20">
-
-        {/* Header */}
-        <div className="relative overflow-hidden border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
-          <div className="max-w-[1180px] mx-auto px-6 py-20 md:py-32 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400">
-                  System v2.1
-                </span>
-                <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
-                  Live
-                </span>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight font-display">
-                Design System
-              </h1>
-
-              <p className="text-xl md:text-2xl max-w-2xl leading-relaxed text-gray-600 dark:text-gray-400">
-                The visual language used to build this portfolio.
-                Values automatically adapt to the <span className="text-teal-600 dark:text-teal-400 font-medium">current theme</span>.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+      <main id="main-content">
+        {/* Header Banner - Matching Contact/Work Pages */}
+        <section
+          className="relative overflow-hidden"
+          style={{
+            background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.11) 0%, rgba(29, 133, 126, 0.06) 40%, #FFFFFF 80%)'
+          }}
+        >
+          {/* Subtle pattern overlay for design system page context */}
+          <div className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
             }}
           />
-        </div>
+
+          <div className="max-w-[1180px] mx-auto px-8 pt-24 pb-12 md:pt-32 md:pb-20 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center max-w-[720px] mx-auto space-y-10"
+            >
+              <div className="flex justify-center items-center gap-3">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-[rgba(29,133,126,0.08)] text-[#1D857E] border border-[rgba(29,133,126,0.15)]">
+                  System v2.1
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-gray-100 text-gray-500">
+                  Live
+                </span>
+              </div>
+
+              <h1 className="leading-tight" style={{ color: '#111827', fontSize: '36px', lineHeight: '1.2' }}>
+                Design <span style={{ color: '#1D857E' }}>System</span>
+              </h1>
+
+              <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'rgba(17, 24, 39, 0.7)', maxWidth: '600px', margin: '0 auto' }}>
+                The visual language used to build this portfolio.
+                Values automatically adapt to the <span className="text-[#1D857E] font-medium">current theme</span>.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
         <div className="max-w-[1180px] mx-auto px-6 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -396,10 +402,212 @@ export function DesignSystemPage() {
                   {/* Tags */}
                   <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50">
                     <h3 className="text-lg font-semibold mb-6">Tags & Badges</h3>
-                    <div className="flex flex-wrap gap-3">
-                      <Tag variant="code">Code / Default</Tag>
-                      <Tag variant="skill">Skill Tag</Tag>
-                      <Tag variant="badge">System Badge</Tag>
+                    <div className="flex flex-wrap gap-4 mb-6">
+                      <div className="flex flex-col gap-2 border-r border-gray-100 pr-6">
+                        <span className="text-xs text-gray-500 font-mono">variant="code"</span>
+                        <Tag variant="code">Code / Default</Tag>
+                      </div>
+                      <div className="flex flex-col gap-2 border-r border-gray-100 pr-6">
+                        <span className="text-xs text-gray-500 font-mono">variant="skill"</span>
+                        <Tag variant="skill">Skill Tag</Tag>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs text-gray-500 font-mono">variant="badge"</span>
+                        <Tag variant="badge">System Badge</Tag>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                      <span className="text-xs text-gray-500 font-mono">variant="section-label"</span>
+                      <Tag variant="section-label">Section Label (e.g. 01 — FOUNDATION)</Tag>
+                    </div>
+                  </div>
+
+                  {/* Inline Links */}
+                  <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50">
+                    <h3 className="text-lg font-semibold mb-6">Inline Links</h3>
+                    <div className="space-y-6">
+
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs text-gray-500 font-mono">Standard CTA Link</span>
+                        <div
+                          className="inline-flex items-center gap-1.5 cursor-pointer group"
+                          style={{
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            color: '#1D857E',
+                            fontFamily: 'Work Sans, sans-serif'
+                          }}
+                        >
+                          View case study
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="transition-transform duration-200 ease-out group-hover:translate-x-[3px]"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs text-gray-500 font-mono">Narrative Text Link (Animated underline)</span>
+                        <style>{`
+                          .ds-inline-link:hover {
+                            color: rgba(29, 133, 126, 1);
+                          }
+                          .ds-inline-link:hover::after {
+                            transform: scaleX(1);
+                          }
+                          .ds-inline-link::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -2px;
+                            left: 0;
+                            right: 20px;
+                            height: 1px;
+                            background: rgba(29, 133, 126, 0.4);
+                            transform: scaleX(0);
+                            transform-origin: left;
+                            transition: transform 0.25s ease;
+                          }
+                          .ds-inline-link:hover .ds-arrow-icon {
+                            transform: translateX(3px);
+                          }
+                        `}</style>
+                        <div
+                          className="ds-inline-link cursor-pointer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            fontSize: '15px',
+                            fontWeight: 500,
+                            color: 'rgba(29, 133, 126, 0.95)',
+                            fontFamily: 'Work Sans, sans-serif',
+                            textDecoration: 'none',
+                            position: 'relative',
+                            transition: 'color 0.2s ease',
+                            width: 'fit-content'
+                          }}
+                        >
+                          Looking for details? Reach out
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="ds-arrow-icon transition-transform duration-200 ease-out"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Cards */}
+                  <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 md:col-span-2">
+                    <h3 className="text-lg font-semibold mb-6">Interactive Content Cards</h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {/* Standard Card */}
+                      <div className="flex flex-col gap-3">
+                        <span className="text-xs text-gray-500 font-mono">Featured Component Card</span>
+                        <div
+                          className="h-full transition-all duration-300 ease-out group cursor-pointer"
+                          style={{
+                            background: 'rgba(250, 250, 250, 0.6)',
+                            borderRadius: '20px',
+                            border: '1px solid rgba(0, 0, 0, 0.04)',
+                            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-3px)';
+                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.06)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
+                          }}
+                        >
+                          <div
+                            style={{
+                              height: '140px',
+                              background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.1) 0%, rgba(59, 197, 161, 0.1) 100%)',
+                              borderRadius: '20px 20px 0 0',
+                            }}
+                          />
+                          <div style={{ padding: '20px' }}>
+                            <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#111827', marginBottom: '8px' }}>
+                              Card Example
+                            </h3>
+                            <p style={{ fontSize: '14px', color: 'rgba(17, 24, 39, 0.7)', marginBottom: '16px' }}>
+                              Standard card layout with hover lift effect (`translateY-[-3px]`). Uses `rgba(250, 250, 250, 0.6)` background.
+                            </p>
+                            <Tag variant="skill">Interaction</Tag>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Client Card */}
+                      <div className="flex flex-col gap-3">
+                        <span className="text-xs text-gray-500 font-mono">Confidential Content Card</span>
+                        <div
+                          className="h-full transition-all duration-300 ease-out group cursor-pointer"
+                          style={{
+                            background: 'rgba(250, 250, 250, 0.4)',
+                            borderRadius: '20px',
+                            border: '1px solid rgba(0, 0, 0, 0.03)',
+                            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-3px)';
+                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.05)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
+                          }}
+                        >
+                          <div
+                            style={{
+                              height: '140px',
+                              background: 'rgba(71, 85, 105, 0.08)',
+                              borderRadius: '20px 20px 0 0',
+                              position: 'relative',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                            }}
+                          >
+                            <div style={{ fontSize: '12px', fontWeight: 500, color: 'rgba(29, 133, 126, 0.9)', background: 'rgba(255, 255, 255, 0.95)', padding: '8px 16px', borderRadius: '6px', border: '1px solid rgba(29, 133, 126, 0.2)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <span>🔒</span> Confidential content
+                            </div>
+                          </div>
+                          <div style={{ padding: '20px' }}>
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'rgba(17, 24, 39, 0.75)' }}>
+                                Client Example
+                              </h3>
+                            </div>
+                            <p style={{ fontSize: '14px', color: 'rgba(17, 24, 39, 0.6)', marginBottom: '16px' }}>
+                              Used for locked case studies. Semi-transparent background with gray tones.
+                            </p>
+                            <Tag variant="skill" isClient={true}>UX Strategy</Tag>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
