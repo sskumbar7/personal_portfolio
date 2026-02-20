@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Globe, Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { FadeIn } from './animations/FadeIn';
+
 import { motion, AnimatePresence } from 'motion/react';
 
 export function Navigation() {
@@ -101,7 +101,11 @@ export function Navigation() {
       >
         <div className="max-w-[1180px] mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <FadeIn direction="down" delay={0.1}>
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
               <Link
                 to="/"
                 className="tracking-tight transition-colors"
@@ -114,11 +118,15 @@ export function Navigation() {
               >
                 Sandeep S Kumbar
               </Link>
-            </FadeIn>
+            </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-12">
-              <FadeIn direction="down" delay={0.2}>
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
                 {/* Work link - uses router */}
                 <Link
                   to="/work"
@@ -139,9 +147,13 @@ export function Navigation() {
                     }}
                   />
                 </Link>
-              </FadeIn>
+              </motion.div>
 
-              <FadeIn direction="down" delay={0.3}>
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
                 {/* Contact link - uses router */}
                 <Link
                   to="/contact"
@@ -162,7 +174,7 @@ export function Navigation() {
                     }}
                   />
                 </Link>
-              </FadeIn>
+              </motion.div>
             </div>
 
             {/* Mobile Actions (Menu) */}
