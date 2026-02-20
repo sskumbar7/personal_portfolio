@@ -6,7 +6,7 @@ import { Tag } from '../components/ui/Tag';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { CaseStudyCard } from '../components/ui/CaseStudyCard';
 import { SEO } from '../components/SEO';
-import { Copy, Check, Moon, Sun, Type, Layout, Palette, Box, Eye, Monitor, Layers, Grid, Compass, Heart, BarChart3, Accessibility as AccessibilityIcon, RefreshCw } from 'lucide-react';
+import { Copy, Check, Moon, Sun, Type, Layout, Palette, Box, Eye, Monitor, Layers, Grid } from 'lucide-react';
 import { motion } from 'motion/react';
 
 
@@ -108,7 +108,6 @@ export function DesignSystemPage() {
   ];
 
   const navItems = [
-    { id: 'principles', label: 'Design Principles', icon: Compass },
     { id: 'foundation', label: 'Colors & Gradients', icon: Palette },
     { id: 'typography', label: 'Typography', icon: Type },
     { id: 'layout', label: 'Layout & Spacing', icon: Layout },
@@ -195,62 +194,6 @@ export function DesignSystemPage() {
 
             {/* Main Content */}
             <div className="lg:col-span-9 space-y-32">
-
-              {/* Design Principles */}
-              <section id="principles" className="scroll-mt-32">
-                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100 dark:border-gray-800">
-                  <span className="p-3 rounded-lg bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-400">
-                    <Compass className="w-6 h-6" />
-                  </span>
-                  <div>
-                    <h2 className="text-2xl font-bold">Design Principles</h2>
-                    <p className="text-gray-600 dark:text-gray-400">Core values that guide every decision.</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {[
-                    {
-                      icon: Heart,
-                      title: 'Human-Centered',
-                      description: 'Interfaces should solve problems, not just look pretty. Every element must have a distinct purpose and provide value to the user.',
-                      color: 'text-pink-500',
-                      bg: 'bg-pink-50 dark:bg-pink-500/10'
-                    },
-                    {
-                      icon: BarChart3,
-                      title: 'Data-Informed',
-                      description: 'Design decisions are rooted in business logic and user research, ensuring that aesthetics serve a functional and strategic goal.',
-                      color: 'text-blue-500',
-                      bg: 'bg-blue-50 dark:bg-blue-500/10'
-                    },
-                    {
-                      icon: AccessibilityIcon,
-                      title: 'Accessible',
-                      description: 'Components are built to be inclusive and accessible from the start, creating a cohesive and usable experience across all touchpoints.',
-                      color: 'text-green-500',
-                      bg: 'bg-green-50 dark:bg-green-500/10'
-                    },
-                    {
-                      icon: RefreshCw,
-                      title: 'Iterative & Systematic',
-                      description: 'We believe in systematic scale, building reusable components that evolve gracefully through iterative refinement.',
-                      color: 'text-[#1D857E]',
-                      bg: 'bg-[#1D857E]/10 dark:bg-teal-500/10'
-                    }
-                  ].map((principle) => (
-                    <div key={principle.title} className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-200/50">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${principle.bg} ${principle.color}`}>
-                        <principle.icon className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-3">{principle.title}</h3>
-                      <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
-                        {principle.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
 
               {/* Foundation / Colors */}
               <section id="foundation" className="scroll-mt-32">
