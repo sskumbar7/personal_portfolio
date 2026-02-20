@@ -1,6 +1,6 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Lock, CheckCircle2, TrendingUp, Users, Zap } from 'lucide-react';
 
 interface CaseStudyData {
@@ -184,6 +184,17 @@ const caseStudyData: CaseStudyData = {
 };
 
 export function CaseStudyPage() {
+  const { id } = useParams<{ id: string }>();
+
+  // Currently we only have one hardcoded detailed case study. 
+  // If the ID doesn't match, we should 404.
+  if (id !== caseStudyData.id) {
+    // The App.tsx catch-all will handle the actual 404 UI, but since we are 
+    // inside a matched route here, we need to explicitly navigate to an invalid path 
+    // or render the NotFoundPage directly. Navigating to an explicitly invalid path is cleaner.
+    return <Navigate to="/404-not-found" replace />;
+  }
+
   const data = caseStudyData;
 
   // Helper to highlight keywords in title
@@ -235,7 +246,7 @@ export function CaseStudyPage() {
       <Navigation />
 
       {/* CASE STUDY HERO */}
-      <section 
+      <section
         className="relative overflow-hidden"
         style={{
           minHeight: '420px',
@@ -267,8 +278,8 @@ export function CaseStudyPage() {
 
           <div className="max-w-[860px]">
             {/* Project title */}
-            <h1 
-              style={{ 
+            <h1
+              style={{
                 fontSize: '42px',
                 lineHeight: '1.15',
                 color: '#111827',
@@ -282,8 +293,8 @@ export function CaseStudyPage() {
             </h1>
 
             {/* One-liner with keyword highlights */}
-            <p 
-              style={{ 
+            <p
+              style={{
                 fontSize: '20px',
                 lineHeight: '1.4',
                 color: 'rgba(17, 24, 39, 0.75)',
@@ -295,7 +306,7 @@ export function CaseStudyPage() {
             </p>
 
             {/* Metadata row */}
-            <div 
+            <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
@@ -305,7 +316,7 @@ export function CaseStudyPage() {
               }}
             >
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '12px',
                     fontWeight: 600,
@@ -318,7 +329,7 @@ export function CaseStudyPage() {
                 >
                   Role
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '15px',
                     color: 'rgba(17, 24, 39, 0.85)',
@@ -330,7 +341,7 @@ export function CaseStudyPage() {
               </div>
 
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '12px',
                     fontWeight: 600,
@@ -343,7 +354,7 @@ export function CaseStudyPage() {
                 >
                   Focus
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '15px',
                     color: 'rgba(17, 24, 39, 0.85)',
@@ -355,7 +366,7 @@ export function CaseStudyPage() {
               </div>
 
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '12px',
                     fontWeight: 600,
@@ -368,7 +379,7 @@ export function CaseStudyPage() {
                 >
                   Duration
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '15px',
                     color: 'rgba(17, 24, 39, 0.85)',
@@ -380,7 +391,7 @@ export function CaseStudyPage() {
               </div>
 
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '12px',
                     fontWeight: 600,
@@ -393,7 +404,7 @@ export function CaseStudyPage() {
                 >
                   Context
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '15px',
                     color: 'rgba(17, 24, 39, 0.85)',
@@ -414,11 +425,11 @@ export function CaseStudyPage() {
 
       {/* MAIN CONTENT */}
       <div className="max-w-[1180px] mx-auto px-8">
-        
+
         {/* HERO PREVIEW IMAGE */}
         {data.heroImage && (
           <section style={{ paddingTop: '64px', paddingBottom: '0' }}>
-            <div 
+            <div
               style={{
                 borderRadius: '16px',
                 overflow: 'hidden',
@@ -426,14 +437,14 @@ export function CaseStudyPage() {
                 border: '1px solid rgba(0, 0, 0, 0.04)'
               }}
             >
-              <div 
+              <div
                 style={{
                   aspectRatio: '16 / 9',
                   overflow: 'hidden',
                   background: 'rgba(250, 250, 250, 0.6)'
                 }}
               >
-                <img 
+                <img
                   src={data.heroImage.url}
                   alt={data.heroImage.alt}
                   style={{
@@ -445,7 +456,7 @@ export function CaseStudyPage() {
               </div>
             </div>
             {data.heroImage.caption && (
-              <p 
+              <p
                 style={{
                   fontSize: '13px',
                   lineHeight: '1.5',
@@ -460,10 +471,10 @@ export function CaseStudyPage() {
             )}
           </section>
         )}
-        
+
         {/* PROBLEM FRAMING - Two Column */}
         <section style={{ paddingTop: '96px', paddingBottom: '64px' }}>
-          <div 
+          <div
             style={{
               fontSize: '13px',
               fontWeight: 600,
@@ -480,7 +491,7 @@ export function CaseStudyPage() {
           <div className="grid md:grid-cols-[1fr,380px] gap-12">
             {/* Left: Narrative */}
             <div>
-              <p 
+              <p
                 style={{
                   fontSize: '18px',
                   lineHeight: '1.6',
@@ -507,7 +518,7 @@ export function CaseStudyPage() {
 
             {/* Right: Constraints */}
             <div>
-              <div 
+              <div
                 style={{
                   fontSize: '14px',
                   fontWeight: 600,
@@ -520,7 +531,7 @@ export function CaseStudyPage() {
               </div>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
                 {data.problem.constraints.map((constraint, index) => (
-                  <li 
+                  <li
                     key={index}
                     style={{
                       fontSize: '14px',
@@ -532,7 +543,7 @@ export function CaseStudyPage() {
                       position: 'relative'
                     }}
                   >
-                    <span 
+                    <span
                       style={{
                         position: 'absolute',
                         left: '0',
@@ -553,7 +564,7 @@ export function CaseStudyPage() {
 
         {/* GOALS & SUCCESS CRITERIA */}
         <section style={{ paddingBottom: '64px' }}>
-          <div 
+          <div
             style={{
               fontSize: '13px',
               fontWeight: 600,
@@ -571,7 +582,7 @@ export function CaseStudyPage() {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {data.goals.map((goal, index) => (
               <div key={index}>
-                <div 
+                <div
                   style={{
                     width: '32px',
                     height: '32px',
@@ -585,7 +596,7 @@ export function CaseStudyPage() {
                 >
                   <CheckCircle2 size={18} style={{ color: 'rgba(29, 133, 126, 0.8)' }} />
                 </div>
-                <h3 
+                <h3
                   style={{
                     fontSize: '16px',
                     fontWeight: 600,
@@ -597,7 +608,7 @@ export function CaseStudyPage() {
                 >
                   {goal.title}
                 </h3>
-                <p 
+                <p
                   style={{
                     fontSize: '14px',
                     lineHeight: '1.5',
@@ -612,7 +623,7 @@ export function CaseStudyPage() {
           </div>
 
           {/* Success Criteria */}
-          <div 
+          <div
             style={{
               background: 'rgba(29, 133, 126, 0.04)',
               borderRadius: '12px',
@@ -620,7 +631,7 @@ export function CaseStudyPage() {
               border: '1px solid rgba(29, 133, 126, 0.08)'
             }}
           >
-            <div 
+            <div
               style={{
                 fontSize: '14px',
                 fontWeight: 600,
@@ -633,7 +644,7 @@ export function CaseStudyPage() {
             </div>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: '10px' }}>
               {data.successCriteria.map((criteria, index) => (
-                <li 
+                <li
                   key={index}
                   style={{
                     fontSize: '14px',
@@ -644,8 +655,8 @@ export function CaseStudyPage() {
                     position: 'relative'
                   }}
                 >
-                  <CheckCircle2 
-                    size={14} 
+                  <CheckCircle2
+                    size={14}
                     style={{
                       position: 'absolute',
                       left: '0',
@@ -662,7 +673,7 @@ export function CaseStudyPage() {
 
         {/* EXPLORATION & APPROACH */}
         <section style={{ paddingBottom: '64px' }}>
-          <div 
+          <div
             style={{
               fontSize: '13px',
               fontWeight: 600,
@@ -677,7 +688,7 @@ export function CaseStudyPage() {
           </div>
 
           <div className="max-w-[760px]">
-            <p 
+            <p
               style={{
                 fontSize: '17px',
                 lineHeight: '1.6',
@@ -691,7 +702,7 @@ export function CaseStudyPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {data.approach.keyPoints.map((point, index) => (
-                <div 
+                <div
                   key={index}
                   style={{
                     padding: '16px 20px',
@@ -700,7 +711,7 @@ export function CaseStudyPage() {
                     border: '1px solid rgba(0, 0, 0, 0.04)'
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       fontSize: '14px',
                       lineHeight: '1.5',
@@ -716,14 +727,14 @@ export function CaseStudyPage() {
 
             {/* Approach Image */}
             {data.approach.image && (
-              <div 
+              <div
                 style={{
                   marginTop: '32px',
                   borderRadius: '12px',
                   overflow: 'hidden'
                 }}
               >
-                <img 
+                <img
                   src={data.approach.image.url}
                   alt={data.approach.image.alt}
                   style={{
@@ -732,7 +743,7 @@ export function CaseStudyPage() {
                   }}
                 />
                 {data.approach.image.caption && (
-                  <div 
+                  <div
                     style={{
                       padding: '12px 16px',
                       background: 'rgba(0, 0, 0, 0.06)',
@@ -751,7 +762,7 @@ export function CaseStudyPage() {
 
         {/* SOLUTION DEEP DIVE */}
         <section style={{ paddingBottom: '64px' }}>
-          <div 
+          <div
             style={{
               fontSize: '13px',
               fontWeight: 600,
@@ -768,7 +779,7 @@ export function CaseStudyPage() {
           <div className="space-y-16">
             {data.solution.map((section, index) => (
               <div key={index} className="max-w-[820px]">
-                <h3 
+                <h3
                   style={{
                     fontSize: '22px',
                     fontWeight: 600,
@@ -780,8 +791,8 @@ export function CaseStudyPage() {
                 >
                   {section.title}
                 </h3>
-                
-                <p 
+
+                <p
                   style={{
                     fontSize: '16px',
                     lineHeight: '1.6',
@@ -794,7 +805,7 @@ export function CaseStudyPage() {
                 </p>
 
                 {/* Why it matters callout */}
-                <div 
+                <div
                   style={{
                     background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.06) 0%, rgba(29, 133, 126, 0.02) 100%)',
                     borderRadius: '12px',
@@ -802,7 +813,7 @@ export function CaseStudyPage() {
                     borderLeft: '3px solid rgba(29, 133, 126, 0.3)'
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       fontSize: '13px',
                       fontWeight: 600,
@@ -815,7 +826,7 @@ export function CaseStudyPage() {
                   >
                     Why this matters
                   </div>
-                  <p 
+                  <p
                     style={{
                       fontSize: '15px',
                       lineHeight: '1.6',
@@ -830,14 +841,14 @@ export function CaseStudyPage() {
 
                 {/* Solution Image */}
                 {section.image && (
-                  <div 
+                  <div
                     style={{
                       marginTop: '32px',
                       borderRadius: '12px',
                       overflow: 'hidden'
                     }}
                   >
-                    <img 
+                    <img
                       src={section.image.url}
                       alt={section.image.alt}
                       style={{
@@ -846,7 +857,7 @@ export function CaseStudyPage() {
                       }}
                     />
                     {section.image.caption && (
-                      <div 
+                      <div
                         style={{
                           padding: '12px 16px',
                           background: 'rgba(0, 0, 0, 0.06)',
@@ -867,7 +878,7 @@ export function CaseStudyPage() {
 
         {/* OUTCOME & IMPACT */}
         <section style={{ paddingBottom: '64px' }}>
-          <div 
+          <div
             style={{
               fontSize: '13px',
               fontWeight: 600,
@@ -885,7 +896,7 @@ export function CaseStudyPage() {
           {data.outcome.metrics && (
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {data.outcome.metrics.map((metric, index) => (
-                <div 
+                <div
                   key={index}
                   style={{
                     background: 'rgba(29, 133, 126, 0.04)',
@@ -895,7 +906,7 @@ export function CaseStudyPage() {
                     textAlign: 'center'
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       fontSize: '36px',
                       fontWeight: 600,
@@ -907,7 +918,7 @@ export function CaseStudyPage() {
                   >
                     {metric.value}
                   </div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '14px',
                       color: 'rgba(17, 24, 39, 0.7)',
@@ -923,7 +934,7 @@ export function CaseStudyPage() {
 
           {/* Changes */}
           <div className="max-w-[820px] mb-12">
-            <h4 
+            <h4
               style={{
                 fontSize: '16px',
                 fontWeight: 600,
@@ -936,7 +947,7 @@ export function CaseStudyPage() {
             </h4>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
               {data.outcome.changes.map((change, index) => (
-                <li 
+                <li
                   key={index}
                   style={{
                     fontSize: '15px',
@@ -948,8 +959,8 @@ export function CaseStudyPage() {
                     position: 'relative'
                   }}
                 >
-                  <TrendingUp 
-                    size={16} 
+                  <TrendingUp
+                    size={16}
                     style={{
                       position: 'absolute',
                       left: '0',
@@ -965,7 +976,7 @@ export function CaseStudyPage() {
 
           {/* Learnings */}
           <div className="max-w-[820px]">
-            <h4 
+            <h4
               style={{
                 fontSize: '16px',
                 fontWeight: 600,
@@ -978,7 +989,7 @@ export function CaseStudyPage() {
             </h4>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
               {data.outcome.learnings.map((learning, index) => (
-                <li 
+                <li
                   key={index}
                   style={{
                     fontSize: '15px',
@@ -990,8 +1001,8 @@ export function CaseStudyPage() {
                     position: 'relative'
                   }}
                 >
-                  <Zap 
-                    size={16} 
+                  <Zap
+                    size={16}
                     style={{
                       position: 'absolute',
                       left: '0',
@@ -1008,14 +1019,14 @@ export function CaseStudyPage() {
 
         {/* REFLECTION & SYSTEM THINKING */}
         {data.reflection && (
-          <section 
-            style={{ 
+          <section
+            style={{
               paddingBottom: '64px',
               borderTop: '1px solid rgba(0, 0, 0, 0.06)',
               paddingTop: '64px'
             }}
           >
-            <div 
+            <div
               style={{
                 fontSize: '13px',
                 fontWeight: 600,
@@ -1031,7 +1042,7 @@ export function CaseStudyPage() {
 
             <div className="max-w-[820px] space-y-8">
               <div>
-                <h4 
+                <h4
                   style={{
                     fontSize: '16px',
                     fontWeight: 600,
@@ -1042,7 +1053,7 @@ export function CaseStudyPage() {
                 >
                   Scalability Considerations
                 </h4>
-                <p 
+                <p
                   style={{
                     fontSize: '15px',
                     lineHeight: '1.6',
@@ -1056,7 +1067,7 @@ export function CaseStudyPage() {
               </div>
 
               <div>
-                <h4 
+                <h4
                   style={{
                     fontSize: '16px',
                     fontWeight: 600,
@@ -1067,7 +1078,7 @@ export function CaseStudyPage() {
                 >
                   Design System Implications
                 </h4>
-                <p 
+                <p
                   style={{
                     fontSize: '15px',
                     lineHeight: '1.6',
@@ -1081,7 +1092,7 @@ export function CaseStudyPage() {
               </div>
 
               <div>
-                <h4 
+                <h4
                   style={{
                     fontSize: '16px',
                     fontWeight: 600,
@@ -1092,7 +1103,7 @@ export function CaseStudyPage() {
                 >
                   What I'd Do Differently
                 </h4>
-                <p 
+                <p
                   style={{
                     fontSize: '15px',
                     lineHeight: '1.6',
@@ -1109,8 +1120,8 @@ export function CaseStudyPage() {
         )}
 
         {/* NAVIGATION */}
-        <section 
-          style={{ 
+        <section
+          style={{
             paddingTop: '40px',
             paddingBottom: '64px',
             borderTop: '1px solid rgba(0, 0, 0, 0.06)'
@@ -1142,7 +1153,7 @@ export function CaseStudyPage() {
             >
               <ArrowLeft size={18} style={{ color: 'rgba(29, 133, 126, 0.7)' }} />
               <div>
-                <div 
+                <div
                   style={{
                     fontSize: '12px',
                     fontWeight: 600,
@@ -1155,7 +1166,7 @@ export function CaseStudyPage() {
                 >
                   Back to
                 </div>
-                <div 
+                <div
                   style={{
                     fontSize: '15px',
                     fontWeight: 500,
@@ -1193,7 +1204,7 @@ export function CaseStudyPage() {
                 }}
               >
                 <div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '12px',
                       fontWeight: 600,
@@ -1206,7 +1217,7 @@ export function CaseStudyPage() {
                   >
                     Next case study
                   </div>
-                  <div 
+                  <div
                     style={{
                       fontSize: '15px',
                       fontWeight: 500,

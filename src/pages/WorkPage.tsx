@@ -563,7 +563,7 @@ export function WorkPage() {
       )}
 
       {/* SECTION DIVIDER */}
-      {filteredClient.length > 0 && (
+      {activeFilter !== 'Public' && (
         <section
           className="relative overflow-hidden"
           style={{
@@ -602,225 +602,245 @@ export function WorkPage() {
       )}
 
       {/* CLIENT CASE STUDIES GRID */}
-      {filteredClient.length > 0 && (
+      {activeFilter !== 'Public' && (
         <section
           className="relative"
           style={{
             backgroundColor: 'rgba(29, 133, 126, 0.03)',
             backgroundImage: 'radial-gradient(rgba(29, 133, 126, 0.2) 1px, transparent 1px)',
-            backgroundSize: '24px 24px'
+            backgroundSize: '24px 24px',
+            minHeight: filteredClient.length === 0 ? '300px' : 'auto',
           }}
         >
           <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredClient.map((study) => {
-                const IconComponent = study.icon;
-                return (
-                  <Link
-                    key={study.id}
-                    to={study.link}
-                    className="block"
-                    style={{ textDecoration: 'none' }}
-                    onMouseEnter={() => setHoveredCard(study.id)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                  >
-                    <div
-                      className="h-full transition-all"
-                      style={{
-                        background: 'rgba(250, 250, 250, 0.4)',
-                        borderRadius: '20px',
-                        padding: '0',
-                        border: '1px solid rgba(0, 0, 0, 0.03)',
-                        boxShadow: hoveredCard === study.id
-                          ? '0 6px 20px rgba(0, 0, 0, 0.05)'
-                          : '0 4px 16px rgba(0, 0, 0, 0.03)',
-                        transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
-                        transition: 'all 0.25s ease-out',
-                        overflow: 'hidden'
-                      }}
+
+            {/* EMPTY STATE */}
+            {filteredClient.length === 0 && (
+              <div className="flex flex-col items-center justify-center text-center py-16 px-4">
+                <div className="w-16 h-16 rounded-2xl bg-white/60 border border-[rgba(29,133,126,0.1)] flex items-center justify-center mb-6 shadow-sm">
+                  <Info size={24} style={{ color: 'rgba(29, 133, 126, 0.5)' }} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-inter tracking-tight">
+                  No matching client projects
+                </h3>
+                <p className="text-[15px] text-gray-500 font-worksans max-w-[320px]">
+                  None of the selected client engagements match the "{activeFilter}" filter.
+                </p>
+              </div>
+            )}
+
+            {/* GRID */}
+            {filteredClient.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {filteredClient.map((study) => {
+                  const IconComponent = study.icon;
+                  return (
+                    <Link
+                      key={study.id}
+                      to={study.link}
+                      className="block"
+                      style={{ textDecoration: 'none' }}
+                      onMouseEnter={() => setHoveredCard(study.id)}
+                      onMouseLeave={() => setHoveredCard(null)}
                     >
-                      {/* Hybrid preview header with artifact hint for Client Work */}
                       <div
+                        className="h-full transition-all"
                         style={{
-                          height: '240px', // Increased height to match Public Work cards
-                          background: study.gradient,
-                          borderRadius: '20px 20px 0 0',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          position: 'relative',
+                          background: 'rgba(250, 250, 250, 0.4)',
+                          borderRadius: '20px',
+                          padding: '0',
+                          border: '1px solid rgba(0, 0, 0, 0.03)',
+                          boxShadow: hoveredCard === study.id
+                            ? '0 6px 20px rgba(0, 0, 0, 0.05)'
+                            : '0 4px 16px rgba(0, 0, 0, 0.03)',
+                          transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
+                          transition: 'all 0.25s ease-out',
                           overflow: 'hidden'
                         }}
                       >
-                        {/* Client Image with Locked Overlay Style */}
-                        {(study as any).imageUrl ? (
-                          <>
-                            <div className="absolute inset-0 z-0">
-                              <img
-                                src={(study as any).imageUrl}
-                                alt={`${study.title} preview`}
-                                className="w-full h-full object-cover"
-                                style={{
-                                  objectPosition: 'top center'
-                                }}
-                              />
-                            </div>
-
-                            {/* Locked Blur Overlay */}
-                            <div
-                              style={{
-                                position: 'absolute',
-                                top: '25%', // Match detail page style
-                                left: 0,
-                                right: 0,
-                                bottom: 0,
-                                backdropFilter: 'blur(12px)',
-                                WebkitBackdropFilter: 'blur(12px)',
-                                background: 'rgba(255, 255, 255, 0.4)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                zIndex: 10
-                              }}
-                            >
-                              <div
-                                style={{
-                                  fontSize: '12px',
-                                  fontWeight: 500,
-                                  color: 'rgba(29, 133, 126, 0.9)',
-                                  fontFamily: 'Work Sans, sans-serif',
-                                  background: 'rgba(255, 255, 255, 0.95)',
-                                  padding: '8px 16px',
-                                  borderRadius: '6px',
-                                  border: '1px solid rgba(29, 133, 126, 0.2)',
-                                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  gap: '6px',
-                                  textAlign: 'center'
-                                }}
-                              >
-                                <span>🔒</span> Confidential content
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          <div className="absolute inset-0 z-0 opacity-100">
-                            <ArtifactHint type={(study as any).artifactType} isClient={true} />
-                          </div>
-                        )}
-
-                        {/* Icon - Only show if NO image */}
-                        {!(study as any).imageUrl && (
-                          <IconComponent
-                            size={32}
-                            style={{
-                              color: 'rgba(51, 65, 85, 0.9)',
-                              strokeWidth: 1.5,
-                              position: 'relative',
-                              zIndex: 1
-                            }}
-                          />
-                        )}
-                      </div>
-
-                      {/* Content - reduced padding */}
-                      <div style={{ padding: '16px 20px' }}>
-                        <div className="flex items-start gap-2 mb-2">
-                          <h3
-                            style={{
-                              fontSize: '19px',
-                              fontWeight: 600,
-                              letterSpacing: '-0.01em',
-                              color: 'rgba(17, 24, 39, 0.75)',
-                              fontFamily: 'Inter, sans-serif',
-                              lineHeight: '1.3'
-                            }}
-                          >
-                            {study.title}
-                          </h3>
-                          <Lock
-                            size={13}
-                            style={{
-                              color: 'rgba(17, 24, 39, 0.3)',
-                              marginTop: '5px',
-                              flexShrink: 0
-                            }}
-                          />
-                        </div>
-
-                        {/* Description - strictly 2 lines */}
-                        <p
+                        {/* Hybrid preview header with artifact hint for Client Work */}
+                        <div
                           style={{
-                            fontSize: '14px',
-                            lineHeight: '1.35',
-                            color: 'rgba(17, 24, 39, 0.6)',
-                            fontFamily: 'Work Sans, sans-serif',
-                            marginBottom: '12px',
-                            display: '-webkit-box',
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: 'vertical',
+                            height: '240px', // Increased height to match Public Work cards
+                            background: study.gradient,
+                            borderRadius: '20px 20px 0 0',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'relative',
                             overflow: 'hidden'
                           }}
                         >
-                          {study.description}
-                        </p>
+                          {/* Client Image with Locked Overlay Style */}
+                          {(study as any).imageUrl ? (
+                            <>
+                              <div className="absolute inset-0 z-0">
+                                <img
+                                  src={(study as any).imageUrl}
+                                  alt={`${study.title} preview`}
+                                  className="w-full h-full object-cover"
+                                  style={{
+                                    objectPosition: 'top center'
+                                  }}
+                                />
+                              </div>
 
-                        {/* Tags */}
-                        <div style={{
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          gap: '5px',
-                          marginBottom: '16px'
-                        }}>
-                          {study.tags.map((tag, index) => (
-                            <span
-                              key={index}
-                              className="px-2 py-0.5 rounded"
+                              {/* Locked Blur Overlay */}
+                              <div
+                                style={{
+                                  position: 'absolute',
+                                  top: '25%', // Match detail page style
+                                  left: 0,
+                                  right: 0,
+                                  bottom: 0,
+                                  backdropFilter: 'blur(12px)',
+                                  WebkitBackdropFilter: 'blur(12px)',
+                                  background: 'rgba(255, 255, 255, 0.4)',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  zIndex: 10
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontSize: '12px',
+                                    fontWeight: 500,
+                                    color: 'rgba(29, 133, 126, 0.9)',
+                                    fontFamily: 'Work Sans, sans-serif',
+                                    background: 'rgba(255, 255, 255, 0.95)',
+                                    padding: '8px 16px',
+                                    borderRadius: '6px',
+                                    border: '1px solid rgba(29, 133, 126, 0.2)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    textAlign: 'center'
+                                  }}
+                                >
+                                  <span>🔒</span> Confidential content
+                                </div>
+                              </div>
+                            </>
+                          ) : (
+                            <div className="absolute inset-0 z-0 opacity-100">
+                              <ArtifactHint type={(study as any).artifactType} isClient={true} />
+                            </div>
+                          )}
+
+                          {/* Icon - Only show if NO image */}
+                          {!(study as any).imageUrl && (
+                            <IconComponent
+                              size={32}
                               style={{
-                                fontSize: '11px',
-                                fontWeight: 500,
-                                fontFamily: 'Work Sans, sans-serif',
-                                background: 'rgba(0, 0, 0, 0.04)',
-                                color: 'rgba(17, 24, 39, 0.5)'
+                                color: 'rgba(51, 65, 85, 0.9)',
+                                strokeWidth: 1.5,
+                                position: 'relative',
+                                zIndex: 1
+                              }}
+                            />
+                          )}
+                        </div>
+
+                        {/* Content - reduced padding */}
+                        <div style={{ padding: '16px 20px' }}>
+                          <div className="flex items-start gap-2 mb-2">
+                            <h3
+                              style={{
+                                fontSize: '19px',
+                                fontWeight: 600,
+                                letterSpacing: '-0.01em',
+                                color: 'rgba(17, 24, 39, 0.75)',
+                                fontFamily: 'Inter, sans-serif',
+                                lineHeight: '1.3'
                               }}
                             >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                              {study.title}
+                            </h3>
+                            <Lock
+                              size={13}
+                              style={{
+                                color: 'rgba(17, 24, 39, 0.3)',
+                                marginTop: '5px',
+                                flexShrink: 0
+                              }}
+                            />
+                          </div>
 
-                        {/* CTA */}
-                        <div
-                          className="inline-flex items-center gap-1.5"
-                          style={{
-                            fontSize: '13px',
-                            fontWeight: 500,
-                            color: 'rgba(29, 133, 126, 0.6)',
-                            fontFamily: 'Work Sans, sans-serif'
-                          }}
-                        >
-                          Preview available — reach out
-                          <ArrowRight
-                            size={13}
+                          {/* Description - strictly 2 lines */}
+                          <p
                             style={{
-                              transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
-                              transition: 'transform 0.2s ease-out'
+                              fontSize: '14px',
+                              lineHeight: '1.35',
+                              color: 'rgba(17, 24, 39, 0.6)',
+                              fontFamily: 'Work Sans, sans-serif',
+                              marginBottom: '12px',
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden'
                             }}
-                          />
+                          >
+                            {study.description}
+                          </p>
+
+                          {/* Tags */}
+                          <div style={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: '5px',
+                            marginBottom: '16px'
+                          }}>
+                            {study.tags.map((tag, index) => (
+                              <span
+                                key={index}
+                                className="px-2 py-0.5 rounded"
+                                style={{
+                                  fontSize: '11px',
+                                  fontWeight: 500,
+                                  fontFamily: 'Work Sans, sans-serif',
+                                  background: 'rgba(0, 0, 0, 0.04)',
+                                  color: 'rgba(17, 24, 39, 0.5)'
+                                }}
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+
+                          {/* CTA */}
+                          <div
+                            className="inline-flex items-center gap-1.5"
+                            style={{
+                              fontSize: '13px',
+                              fontWeight: 500,
+                              color: 'rgba(29, 133, 126, 0.6)',
+                              fontFamily: 'Work Sans, sans-serif'
+                            }}
+                          >
+                            Preview available — reach out
+                            <ArrowRight
+                              size={13}
+                              style={{
+                                transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
+                                transition: 'transform 0.2s ease-out'
+                              }}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </section>
       )}
 
       {/* Footer */}
-      <div className="max-w-[1180px] mx-auto px-8 pb-20 md:pb-24">
+      <div className="max-w-[1180px] mx-auto px-8 pb-20 md:pb-24 mt-auto">
         <Footer />
       </div>
     </div>
