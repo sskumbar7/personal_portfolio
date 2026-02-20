@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { SEO, seoConfig } from '../components/SEO';
 import { Button } from '../components/ui/Button';
+import { ArrowUpRight } from 'lucide-react';
 
 export function ContactPage() {
   const [isPrimaryHovered, setIsPrimaryHovered] = useState(false);
@@ -93,8 +94,9 @@ export function ContactPage() {
                   variant="secondary"
                   asChild
                 >
-                  <a href="https://www.linkedin.com/in/sskumbar7" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/sskumbar7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     LinkedIn
+                    <ArrowUpRight size={16} />
                   </a>
                 </Button>
               </div>

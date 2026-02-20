@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Footer } from './Footer';
 import { Button } from './ui/Button';
 import { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 export function BottomCTA() {
   const prefersReducedMotion = useReducedMotion();
@@ -74,8 +75,9 @@ export function BottomCTA() {
               asChild
               prefersReducedMotion={prefersReducedMotion}
             >
-              <a href="https://www.linkedin.com/in/sskumbar7" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/sskumbar7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 LinkedIn
+                <ArrowUpRight size={16} />
               </a>
             </Button>
           </motion.div>
