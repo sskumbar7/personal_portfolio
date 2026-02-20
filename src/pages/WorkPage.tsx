@@ -446,7 +446,7 @@ export function WorkPage() {
                               height: '100%',
                               objectFit: 'cover',
                               objectPosition: 'top center', // Anchor to top for UI screenshots
-                              transition: 'transform 0.5s ease'
+                              transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                             }}
                             className="group-hover:scale-105"
                           />
@@ -661,8 +661,11 @@ export function WorkPage() {
                               <img
                                 src={(study as any).imageUrl}
                                 alt={`${study.title} preview`}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                style={{ objectPosition: 'top center' }}
+                                className="w-full h-full object-cover group-hover:scale-105"
+                                style={{
+                                  objectPosition: 'top center',
+                                  transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
+                                }}
                               />
                             </div>
 

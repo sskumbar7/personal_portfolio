@@ -13,12 +13,12 @@ export default function StyleGuidePage() {
     textarea.style.top = '0';
     textarea.setAttribute('readonly', '');
     document.body.appendChild(textarea);
-    
+
     try {
       textarea.select();
       textarea.setSelectionRange(0, textarea.value.length);
       document.execCommand('copy');
-      
+
       setCopiedToken(tokenName);
       setTimeout(() => setCopiedToken(null), 2000);
     } catch (err) {
@@ -71,110 +71,110 @@ export default function StyleGuidePage() {
 
   // Typography Scale
   const typography = [
-    { 
-      name: 'Display Large', 
-      tag: 'H1 - Hero', 
-      size: '36px', 
-      lineHeight: '1.2', 
+    {
+      name: 'Display Large',
+      tag: 'H1 - Hero',
+      size: '36px',
+      lineHeight: '1.2',
       weight: '600',
       letterSpacing: '-0.02em',
       family: 'Inter',
       usage: 'Hero headings, page titles',
       mobile: '28px'
     },
-    { 
-      name: 'Heading 1', 
-      tag: 'H1', 
-      size: '32px', 
-      lineHeight: '1.2', 
+    {
+      name: 'Heading 1',
+      tag: 'H1',
+      size: '32px',
+      lineHeight: '1.2',
       weight: '600',
       letterSpacing: '-0.02em',
       family: 'Inter',
       usage: 'Main page headings',
       mobile: '27px'
     },
-    { 
-      name: 'Heading 2', 
-      tag: 'H2', 
-      size: '24px', 
-      lineHeight: '1.2', 
+    {
+      name: 'Heading 2',
+      tag: 'H2',
+      size: '24px',
+      lineHeight: '1.2',
       weight: '600',
       letterSpacing: '-0.01em',
       family: 'Inter',
       usage: 'Section headings',
       mobile: '22px'
     },
-    { 
-      name: 'Heading 3', 
-      tag: 'H3', 
-      size: '18px', 
-      lineHeight: '1.3', 
+    {
+      name: 'Heading 3',
+      tag: 'H3',
+      size: '18px',
+      lineHeight: '1.3',
       weight: '600',
       letterSpacing: '0',
       family: 'Inter',
       usage: 'Card titles, subsections',
       mobile: '16px'
     },
-    { 
-      name: 'Heading 4', 
-      tag: 'H4', 
-      size: '17px', 
-      lineHeight: '1.4', 
+    {
+      name: 'Heading 4',
+      tag: 'H4',
+      size: '17px',
+      lineHeight: '1.4',
       weight: '500',
       letterSpacing: '0',
       family: 'Inter',
       usage: 'Small headings, emphasized text',
       mobile: '17px'
     },
-    { 
-      name: 'Body Large', 
-      tag: 'p.large', 
-      size: '17px', 
-      lineHeight: '1.5', 
+    {
+      name: 'Body Large',
+      tag: 'p.large',
+      size: '17px',
+      lineHeight: '1.5',
       weight: '400',
       letterSpacing: '0',
       family: 'Work Sans',
       usage: 'Main body text, paragraphs',
       mobile: '17px'
     },
-    { 
-      name: 'Body Regular', 
-      tag: 'p', 
-      size: '16px', 
-      lineHeight: '1.5', 
+    {
+      name: 'Body Regular',
+      tag: 'p',
+      size: '16px',
+      lineHeight: '1.5',
       weight: '400',
       letterSpacing: '0',
       family: 'Work Sans',
       usage: 'Standard body text',
       mobile: '16px'
     },
-    { 
-      name: 'Caption', 
-      tag: 'span.caption', 
-      size: '14px', 
-      lineHeight: '1.5', 
+    {
+      name: 'Caption',
+      tag: 'span.caption',
+      size: '14px',
+      lineHeight: '1.5',
       weight: '400',
       letterSpacing: '0',
       family: 'Work Sans',
       usage: 'Small text, metadata, labels',
       mobile: '14px'
     },
-    { 
-      name: 'Label / Tag', 
-      tag: 'span.label', 
-      size: '13px', 
-      lineHeight: '1.2', 
+    {
+      name: 'Label / Tag',
+      tag: 'span.label',
+      size: '13px',
+      lineHeight: '1.2',
       weight: '500',
       letterSpacing: '0.025em',
       family: 'JetBrains Mono',
       usage: 'Code tags, skill badges',
       mobile: '13px'
     },
-    { 
-      name: 'Section Label', 
-      tag: 'span.section-label', 
-      size: '14px', 
-      lineHeight: '1.2', 
+    {
+      name: 'Section Label',
+      tag: 'span.section-label',
+      size: '14px',
+      lineHeight: '1.2',
       weight: '600',
       letterSpacing: '0.12em',
       family: 'Inter',
@@ -218,8 +218,8 @@ export default function StyleGuidePage() {
 
   const ColorSwatch = ({ name, value, description }: { name: string; value: string; description: string }) => (
     <div className="group relative">
-      <div 
-        className="h-20 rounded-lg mb-3 border border-gray-200 transition-transform group-hover:scale-105 cursor-pointer"
+      <div
+        className="h-20 rounded-lg mb-3 border border-gray-200 transition-transform duration-300 ease-out group-hover:scale-105 cursor-pointer"
         style={{ background: value }}
         onClick={() => copyToClipboard(value, name)}
       />
@@ -262,14 +262,14 @@ export default function StyleGuidePage() {
       </header>
 
       <div className="max-w-[1400px] mx-auto px-8 py-16 space-y-24">
-        
+
         {/* Color System */}
         <section id="colors">
           <div className="mb-12">
             <span className="section-label">01 — FOUNDATION</span>
             <h2 className="mt-4 mb-3">Color System</h2>
             <p className="text-gray-600 max-w-2xl">
-              Our color palette is built around a primary teal (#1D857E) that conveys trust, calm, and professionalism. 
+              Our color palette is built around a primary teal (#1D857E) that conveys trust, calm, and professionalism.
               The neutral scale provides hierarchy and subtle contrast throughout the interface.
             </p>
           </div>
@@ -331,7 +331,7 @@ export default function StyleGuidePage() {
             <span className="section-label">02 — TYPOGRAPHY</span>
             <h2 className="mt-4 mb-3">Typography Scale</h2>
             <p className="text-gray-600 max-w-2xl">
-              The typography system uses <strong>Inter</strong> for headings (clarity, modern) and <strong>Work Sans</strong> for body text (readability, warmth). 
+              The typography system uses <strong>Inter</strong> for headings (clarity, modern) and <strong>Work Sans</strong> for body text (readability, warmth).
               Code elements use <strong>JetBrains Mono</strong> for technical authenticity.
             </p>
           </div>
@@ -342,22 +342,22 @@ export default function StyleGuidePage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Preview */}
                   <div className="lg:col-span-2">
-                    <div 
+                    <div
                       style={{
                         fontSize: type.size,
                         lineHeight: type.lineHeight,
                         fontWeight: type.weight,
                         letterSpacing: type.letterSpacing,
-                        fontFamily: type.family === 'Inter' ? 'Inter, sans-serif' : 
-                                   type.family === 'Work Sans' ? 'Work Sans, sans-serif' : 
-                                   'JetBrains Mono, monospace',
+                        fontFamily: type.family === 'Inter' ? 'Inter, sans-serif' :
+                          type.family === 'Work Sans' ? 'Work Sans, sans-serif' :
+                            'JetBrains Mono, monospace',
                         color: '#111827',
                         textTransform: type.name === 'Section Label' ? 'uppercase' : 'none'
                       }}
                     >
-                      {type.name === 'Section Label' ? 'Section Label Example' : 
-                       type.name === 'Label / Tag' ? '<code-tag>' : 
-                       'The quick brown fox jumps over the lazy dog'}
+                      {type.name === 'Section Label' ? 'Section Label Example' :
+                        type.name === 'Label / Tag' ? '<code-tag>' :
+                          'The quick brown fox jumps over the lazy dog'}
                     </div>
                   </div>
 
@@ -410,7 +410,7 @@ export default function StyleGuidePage() {
             <span className="section-label">03 — LAYOUT</span>
             <h2 className="mt-4 mb-3">Spacing Scale</h2>
             <p className="text-gray-600 max-w-2xl">
-              Editorial spacing scale (96/64/40/32px) creates breathing room and visual hierarchy. 
+              Editorial spacing scale (96/64/40/32px) creates breathing room and visual hierarchy.
               Use consistently for padding, margins, and gaps throughout the interface.
             </p>
           </div>
@@ -418,7 +418,7 @@ export default function StyleGuidePage() {
           <div className="space-y-4">
             {spacing.map((space) => (
               <div key={space.token} className="flex items-center gap-6 p-4 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors">
-                <div 
+                <div
                   className="bg-gradient-to-r from-teal-500 to-teal-400 rounded"
                   style={{ width: space.value, height: '24px', minWidth: space.value }}
                 />
@@ -450,7 +450,7 @@ export default function StyleGuidePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {radius.map((r) => (
               <div key={r.token} className="text-center">
-                <div 
+                <div
                   className="h-24 mb-4 bg-gradient-to-br from-teal-500 to-teal-400 mx-auto"
                   style={{ borderRadius: r.value, maxWidth: '120px' }}
                 />
@@ -467,7 +467,7 @@ export default function StyleGuidePage() {
           <div className="mb-12">
             <h2 className="mb-3">Shadow Scale</h2>
             <p className="text-gray-600 max-w-2xl">
-              Subtle shadows create depth and hierarchy without overwhelming the minimal aesthetic. 
+              Subtle shadows create depth and hierarchy without overwhelming the minimal aesthetic.
               Primary shadows use teal tints for brand cohesion.
             </p>
           </div>
@@ -475,7 +475,7 @@ export default function StyleGuidePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {shadows.map((shadow) => (
               <div key={shadow.token} className="p-6 bg-gray-50 rounded-lg">
-                <div 
+                <div
                   className="h-24 bg-white rounded-lg mb-4"
                   style={{ boxShadow: shadow.value }}
                 />
@@ -493,7 +493,7 @@ export default function StyleGuidePage() {
             <span className="section-label">04 — COMPONENTS</span>
             <h2 className="mt-4 mb-3">Button States</h2>
             <p className="text-gray-600 max-w-2xl">
-              Buttons provide clear affordances through color, shadow, and micro-animations. 
+              Buttons provide clear affordances through color, shadow, and micro-animations.
               All states are designed for accessibility and clarity.
             </p>
           </div>
@@ -504,7 +504,7 @@ export default function StyleGuidePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Default */}
               <div>
-                <button 
+                <button
                   className="w-full px-8 py-3 text-white rounded-xl mb-4"
                   style={{
                     background: 'linear-gradient(to right, #1D857E, #178076)',
@@ -523,7 +523,7 @@ export default function StyleGuidePage() {
 
               {/* Hover */}
               <div>
-                <button 
+                <button
                   className="w-full px-8 py-3 text-white rounded-xl mb-4"
                   style={{
                     background: 'linear-gradient(to right, #1e8880, #1a7c76)',
@@ -543,7 +543,7 @@ export default function StyleGuidePage() {
 
               {/* Focus */}
               <div>
-                <button 
+                <button
                   className="w-full px-8 py-3 text-white rounded-xl mb-4 ring-4 ring-teal-100"
                   style={{
                     background: 'linear-gradient(to right, #1D857E, #178076)',
@@ -562,7 +562,7 @@ export default function StyleGuidePage() {
 
               {/* Disabled */}
               <div>
-                <button 
+                <button
                   disabled
                   className="w-full px-8 py-3 text-white rounded-xl mb-4 opacity-40 cursor-not-allowed"
                   style={{
@@ -587,7 +587,7 @@ export default function StyleGuidePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Default */}
               <div>
-                <button 
+                <button
                   className="w-full px-8 py-3 bg-transparent rounded-xl mb-4"
                   style={{
                     border: '1.5px solid rgba(29, 133, 126, 0.3)',
@@ -606,7 +606,7 @@ export default function StyleGuidePage() {
 
               {/* Hover */}
               <div>
-                <button 
+                <button
                   className="w-full px-8 py-3 bg-transparent rounded-xl mb-4 relative"
                   style={{
                     border: '1.5px solid #1D857E',
@@ -617,7 +617,7 @@ export default function StyleGuidePage() {
                 >
                   <span className="relative">
                     Hover
-                    <span 
+                    <span
                       className="absolute -bottom-0.5 left-0 right-0 h-px bg-current"
                     />
                   </span>
@@ -630,7 +630,7 @@ export default function StyleGuidePage() {
 
               {/* Focus */}
               <div>
-                <button 
+                <button
                   className="w-full px-8 py-3 bg-transparent rounded-xl mb-4 ring-4 ring-teal-100"
                   style={{
                     border: '1.5px solid #1D857E',
@@ -649,7 +649,7 @@ export default function StyleGuidePage() {
 
               {/* Disabled */}
               <div>
-                <button 
+                <button
                   disabled
                   className="w-full px-8 py-3 bg-transparent rounded-xl mb-4 opacity-40 cursor-not-allowed"
                   style={{
@@ -682,8 +682,8 @@ export default function StyleGuidePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Default */}
             <div className="p-6 bg-gray-50 rounded-lg">
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-lg inline-block mb-4"
                 style={{ color: '#1D857E', textDecoration: 'none' }}
                 onClick={(e) => e.preventDefault()}
@@ -698,8 +698,8 @@ export default function StyleGuidePage() {
 
             {/* Hover */}
             <div className="p-6 bg-gray-50 rounded-lg">
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-lg inline-block mb-4 relative"
                 style={{ color: '#1D857E', textDecoration: 'none' }}
                 onClick={(e) => e.preventDefault()}
@@ -715,8 +715,8 @@ export default function StyleGuidePage() {
 
             {/* Focus */}
             <div className="p-6 bg-gray-50 rounded-lg">
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-lg inline-block mb-4 ring-2 ring-teal-200 rounded px-1"
                 style={{ color: '#1D857E', textDecoration: 'none' }}
                 onClick={(e) => e.preventDefault()}
@@ -731,8 +731,8 @@ export default function StyleGuidePage() {
 
             {/* Visited */}
             <div className="p-6 bg-gray-50 rounded-lg">
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-lg inline-block mb-4"
                 style={{ color: '#6B7280', textDecoration: 'none' }}
                 onClick={(e) => e.preventDefault()}
@@ -759,7 +759,7 @@ export default function StyleGuidePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Default */}
             <div>
-              <div 
+              <div
                 className="p-8 bg-white rounded-2xl border transition-all"
                 style={{
                   borderColor: '#DDE9E7',
@@ -781,7 +781,7 @@ export default function StyleGuidePage() {
 
             {/* Hover */}
             <div>
-              <div 
+              <div
                 className="p-8 bg-white rounded-2xl border transition-all"
                 style={{
                   borderColor: '#DDE9E7',
@@ -846,7 +846,7 @@ export default function StyleGuidePage() {
             <span className="section-label">06 — ACCESSIBILITY</span>
             <h2 className="mt-4 mb-3">WCAG 2.1 AA Compliance</h2>
             <p className="text-gray-600 max-w-2xl">
-              All colors meet WCAG AA contrast requirements. Focus states are clearly visible, 
+              All colors meet WCAG AA contrast requirements. Focus states are clearly visible,
               and interactive elements are keyboard accessible.
             </p>
           </div>
@@ -881,7 +881,7 @@ export default function StyleGuidePage() {
           <div className="bg-gradient-to-br from-teal-50 to-blue-50 border border-teal-200 rounded-2xl p-12 text-center">
             <h2 className="mb-4">Ready for Figma</h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-              This style guide documents all design tokens from the codebase. 
+              This style guide documents all design tokens from the codebase.
               Use these values to maintain consistency when creating new designs in Figma.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

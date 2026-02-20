@@ -235,7 +235,7 @@ export function CaseStudies() {
                           height: '100%',
                           objectFit: 'cover',
                           objectPosition: 'top center',
-                          transition: 'transform 0.5s ease'
+                          transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                         }}
                         className="group-hover:scale-105"
                       />
