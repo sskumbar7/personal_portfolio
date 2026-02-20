@@ -146,11 +146,12 @@ export function Hero() {
                       src={portraitImage}
                       alt="Sandeep S Kumbar - Lead Experience Designer"
                       loading="eager"
-                      className="w-full h-auto rounded-xl shadow-xl transition-opacity"
+                      className="w-full h-auto rounded-xl shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] cursor-default"
                       style={{
                         filter: 'grayscale(100%)',
                         aspectRatio: '1/1',
-                        objectFit: 'cover'
+                        objectFit: 'cover',
+                        transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                       }}
                     />
                   </div>
@@ -185,11 +186,12 @@ export function Hero() {
                   <img
                     src={portraitImage}
                     alt="Sandeep S Kumbar - Lead Experience Designer"
-                    className="w-full h-auto rounded-xl shadow-xl transition-opacity"
+                    className="w-full h-auto rounded-xl shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] cursor-default"
                     style={{
                       filter: 'grayscale(100%)',
                       aspectRatio: '1/1',
-                      objectFit: 'cover'
+                      objectFit: 'cover',
+                      transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                     }}
                   />
                 </div>
