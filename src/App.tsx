@@ -22,6 +22,7 @@ import { ConfidentialCaseStudy2 } from "./pages/ConfidentialCaseStudy2";
 import { ConfidentialCaseStudy3 } from "./pages/ConfidentialCaseStudy3";
 import StyleGuidePage from "./pages/StyleGuidePage";
 import { DesignSystemPage } from "./pages/DesignSystemPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/style-guide" element={<StyleGuidePage />} />
         <Route path="/design-system" element={<DesignSystemPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </ErrorBoundary>
   );
