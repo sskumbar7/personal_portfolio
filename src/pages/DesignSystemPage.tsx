@@ -3,6 +3,8 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/ui/Button';
 import { Tag } from '../components/ui/Tag';
+import { SectionHeader } from '../components/ui/SectionHeader';
+import { CaseStudyCard } from '../components/ui/CaseStudyCard';
 import { SEO } from '../components/SEO';
 import { Copy, Check, Moon, Sun, Type, Layout, Palette, Box, Eye, Monitor, Layers, Grid } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -21,21 +23,30 @@ export function DesignSystemPage() {
 
   // Scroll Spy Implementation
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-20% 0px -60% 0px' }
-    );
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section[id]');
+      let current = 'foundation'; // Default
 
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => {
+        // We cast to HTMLElement to access offsetTop
+        const htmlSection = section as HTMLElement;
+        const sectionTop = htmlSection.offsetTop;
+        const sectionHeight = htmlSection.clientHeight;
 
-    return () => sections.forEach((section) => observer.unobserve(section));
+        // If we've scrolled past the section's top (with an offset for the sticky header)
+        if (window.scrollY >= sectionTop - 200) {
+          current = htmlSection.getAttribute('id') || 'foundation';
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Call once to set initial state
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (!mounted) return null;
@@ -516,96 +527,47 @@ export function DesignSystemPage() {
                     </div>
                   </div>
 
-                  {/* Cards */}
+                  {/* Structural Components */}
                   <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 md:col-span-2">
-                    <h3 className="text-lg font-semibold mb-6">Interactive Content Cards</h3>
+                    <h3 className="text-lg font-semibold mb-6">Structural & Interactive Components</h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {/* Standard Card */}
-                      <div className="flex flex-col gap-3">
-                        <span className="text-xs text-gray-500 font-mono">Featured Component Card</span>
-                        <div
-                          className="h-full transition-all duration-300 ease-out group cursor-pointer"
-                          style={{
-                            background: 'rgba(250, 250, 250, 0.6)',
-                            borderRadius: '20px',
-                            border: '1px solid rgba(0, 0, 0, 0.04)',
-                            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-3px)';
-                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.06)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
-                          }}
-                        >
-                          <div
-                            style={{
-                              height: '140px',
-                              background: 'linear-gradient(135deg, rgba(29, 133, 126, 0.1) 0%, rgba(59, 197, 161, 0.1) 100%)',
-                              borderRadius: '20px 20px 0 0',
-                            }}
+                    <div className="grid grid-cols-1 gap-12">
+                      <div className="flex flex-col gap-4">
+                        <span className="text-xs text-gray-500 font-mono">SectionHeader Element</span>
+                        <div className="p-8 bg-gray-50 dark:bg-gray-900/40 rounded-xl border border-dashed border-gray-200 dark:border-gray-800">
+                          <SectionHeader
+                            label="Component Pattern"
+                            title="Consistent Section Headings"
+                            description="This standardizes the layout for all major content segments across the portfolio."
                           />
-                          <div style={{ padding: '20px' }}>
-                            <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#111827', marginBottom: '8px' }}>
-                              Card Example
-                            </h3>
-                            <p style={{ fontSize: '14px', color: 'rgba(17, 24, 39, 0.7)', marginBottom: '16px' }}>
-                              Standard card layout with hover lift effect (`translateY-[-3px]`). Uses `rgba(250, 250, 250, 0.6)` background.
-                            </p>
-                            <Tag variant="skill">Interaction</Tag>
-                          </div>
                         </div>
                       </div>
 
-                      {/* Client Card */}
-                      <div className="flex flex-col gap-3">
-                        <span className="text-xs text-gray-500 font-mono">Confidential Content Card</span>
-                        <div
-                          className="h-full transition-all duration-300 ease-out group cursor-pointer"
-                          style={{
-                            background: 'rgba(250, 250, 250, 0.4)',
-                            borderRadius: '20px',
-                            border: '1px solid rgba(0, 0, 0, 0.03)',
-                            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-3px)';
-                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.05)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
-                          }}
-                        >
-                          <div
-                            style={{
-                              height: '140px',
-                              background: 'rgba(71, 85, 105, 0.08)',
-                              borderRadius: '20px 20px 0 0',
-                              position: 'relative',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
-                          >
-                            <div style={{ fontSize: '12px', fontWeight: 500, color: 'rgba(29, 133, 126, 0.9)', background: 'rgba(255, 255, 255, 0.95)', padding: '8px 16px', borderRadius: '6px', border: '1px solid rgba(29, 133, 126, 0.2)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                              <span>🔒</span> Confidential content
-                            </div>
-                          </div>
-                          <div style={{ padding: '20px' }}>
-                            <div className="flex items-center gap-2 mb-2">
-                              <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'rgba(17, 24, 39, 0.75)' }}>
-                                Client Example
-                              </h3>
-                            </div>
-                            <p style={{ fontSize: '14px', color: 'rgba(17, 24, 39, 0.6)', marginBottom: '16px' }}>
-                              Used for locked case studies. Semi-transparent background with gray tones.
-                            </p>
-                            <Tag variant="skill" isClient={true}>UX Strategy</Tag>
-                          </div>
+                      <div className="flex flex-col gap-4">
+                        <span className="text-xs text-gray-500 font-mono">CaseStudyCard Instances</span>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <CaseStudyCard
+                            title="Featured Work Example"
+                            description="Standard case study card used on the Home and Work pages."
+                            tags={['UX Strategy', 'Visual Design']}
+                            href="/design-system"
+                            gradient="linear-gradient(135deg, rgba(29, 133, 126, 0.1) 0%, rgba(59, 197, 161, 0.1) 100%)"
+                          />
+                          <CaseStudyCard
+                            title="Confidential Client"
+                            description="Locked project display for sensitive client engagements."
+                            tags={['Interaction Design', 'Systems']}
+                            href="/design-system"
+                            isClient={true}
+                            gradient="rgba(71, 85, 105, 0.08)"
+                            artifactHint={
+                              <div className="w-full h-full flex items-center justify-center">
+                                <div className="text-xs font-medium text-[#1D857E] bg-white/95 px-4 py-2 rounded-md border border-[#1D857E]/20 flex items-center gap-1.5 shadow-sm">
+                                  <span>🔒</span> Confidential content
+                                </div>
+                              </div>
+                            }
+                          />
                         </div>
                       </div>
                     </div>
