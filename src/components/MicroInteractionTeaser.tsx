@@ -60,7 +60,7 @@ export function MicroInteractionTeaser() {
           onHoverEnd={() => setIsHovered(false)}
           whileHover={prefersReducedMotion ? {} : {
             boxShadow: '0 8px 24px rgba(29, 133, 126, 0.08)',
-            background: 'linear-gradient(135deg, rgba(250, 250, 250, 0.7) 0%, rgba(249, 253, 252, 1) 100%)'
+            background: 'linear-gradient(135deg, rgba(250, 250, 250, 0.5) 0%, rgba(249, 253, 252, 0.95) 100%)'
           }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 p-12 md:p-16">
@@ -118,7 +118,8 @@ export function MicroInteractionTeaser() {
               {timingTokens.map((token, index) => (
                 <motion.button
                   key={token.label}
-                  className="relative cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-offset-2 w-full"
+                  className="relative cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-offset-2 w-full rounded-xl transition-colors"
+                  whileHover={{ backgroundColor: 'rgba(29, 133, 126, 0.04)' }}
                   onClick={() => !prefersReducedMotion && handleTokenHover(token.label)}
                   onKeyDown={(e) => {
                     if ((e.key === 'Enter' || e.key === ' ') && !prefersReducedMotion) {
@@ -142,7 +143,7 @@ export function MicroInteractionTeaser() {
                     ease: 'easeOut'
                   }}
                 >
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-6 p-2 rounded-xl">
                     {/* Label and timing info */}
                     <div className="w-[100px] md:w-[140px] flex-shrink-0">
                       <div style={{
@@ -179,12 +180,16 @@ export function MicroInteractionTeaser() {
                     }}>
                       <svg width="80" height="40" viewBox="0 0 80 40" style={{ overflow: 'visible' }}>
                         {/* Easing curve path - easeOut cubic bezier */}
-                        <path
+                        <motion.path
                           d="M 2 38 C 2 38, 20 2, 78 2"
                           stroke="rgba(29, 133, 126, 0.25)"
                           strokeWidth="1.5"
                           fill="none"
                           strokeLinecap="round"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true, margin: '-50px' }}
+                          transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.5 }}
                         />
                       </svg>
                     </div>
@@ -218,7 +223,7 @@ export function MicroInteractionTeaser() {
                         }
                         transition={{
                           duration: token.duration / 1000,
-                          ease: token.ease,
+                          ease: token.ease as any,
                           times: [0, 0.5, 1]
                         }}
                       />

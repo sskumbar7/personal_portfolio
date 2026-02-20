@@ -126,21 +126,19 @@ export function SkillsSnapshot() {
                   {group.subtext}
                 </motion.p>
 
-                {/* Skills List */}
-                <motion.div
-                  className="flex flex-col gap-3 w-full"
-                  initial={{ opacity: 0, y: 4 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.1 + 0.2,
-                    ease: 'easeOut'
-                  }}
-                >
+                {/* Skills List - Container is not animated directly */}
+                <div className="flex flex-col gap-3 w-full">
                   {group.skills.map((skill, skillIndex) => (
-                    <div
+                    <motion.div
                       key={skillIndex}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-50px' }}
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.1 + 0.2 + (skillIndex * 0.08), // Stagger delay based on list index
+                        ease: 'easeOut'
+                      }}
                       style={{
                         fontSize: '17px',
                         fontWeight: 500,
@@ -150,9 +148,9 @@ export function SkillsSnapshot() {
                       }}
                     >
                       {skill}
-                    </div>
+                    </motion.div>
                   ))}
-                </motion.div>
+                </div>
               </div>
 
               {/* Vertical Divider Between Columns */}

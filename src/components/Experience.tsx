@@ -70,12 +70,13 @@ export function Experience() {
               className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[0.75px]"
               aria-hidden="true"
               style={{
-                background: 'rgba(29, 133, 126, 0.2)'
+                background: 'rgba(29, 133, 126, 0.2)',
+                transformOrigin: 'top'
               }}
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             />
 
             {/* Timeline Nodes - Alternating Left/Right */}
@@ -255,12 +256,13 @@ export function Experience() {
               aria-hidden="true"
               style={{
                 background: 'rgba(29, 133, 126, 0.2)',
-                top: '0px'
+                top: '0px',
+                transformOrigin: 'left'
               }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             />
 
             {/* Horizontal Timeline Nodes */}
