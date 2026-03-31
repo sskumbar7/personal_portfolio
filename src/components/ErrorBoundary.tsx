@@ -1,6 +1,6 @@
 
 import React, { Component, ErrorInfo, ReactNode } from "react";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 import { Tag } from "./ui/Tag";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 

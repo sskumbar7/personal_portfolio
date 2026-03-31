@@ -3,7 +3,7 @@ import { Footer } from '../components/Footer';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { SEO, seoConfig } from '../components/SEO';
-import { Button } from '../components/ui/Button';
+import { Button } from '../components/ui/button';
 import { ArrowUpRight } from 'lucide-react';
 
 export function ContactPage() {

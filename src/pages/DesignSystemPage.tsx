@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { Button } from '../components/ui/Button';
+import { Button } from '../components/ui/button';
 import { Tag } from '../components/ui/Tag';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { CaseStudyCard } from '../components/ui/CaseStudyCard';

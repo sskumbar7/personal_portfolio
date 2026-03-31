@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { Footer } from './Footer';
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
