@@ -9,7 +9,7 @@ import mobileDetail from '../assets/812b0facbc73c95b10c8ebb1e1cec32d9fc24df4.png
 
 // Core Flows
 import heroImage from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
-import loginFlow from '../assets/Card_anatomy.png';
+import loginFlow from '../assets/9acc539a382f66e721f1ed8fbca7ae282932ad23.png';
 import browseFlow from '../assets/7f4469d22cdce8df49731ecb7fe65719ce99a569.png';
 import createPostFlow from '../assets/e2bcae5819bc486f774930a0a5f66075302ce8e5.png';
 import replyFlow from '../assets/72612e97302ec43d760405fb4db85c219fd39bb2.png';

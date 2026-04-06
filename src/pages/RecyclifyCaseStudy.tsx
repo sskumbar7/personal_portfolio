@@ -746,7 +746,7 @@ export function RecyclifyCaseStudy() {
                 How users currently get rid of old items
               </h3>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={260}>
                 <PieChart>
                   <Pie
                     data={[
@@ -755,9 +755,9 @@ export function RecyclifyCaseStudy() {
                       { name: 'Sell', value: 12.6 }
                     ]}
                     cx="50%"
-                    cy="50%"
-                    innerRadius={55}
-                    outerRadius={85}
+                    cy="45%"
+                    innerRadius={40}
+                    outerRadius={60}
                     paddingAngle={2}
                     dataKey="value"
                     label={(entry) => `${entry.value}%`}
@@ -767,7 +767,7 @@ export function RecyclifyCaseStudy() {
                     <Cell fill="rgba(29, 133, 126, 0.3)" />
                   </Pie>
                   <Tooltip />
-                  <Legend />
+                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
                 </PieChart>
               </ResponsiveContainer>
               <p
@@ -808,7 +808,7 @@ export function RecyclifyCaseStudy() {
                 Do users sell second-hand products?
               </h3>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={260}>
                 <PieChart>
                   <Pie
                     data={[
@@ -817,9 +817,9 @@ export function RecyclifyCaseStudy() {
                       { name: 'Yes', value: 25.3 }
                     ]}
                     cx="50%"
-                    cy="50%"
-                    innerRadius={55}
-                    outerRadius={85}
+                    cy="45%"
+                    innerRadius={40}
+                    outerRadius={60}
                     paddingAngle={2}
                     dataKey="value"
                     label={(entry) => `${entry.value}%`}
@@ -829,7 +829,7 @@ export function RecyclifyCaseStudy() {
                     <Cell fill="#1D857E" />
                   </Pie>
                   <Tooltip />
-                  <Legend />
+                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
                 </PieChart>
               </ResponsiveContainer>
               <p
@@ -870,7 +870,7 @@ export function RecyclifyCaseStudy() {
                 Ease of clearing old items (1–5 scale)
               </h3>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={[
                   { rating: '1', responses: 8 },
                   { rating: '2', responses: 15 },
@@ -922,7 +922,7 @@ export function RecyclifyCaseStudy() {
                 Where users sell today
               </h3>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={260}>
                 <BarChart
                   data={[
                     { platform: 'OLX', value: 34.9 },
@@ -976,7 +976,7 @@ export function RecyclifyCaseStudy() {
                 Do users like buying recycled products?
               </h3>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={260}>
                 <PieChart>
                   <Pie
                     data={[
@@ -985,9 +985,9 @@ export function RecyclifyCaseStudy() {
                       { name: 'No', value: 13.7 }
                     ]}
                     cx="50%"
-                    cy="50%"
-                    innerRadius={55}
-                    outerRadius={85}
+                    cy="45%"
+                    innerRadius={40}
+                    outerRadius={60}
                     paddingAngle={2}
                     dataKey="value"
                     label={(entry) => `${entry.value}%`}
@@ -997,7 +997,7 @@ export function RecyclifyCaseStudy() {
                     <Cell fill="rgba(107, 114, 128, 0.4)" />
                   </Pie>
                   <Tooltip />
-                  <Legend />
+                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
                 </PieChart>
               </ResponsiveContainer>
               <p
@@ -1038,7 +1038,7 @@ export function RecyclifyCaseStudy() {
                 Why users hesitate
               </h3>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={260}>
                 <BarChart
                   data={[
                     { barrier: 'Not easily available', value: 55.9 },
