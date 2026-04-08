@@ -172,8 +172,12 @@ export function ContactPage() {
                   </p>
 
                   {/* Primary CTA */}
-                  <motion.button
-                    className="inline-block px-8 py-3 text-white rounded-xl"
+                  <motion.a
+                    href="https://calendly.com/sskumbar7/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Opens Calendly to book a free session"
+                    className="inline-flex items-center gap-2 px-8 py-3 text-white rounded-xl"
                     style={{
                       background: isCtaHovered
                         ? 'linear-gradient(to right, #1a7c76, #167069)'
@@ -191,7 +195,8 @@ export function ContactPage() {
                     whileTap={{ scale: 0.98 }}
                   >
                     Schedule a guided session
-                  </motion.button>
+                    <ArrowUpRight size={16} aria-label="Opens in new tab" />
+                  </motion.a>
 
                   {/* Meta text */}
                   <p
