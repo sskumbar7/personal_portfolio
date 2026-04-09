@@ -14,7 +14,7 @@ export function Hero() {
     'Explainable AI (XAI)',
     // 'Google (EPAM)', // Moved to top badge
     'UX Strategy',
-    'Micro-interactions'
+    'Design System'
   ];
 
   /* ... imports ... */
@@ -114,7 +114,7 @@ export function Hero() {
             <FadeIn delay={0.3}>
               <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'var(--color-muted-foreground)', maxWidth: '580px' }}>
                 With 11+ years of expertise spanning UX research, strategic design thinking, interaction design,
-                micro-motion choreography, and agentic AI workflows—I craft experiences that feel purposeful,
+                micro-motion choreography, and agentic AI workflows. I craft experiences that feel purposeful,
                 human, and technically sound.
               </p>
             </FadeIn>
