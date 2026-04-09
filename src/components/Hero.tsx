@@ -113,8 +113,8 @@ export function Hero() {
 
             <FadeIn delay={0.3}>
               <p style={{ fontSize: '17px', lineHeight: '1.5', color: 'var(--color-muted-foreground)', maxWidth: '580px' }}>
-                With 11+ years of expertise spanning UX research, strategic design thinking, interaction design,
-                micro-motion choreography, and agentic AI workflows. I craft experiences that feel purposeful,
+                With 11+ years of experience in UX research, design strategy, interaction design,
+                motion design, and agentic AI workflows. I craft experiences that feel purposeful,
                 human, and technically sound.
               </p>
             </FadeIn>
