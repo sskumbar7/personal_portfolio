@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Lock, ArrowRight, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { publicCaseStudies, clientCaseStudies } from '../data/caseStudies';
+import { shadows } from '../utils/shadows';
 
 type FilterType = 'All' | 'Public' | 'Client' | 'Design Systems' | 'Interaction';
 
@@ -213,6 +214,7 @@ const ArtifactHint = ({ type, isClient }: { type: string; isClient?: boolean }) 
 export function WorkPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [activeFilter, setActiveFilter] = useState<FilterType>('All');
+  const [hoveredFilter, setHoveredFilter] = useState<FilterType | null>(null);
 
   const filters: FilterType[] = ['All', 'Public', 'Client', 'Design Systems', 'Interaction'];
 
@@ -368,6 +370,8 @@ export function WorkPage() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
+                onMouseEnter={() => setHoveredFilter(filter)}
+                onMouseLeave={() => setHoveredFilter(null)}
                 aria-pressed={activeFilter === filter}
                 aria-label={`Filter by ${filter}`}
                 className="px-4 py-2.5 md:px-3 md:py-1.5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95"
@@ -375,7 +379,11 @@ export function WorkPage() {
                   fontSize: '14px',
                   fontWeight: 500,
                   fontFamily: 'Work Sans, sans-serif',
-                  background: activeFilter === filter ? '#1D857E' : 'rgba(0, 0, 0, 0.04)',
+                  background: activeFilter === filter
+                    ? '#1D857E'
+                    : hoveredFilter === filter
+                      ? 'rgba(0, 0, 0, 0.08)'
+                      : 'rgba(0, 0, 0, 0.04)',
                   color: activeFilter === filter ? 'white' : 'rgba(17, 24, 39, 0.5)',
                   border: 'none',
                   cursor: 'pointer',
@@ -417,8 +425,8 @@ export function WorkPage() {
                         padding: '0',
                         border: '1px solid rgba(0, 0, 0, 0.04)',
                         boxShadow: hoveredCard === study.id
-                          ? '0 6px 20px rgba(0, 0, 0, 0.06)'
-                          : '0 4px 16px rgba(0, 0, 0, 0.04)',
+                          ? shadows.cardHover
+                          : shadows.card,
                         transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
                         transition: 'all 0.25s ease-out',
                         overflow: 'hidden'
@@ -446,6 +454,8 @@ export function WorkPage() {
                               height: '100%',
                               objectFit: 'cover',
                               objectPosition: 'top center', // Anchor to top for UI screenshots
+                              transform: hoveredCard === study.id ? 'scale(1.05)' : 'scale(1)',
+                              transition: 'transform 0.5s ease-out',
                             }}
                           />
                         ) : (
@@ -651,8 +661,8 @@ export function WorkPage() {
                           padding: '0',
                           border: '1px solid rgba(0, 0, 0, 0.03)',
                           boxShadow: hoveredCard === study.id
-                            ? '0 6px 20px rgba(0, 0, 0, 0.05)'
-                            : '0 4px 16px rgba(0, 0, 0, 0.03)',
+                            ? shadows.cardHover
+                            : shadows.card,
                           transform: hoveredCard === study.id ? 'translateY(-3px)' : 'translateY(0)',
                           transition: 'all 0.25s ease-out',
                           overflow: 'hidden'
@@ -680,7 +690,9 @@ export function WorkPage() {
                                   alt={`${study.title} preview`}
                                   className="w-full h-full object-cover"
                                   style={{
-                                    objectPosition: 'top center'
+                                    objectPosition: 'top center',
+                                    transform: hoveredCard === study.id ? 'scale(1.05)' : 'scale(1)',
+                                    transition: 'transform 0.5s ease-out',
                                   }}
                                 />
                               </div>

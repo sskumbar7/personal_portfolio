@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Tag } from './Tag';
 import { motion as motionTokens, easing } from '../../utils/motion';
+import { shadows } from '../../utils/shadows';
 
 /**
  * Consolidated Case Study Card Component
@@ -51,11 +52,11 @@ export function CaseStudyCard({
           className={`bg-white rounded-2xl border overflow-hidden h-full flex flex-col ${className}`}
           style={{
             borderColor: '#DDE9E7',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+            boxShadow: shadows.card,
           }}
           whileHover={{
             y: prefersReducedMotion ? 0 : -2,
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+            boxShadow: shadows.cardHover,
           }}
           transition={{ duration: motionTokens.fast.duration, ease: easing.standard }}
         >
@@ -65,7 +66,7 @@ export function CaseStudyCard({
               <img
                 src={image}
                 alt={title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
             ) : gradient ? (
               <div
@@ -114,11 +115,11 @@ export function CaseStudyCard({
         className={`bg-white rounded-2xl border overflow-hidden flex flex-col md:flex-row ${className}`}
         style={{
           borderColor: '#DDE9E7',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+          boxShadow: shadows.card,
         }}
         whileHover={{
           y: prefersReducedMotion ? 0 : -2,
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+          boxShadow: shadows.cardHover,
         }}
         transition={{ duration: motionTokens.fast.duration, ease: easing.standard }}
       >
@@ -128,7 +129,7 @@ export function CaseStudyCard({
             <img
               src={image}
               alt={title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
           </div>
         )}

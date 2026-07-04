@@ -1,9 +1,10 @@
 import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Tag } from './ui/Tag';
 import { publicCaseStudies } from '../data/caseStudies';
+import { shadows } from '../utils/shadows';
+import { Button } from './ui/button';
 
 
 // Artifact hint component (same as WorkPage)
@@ -164,8 +165,6 @@ const ArtifactHint = ({ type }: { type: string }) => {
 };
 
 export function CaseStudies() {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-
   return (
     <section
       className="relative overflow-hidden transition-colors duration-300"
@@ -201,6 +200,7 @@ export function CaseStudies() {
                     borderRadius: '20px',
                     padding: '0',
                     border: '1px solid rgba(0, 0, 0, 0.04)',
+                    boxShadow: shadows.card,
                     overflow: 'hidden',
                     position: 'relative' // For absolute positioning of children if needed
                   }}
@@ -210,7 +210,7 @@ export function CaseStudies() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   whileHover={{
                     y: -6,
-                    boxShadow: '0 12px 30px rgba(0, 0, 0, 0.06)',
+                    boxShadow: shadows.cardHover,
                   }}
                 >
                   {/* Hybrid preview header with artifact hint */}
@@ -230,6 +230,7 @@ export function CaseStudies() {
                       <img
                         src={(study as any).imageUrl}
                         alt={`${study.title} preview`}
+                        className="transition-transform duration-500 ease-out group-hover:scale-105"
                         style={{
                           width: '100%',
                           height: '100%',
@@ -339,10 +340,7 @@ export function CaseStudies() {
                       <ArrowRight
                         size={13}
                         aria-hidden="true"
-                        style={{
-                          transform: hoveredCard === study.id ? 'translateX(3px)' : 'translateX(0)',
-                          transition: 'transform 0.2s ease-out'
-                        }}
+                        className="transition-transform duration-200 ease-out group-hover:translate-x-[3px]"
                       />
                     </div>
                   </div>
@@ -354,29 +352,12 @@ export function CaseStudies() {
 
         {/* View all case studies CTA */}
         <div className="mt-12 text-center">
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-xl border transition-all"
-            style={{
-              borderColor: 'rgba(29, 133, 126, 0.3)',
-              color: '#1D857E',
-              backgroundColor: 'transparent',
-              fontFamily: 'Work Sans, sans-serif',
-              fontWeight: 500,
-              fontSize: '15px'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#1D857E';
-              e.currentTarget.style.backgroundColor = 'rgba(29, 133, 126, 0.04)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(29, 133, 126, 0.3)';
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }}
-          >
-            View all case studies
-            <ArrowRight size={16} />
-          </Link>
+          <Button variant="secondary" asChild>
+            <Link to="/work" className="flex items-center gap-2">
+              View all case studies
+              <ArrowRight size={16} />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

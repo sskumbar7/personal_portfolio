@@ -7,10 +7,7 @@ import { Button } from '../components/ui/button';
 import { ArrowUpRight } from 'lucide-react';
 
 export function ContactPage() {
-  const [isPrimaryHovered, setIsPrimaryHovered] = useState(false);
-  const [isSecondaryHovered, setIsSecondaryHovered] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
-  const [isCtaHovered, setIsCtaHovered] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -172,31 +169,18 @@ export function ContactPage() {
                   </p>
 
                   {/* Primary CTA */}
-                  <motion.a
-                    href="https://calendly.com/sskumbar7/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Opens Calendly to book a free session"
-                    className="inline-flex items-center gap-2 px-8 py-3 text-white rounded-xl"
-                    style={{
-                      background: isCtaHovered
-                        ? 'linear-gradient(to right, #1a7c76, #167069)'
-                        : 'linear-gradient(to right, #1D857E, #178076)',
-                      boxShadow: '0 4px 14px rgba(29, 133, 126, 0.22), 0 2px 6px rgba(29, 133, 126, 0.08)',
-                      fontSize: '16px',
-                      fontWeight: 500,
-                      fontFamily: 'Inter, sans-serif',
-                      marginBottom: '16px',
-                      transform: isCtaHovered ? 'translateY(-1px)' : 'translateY(0)',
-                      transition: 'all 0.25s ease-out'
-                    }}
-                    onMouseEnter={() => setIsCtaHovered(true)}
-                    onMouseLeave={() => setIsCtaHovered(false)}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Schedule a guided session
-                    <ArrowUpRight size={16} aria-label="Opens in new tab" />
-                  </motion.a>
+                  <Button variant="default" asChild className="mb-4">
+                    <a
+                      href="https://calendly.com/sskumbar7/30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Opens Calendly to book a free session"
+                      className="flex items-center gap-2"
+                    >
+                      Schedule a guided session
+                      <ArrowUpRight size={16} aria-label="Opens in new tab" />
+                    </a>
+                  </Button>
 
                   {/* Meta text */}
                   <p
