@@ -1,8 +1,9 @@
-import { Users, Layers, Smartphone, Settings, BarChart3, Search, GitMerge, ShieldCheck } from 'lucide-react';
+import { Users, Layers, Smartphone, Settings, BarChart3, Search, GitMerge, ShieldCheck, Sparkles } from 'lucide-react';
 import recyclifyHero from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
 import discussionHero from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
 // Using Sales Dashboard image for better visual impact as requested
 import visualDesignHero from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
+import claudeCover from '../assets/claude-cover.png';
 
 // Client Case Study Images
 // Client Case Study Images - Restored for Locked Style
@@ -11,6 +12,19 @@ import clientFlowLocked from '../assets/77a0cbc77af505d9a6124708f3f42639e3e077c2
 import clientHeuristicsLocked from '../assets/2f8374a01ddd7212c48aacbeb9e0ea701ca03686.png';
 
 export const publicCaseStudies = [
+  {
+    id: 'case-4',
+    slug: 'claude-design-system',
+    title: 'I Let Claude Build a Design System. I Just Directed It.',
+    description: 'A weekend experiment in treating AI as a design companion, building a proper token-driven UI system.',
+    tags: ['AI + Design', 'UI Systems'],
+    link: '/work/claude-design-system',
+    icon: Sparkles,
+    gradient: 'linear-gradient(135deg, rgba(124, 58, 237, 0.09) 0%, rgba(139, 92, 246, 0.06) 100%)',
+    category: 'strategy',
+    artifactType: 'system-diagram',
+    imageUrl: claudeCover
+  },
   {
     id: 'case-1',
     slug: 'discussion-forum',

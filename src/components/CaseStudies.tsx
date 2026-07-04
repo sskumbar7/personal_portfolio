@@ -185,7 +185,7 @@ export function CaseStudies() {
 
         {/* 3 Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {publicCaseStudies.map((study) => {
+          {publicCaseStudies.slice(0, 3).map((study) => {
             const IconComponent = study.icon;
             return (
               <Link
@@ -350,6 +350,33 @@ export function CaseStudies() {
               </Link>
             );
           })}
+        </div>
+
+        {/* View all case studies CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-xl border transition-all"
+            style={{
+              borderColor: 'rgba(29, 133, 126, 0.3)',
+              color: '#1D857E',
+              backgroundColor: 'transparent',
+              fontFamily: 'Work Sans, sans-serif',
+              fontWeight: 500,
+              fontSize: '15px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#1D857E';
+              e.currentTarget.style.backgroundColor = 'rgba(29, 133, 126, 0.04)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(29, 133, 126, 0.3)';
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+          >
+            View all case studies
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>
