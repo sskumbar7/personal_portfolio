@@ -28,6 +28,7 @@ export function ClaudeDesignSystemCaseStudy() {
         title="I Let Claude Build a Design System. I Just Directed It. | Sandeep S Kumbar"
         description="A weekend experiment in treating AI as a design companion. Directing Claude to build a token-driven UI system for Studybud."
         keywords="Design Systems, AI Workflows, Claude AI, UX Design, Product Design, Handoff Optimization, Figma Variables"
+        image="/claude-cover.png"
       />
       <Navigation />
 

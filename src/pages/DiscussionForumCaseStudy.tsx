@@ -3,6 +3,7 @@ import { Footer } from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, Shield, MessageCircle, ThumbsUp, UserCheck, Palette, Type, Grid3x3, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { SEO } from '../components/SEO';
 import mobileHome from '../assets/b92a8671aba19484df70d5b00dcb3fc6b567fa53.png';
 import mobileCreate from '../assets/4d5a27ec50ddb7ac13e4f8c03f26fb31c5bd4cfd.png';
 import mobileDetail from '../assets/812b0facbc73c95b10c8ebb1e1cec32d9fc24df4.png';
@@ -43,6 +44,12 @@ import stackOverflowLogo from '../assets/6dded04dabee7c688bddcb0b922d6ce1be252e3
 export function DiscussionForumCaseStudy() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Discussion Forum Design - Case Study | Sandeep S Kumbar"
+        description="UX case study: Designing a mobile-first discussion forum with focus on community engagement and content discovery."
+        keywords="Discussion Forum Design, Mobile UX, Community Platform, UX Case Study, Product Design"
+        image="/discussion-cover.png"
+      />
       <Navigation />
 
       {/* HERO SECTION */}

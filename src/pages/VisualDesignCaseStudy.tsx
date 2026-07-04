@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Sparkles, Layout, Palette, Zap } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
+import { SEO } from '../components/SEO';
 import moodAnalysisImg from '../assets/mood-analysis-screens.png';
 import salesDashboardWebImg from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
 import salesDashboardMobileImg from '../assets/e02a31deda600c6c9743f1084295215f9f0d9422.png';
@@ -15,6 +16,12 @@ import landingPageImg from '../assets/bbf8a972e71238478714f2b57020667ce7e187cb.p
 export function VisualDesignCaseStudy() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Visual Design Collection | Sandeep S Kumbar"
+        description="A curated collection of visual design explorations, UI components, and design system artifacts."
+        keywords="Visual Design, UI Design, Design System Components, Interface Design, Product Design"
+        image="/visual-design-cover.png"
+      />
       <Navigation />
 
       {/* HERO SECTION */}

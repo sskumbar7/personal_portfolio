@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BuyerJourneyContent } from '../components/BuyerJourneyContent';
 import { SellerJourneyContent } from '../components/SellerJourneyContent';
 import { InformationArchitecture } from '../components/InformationArchitecture';
+import { SEO } from '../components/SEO';
 import loginRegisterFlowImg from '../assets/a9d27889a2a3189c4590492f3fe75b74d4e93deb.png';
 import sellItemsFlowImg from '../assets/4c2a67b7d531f85616cfa93ce6aa6725efd382e7.png';
 import buyProductsFlowImg from '../assets/1c454ef69e221da96172a592a1f36e589b0aa10f.png';
@@ -32,6 +33,12 @@ export function RecyclifyCaseStudy() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Recyclify - Sustainable Marketplace | UX Case Study"
+        description="Designing a circular economy marketplace connecting buyers and sellers for sustainable product exchange."
+        keywords="Marketplace Design, Sustainable UX, E-commerce Platform, User Journey Mapping, Circular Economy"
+        image="/recyclify-cover.png"
+      />
       <Navigation />
 
       {/* SECTION 1: HERO */}
