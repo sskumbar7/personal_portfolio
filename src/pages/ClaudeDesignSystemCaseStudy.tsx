@@ -123,7 +123,8 @@ export function ClaudeDesignSystemCaseStudy() {
             style={{
               borderRadius: '12px',
               overflow: 'hidden',
-              border: '1px solid rgba(0, 0, 0, 0.08)'
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)'
             }}
           >
             <ImageWithFallback
@@ -236,6 +237,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -344,6 +346,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -418,6 +421,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -463,6 +467,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -508,6 +513,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -608,6 +614,7 @@ export function ClaudeDesignSystemCaseStudy() {
                   borderRadius: '8px',
                   overflow: 'hidden',
                   border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
                   marginBottom: '10px'
                 }}
               >
@@ -662,6 +669,7 @@ export function ClaudeDesignSystemCaseStudy() {
                   borderRadius: '8px',
                   overflow: 'hidden',
                   border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
                   marginBottom: '10px'
                 }}
               >
@@ -731,6 +739,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -776,6 +785,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -850,6 +860,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}
@@ -1001,6 +1012,7 @@ export function ClaudeDesignSystemCaseStudy() {
               borderRadius: '12px',
               overflow: 'hidden',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
               marginBottom: '12px',
               marginTop: '12px'
             }}

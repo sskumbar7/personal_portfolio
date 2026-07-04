@@ -65,7 +65,6 @@ export function BottomCTA() {
             <Button
               variant="default"
               onClick={handleCopyEmail}
-              prefersReducedMotion={prefersReducedMotion}
             >
               {copied ? 'Email Copied!' : 'Contact Me'}
             </Button>
@@ -73,7 +72,6 @@ export function BottomCTA() {
             <Button
               variant="secondary"
               asChild
-              prefersReducedMotion={prefersReducedMotion}
             >
               <a href="https://www.linkedin.com/in/sskumbar7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 LinkedIn
