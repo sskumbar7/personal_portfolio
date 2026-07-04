@@ -17,7 +17,7 @@ export function SEO({
   type = 'website'
 }: SEOProps) {
   const location = useLocation();
-  const url = `https://sandeepskumbar.com${location.pathname}`;
+  const url = `https://sandeepkumbar.com${location.pathname}`;
 
   useEffect(() => {
     // Update document title
@@ -127,8 +127,8 @@ export const structuredDataConfig = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Sandeep S Kumbar',
-    url: 'https://sandeepskumbar.com',
-    image: 'https://sandeepskumbar.com/assets/portrait-placeholder.jpg', // Replace with actual URL
+    url: 'https://sandeepkumbar.com',
+    image: 'https://sandeepkumbar.com/assets/portrait-placeholder.jpg', // Replace with actual URL
     sameAs: [
       'https://www.linkedin.com/in/sskumbar7',
       'https://github.com/sskumbar7'
@@ -144,7 +144,7 @@ export const structuredDataConfig = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Sandeep S Kumbar Portfolio',
-    url: 'https://sandeepskumbar.com',
+    url: 'https://sandeepkumbar.com',
     author: {
       '@type': 'Person',
       name: 'Sandeep S Kumbar'
