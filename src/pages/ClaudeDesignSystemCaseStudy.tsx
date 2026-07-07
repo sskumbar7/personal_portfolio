@@ -20,6 +20,8 @@ import claudeType from '../assets/claude-type.png';
 import claudeComponents from '../assets/claude-components.png';
 import claudeButton from '../assets/claude-button.png';
 import claudeDark from '../assets/claude-dark.png';
+import claudeMobileFeed from '../assets/claude-mobile-feed.png';
+import claudeWebDashboard from '../assets/claude-web-dashboard.png';
 import claudePrinciples from '../assets/claude-principles.png';
 
 export function ClaudeDesignSystemCaseStudy() {
@@ -154,18 +156,29 @@ export function ClaudeDesignSystemCaseStudy() {
             Claude Design System – Blog Cover Frame
           </p>
 
-          <p
-            className="text-[15px] md:text-[17px]"
+          <div
             style={{
-              lineHeight: '1.6',
-              color: 'rgba(17, 24, 39, 0.85)',
-              fontFamily: 'Work Sans, sans-serif',
-              marginBottom: '24px',
-              textAlign: 'left'
+              background: 'rgba(29, 133, 126, 0.04)',
+              borderLeft: '3px solid rgba(29, 133, 126, 0.5)',
+              padding: '24px 28px',
+              borderRadius: '4px',
+              marginBottom: '24px'
             }}
           >
-            A question had been nagging at me: could I design a system properly and let an AI do the actual building, while I stayed in the director's chair the whole way?
-          </p>
+            <p
+              className="text-[17px] md:text-[19px]"
+              style={{
+                lineHeight: '1.6',
+                color: 'rgba(17, 24, 39, 0.85)',
+                fontFamily: 'Work Sans, sans-serif',
+                fontStyle: 'italic',
+                fontWeight: 500,
+                margin: 0
+              }}
+            >
+              A question had been nagging at me: could I design a system properly and let an AI do the actual building, while I stayed in the director's chair the whole way?
+            </p>
+          </div>
 
           <p
             className="text-[15px] md:text-[17px]"
@@ -402,7 +415,7 @@ export function ClaudeDesignSystemCaseStudy() {
               marginBottom: '32px'
             }}
           >
-            Three layers, one source of truth
+            Building a System AI Could Understand
           </h2>
 
           <p
@@ -615,7 +628,7 @@ export function ClaudeDesignSystemCaseStudy() {
                   borderRadius: '8px',
                   overflow: 'hidden',
                   border: '1px solid rgba(0, 0, 0, 0.08)',
-              boxShadow: shadows.card,
+                  boxShadow: shadows.card,
                   marginBottom: '10px'
                 }}
               >
@@ -670,7 +683,7 @@ export function ClaudeDesignSystemCaseStudy() {
                   borderRadius: '8px',
                   overflow: 'hidden',
                   border: '1px solid rgba(0, 0, 0, 0.08)',
-              boxShadow: shadows.card,
+                  boxShadow: shadows.card,
                   marginBottom: '10px'
                 }}
               >
@@ -888,6 +901,76 @@ export function ClaudeDesignSystemCaseStudy() {
             }}
           >
             Dark Mode – Mode-switched semantic variables running side-by-side
+          </p>
+
+          <p
+            className="text-[15px] md:text-[17px]"
+            style={{
+              lineHeight: '1.6',
+              color: 'rgba(17, 24, 39, 0.85)',
+              fontFamily: 'Work Sans, sans-serif',
+              marginBottom: '32px'
+            }}
+          >
+            Then the real test: assembling the tokens and components into actual product screens, a mobile feed and a web dashboard, both drawn entirely from the library. Nothing bespoke.
+          </p>
+
+          <div
+            className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 items-start"
+            style={{ marginBottom: '12px', marginTop: '12px' }}
+          >
+            {/* Mobile Feed */}
+            <div
+              style={{
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: '1px solid rgba(0, 0, 0, 0.08)',
+                boxShadow: shadows.card
+              }}
+            >
+              <ImageWithFallback
+                src={claudeMobileFeed}
+                alt="Studybud Mobile Feed – product screen composed from design system"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+
+            {/* Web Dashboard */}
+            <div
+              style={{
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: '1px solid rgba(0, 0, 0, 0.08)',
+                boxShadow: shadows.card
+              }}
+            >
+              <ImageWithFallback
+                src={claudeWebDashboard}
+                alt="Studybud Web Dashboard – product screen composed from design system"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+          </div>
+          <p
+            style={{
+              fontSize: '13px',
+              lineHeight: '1.5',
+              color: 'rgba(17, 24, 39, 0.5)',
+              fontFamily: 'Work Sans, sans-serif',
+              marginTop: '12px',
+              textAlign: 'center',
+              marginBottom: '32px'
+            }}
+          >
+            Product Screens – Mobile feed and web dashboard, composed entirely from the design system library
           </p>
 
 
