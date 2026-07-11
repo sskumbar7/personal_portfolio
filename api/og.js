@@ -23,6 +23,11 @@ const PAGE_META = {
     description: 'A curated collection of visual design explorations, UI components, and design system artifacts.',
     image: '/visual-design-cover.png'
   },
+  '/experiments': {
+    title: 'Design Experiments & R&D | Sandeep S Kumbar',
+    description: 'A chronological feed of design experiments, testing emerging AI agents, system automation, and interaction theories.',
+    image: '/figma-agent-flowchart.png'
+  },
   '/work': {
     title: 'Selected Work - Sandeep S Kumbar | UX Case Studies',
     description: 'Browse my collection of UX design case studies including design systems, interaction design, and confidential enterprise projects.',

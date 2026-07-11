@@ -132,6 +132,7 @@ export function ExperimentsPage() {
         title="Design Experiments & R&D | Sandeep S Kumbar"
         description="A chronological feed of design experiments, testing emerging AI agents, system automation, and interaction theories."
         keywords="Design Experiments, AI Design Agents, Figma Automation, R&D, Product Design, UX Strategy"
+        image="/figma-agent-flowchart.png"
       />
       <Navigation />
 

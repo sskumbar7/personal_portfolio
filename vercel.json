@@ -12,6 +12,17 @@
       "destination": "/api/og?path=/work/:path*"
     },
     {
+      "source": "/experiments",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(?:WhatsApp|facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Discordbot|Pinterest|Applebot|SocialFlow).*"
+        }
+      ],
+      "destination": "/api/og?path=/experiments"
+    },
+    {
       "source": "/contact",
       "has": [
         {
