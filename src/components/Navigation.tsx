@@ -154,6 +154,33 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
+                {/* Experiments link - uses router */}
+                <Link
+                  to="/experiments"
+                  className="relative transition-colors text-[15px]"
+                  style={{
+                    fontFamily: 'Work Sans, sans-serif',
+                    color: 'var(--color-foreground)'
+                  }}
+                  onMouseEnter={() => setHoveredLink('Experiments')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Experiments
+                  <span
+                    className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300"
+                    style={{
+                      width: hoveredLink === 'Experiments' || location.pathname.startsWith('/experiments') ? '100%' : '0%',
+                      backgroundColor: '#1D857E'
+                    }}
+                  />
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
                 {/* Contact link - uses router */}
                 <Link
                   to="/contact"
@@ -231,6 +258,20 @@ export function Navigation() {
                   }}
                 >
                   Work
+                </Link>
+
+                <Link
+                  to="/experiments"
+                  className="block py-3 transition-colors text-[16px]"
+                  style={{
+                    fontFamily: 'Work Sans, sans-serif',
+                    color: location.pathname.startsWith('/experiments') ? '#1D857E' : 'var(--color-foreground)',
+                    minHeight: '48px',
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}
+                >
+                  Experiments
                 </Link>
 
                 <Link

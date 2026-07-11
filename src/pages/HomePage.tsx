@@ -5,6 +5,7 @@ import { SkillsSnapshot } from '../components/SkillsSnapshot';
 import { Experience } from '../components/Experience';
 import { CaseStudies } from '../components/CaseStudies';
 import { AIWorkflowTeaser } from '../components/AIWorkflowTeaser';
+import { Experiments } from '../components/Experiments';
 import { BottomCTA } from '../components/BottomCTA';
 import { SEO, seoConfig } from '../components/SEO';
 
@@ -20,6 +21,7 @@ export function HomePage() {
         <Experience />
         <CaseStudies />
         <AIWorkflowTeaser />
+        <Experiments />
         <BottomCTA />
       </main>
     </div>
