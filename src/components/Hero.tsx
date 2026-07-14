@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import portraitImage from '../assets/29ef344e7da5848a42de9cbdc17ff00a75af6555.png';
+import portraitImage from '../assets/29ef344e7da5848a42de9cbdc17ff00a75af6555.webp';
 import { Button } from './ui/button';
 import { Tag } from './ui/Tag';
 

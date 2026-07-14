@@ -2,15 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Sparkles, Layout, Palette, Zap } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
 import { SEO } from '../components/SEO';
-import moodAnalysisImg from '../assets/mood-analysis-screens.png';
-import salesDashboardWebImg from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
+import moodAnalysisImg from '../assets/mood-analysis-screens.webp';
+import salesDashboardWebImg from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.webp';
 import salesDashboardMobileImg from '../assets/e02a31deda600c6c9743f1084295215f9f0d9422.png';
-import enterprisePortalLightImg from '../assets/27a65817732aa7028be464a92ac4c60b55f78e20.png';
-import enterprisePortalDarkImg from '../assets/0b20820c391d24f5e7b7273eaf098bd14eb76f0f.png';
-import aiAssistantImg from '../assets/2ba6e613e10f8f70ff75326ae963e88ed02f12b4.png';
-import landingPageImg from '../assets/bbf8a972e71238478714f2b57020667ce7e187cb.png';
+import enterprisePortalLightImg from '../assets/27a65817732aa7028be464a92ac4c60b55f78e20.webp';
+import enterprisePortalDarkImg from '../assets/0b20820c391d24f5e7b7273eaf098bd14eb76f0f.webp';
+import aiAssistantImg from '../assets/2ba6e613e10f8f70ff75326ae963e88ed02f12b4.webp';
+import landingPageImg from '../assets/bbf8a972e71238478714f2b57020667ce7e187cb.webp';
 
 
 export function VisualDesignCaseStudy() {
@@ -23,6 +24,7 @@ export function VisualDesignCaseStudy() {
         image="/visual-design-cover.png"
       />
       <Navigation />
+      <SectionReveals />
 
       {/* HERO SECTION */}
       <section

@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Workflow } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
-import flowToolImage from '../assets/77a0cbc77af505d9a6124708f3f42639e3e077c2.png';
+import flowToolImage from '../assets/77a0cbc77af505d9a6124708f3f42639e3e077c2.webp';
 
 export function ConfidentialCaseStudy2() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <SectionReveals />
 
       {/* HERO SECTION - Two Column Layout */}
       <section

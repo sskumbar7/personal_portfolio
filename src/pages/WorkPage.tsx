@@ -5,6 +5,7 @@ import { Lock, ArrowRight, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { publicCaseStudies, clientCaseStudies } from '../data/caseStudies';
 import { shadows } from '../utils/shadows';
+import { motion } from 'motion/react';
 
 type FilterType = 'All' | 'Public' | 'Client' | 'Design Systems' | 'Interaction';
 
@@ -253,7 +254,12 @@ export function WorkPage() {
         }}
       >
         <div className="max-w-[1180px] mx-auto px-8 pt-24 pb-28 relative">
-          <div className="text-center max-w-[720px] mx-auto space-y-10">
+          <motion.div
+            className="text-center max-w-[720px] mx-auto space-y-10"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+          >
             {/* Headline with selective green emphasis */}
             <h1
               className="leading-tight"
@@ -334,7 +340,7 @@ export function WorkPage() {
                 }}
               />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -365,7 +371,12 @@ export function WorkPage() {
       {/* FILTERS - Lightweight */}
       <section className="relative bg-white">
         <div className="max-w-[1180px] mx-auto px-8 pt-8 pb-4">
-          <div className="flex flex-wrap gap-3 md:gap-2">
+          <motion.div
+            className="flex flex-wrap gap-3 md:gap-2"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
+          >
             {filters.map(filter => (
               <button
                 key={filter}
@@ -397,7 +408,7 @@ export function WorkPage() {
                 {filter}
               </button>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -406,13 +417,20 @@ export function WorkPage() {
         <section className="relative bg-white">
           <div className="max-w-[1180px] mx-auto px-8 pb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredPublic.map((study) => {
+              {filteredPublic.map((study, index) => {
                 const IconComponent = study.icon;
                 return (
-                  <Link
+                  <motion.div
                     key={study.id}
+                    className="h-full"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.45, delay: (index % 2) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                  <Link
                     to={study.link}
-                    className="block"
+                    className="block h-full"
                     style={{ textDecoration: 'none' }}
                     onMouseEnter={() => setHoveredCard(study.id)}
                     onMouseLeave={() => setHoveredCard(null)}
@@ -565,6 +583,7 @@ export function WorkPage() {
                       </div>
                     </div>
                   </Link>
+                  </motion.div>
                 );
               })}
             </div>
@@ -581,7 +600,13 @@ export function WorkPage() {
           }}
         >
           <div className="max-w-[1180px] mx-auto px-8 py-12">
-            <div className="max-w-[680px]">
+            <motion.div
+              className="max-w-[680px]"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+            >
               <div
                 className="section-label"
                 style={{
@@ -606,7 +631,7 @@ export function WorkPage() {
               >
                 A snapshot of enterprise and confidential work. Full details available on request.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
       )}
@@ -642,13 +667,20 @@ export function WorkPage() {
             {/* GRID */}
             {filteredClient.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredClient.map((study) => {
+                {filteredClient.map((study, index) => {
                   const IconComponent = study.icon;
                   return (
-                    <Link
+                    <motion.div
                       key={study.id}
+                      className="h-full"
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 0.45, delay: (index % 2) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                    <Link
                       to={study.link}
-                      className="block"
+                      className="block h-full"
                       style={{ textDecoration: 'none' }}
                       onMouseEnter={() => setHoveredCard(study.id)}
                       onMouseLeave={() => setHoveredCard(null)}
@@ -843,6 +875,7 @@ export function WorkPage() {
                         </div>
                       </div>
                     </Link>
+                    </motion.div>
                   );
                 })}
               </div>

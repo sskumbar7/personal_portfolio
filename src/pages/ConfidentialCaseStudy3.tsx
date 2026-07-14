@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, SearchCheck } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
-import heuristicsPreview from '../assets/2f8374a01ddd7212c48aacbeb9e0ea701ca03686.png';
+import heuristicsPreview from '../assets/2f8374a01ddd7212c48aacbeb9e0ea701ca03686.webp';
 
 export function ConfidentialCaseStudy3() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <SectionReveals />
 
       {/* HERO SECTION */}
       <section

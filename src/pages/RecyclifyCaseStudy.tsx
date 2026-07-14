@@ -1,4 +1,5 @@
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { BuyerJourneyContent } from '../components/BuyerJourneyContent';
@@ -8,14 +9,14 @@ import { SEO } from '../components/SEO';
 import loginRegisterFlowImg from '../assets/a9d27889a2a3189c4590492f3fe75b74d4e93deb.png';
 import sellItemsFlowImg from '../assets/4c2a67b7d531f85616cfa93ce6aa6725efd382e7.png';
 import buyProductsFlowImg from '../assets/1c454ef69e221da96172a592a1f36e589b0aa10f.png';
-import cardSortingImg from '../assets/c448282c4da45510eab68a7b36ddaa2973578b03.png';
-import hiFiOnboardingImg from '../assets/68aa67b68abe7b8961f12385c6a10eb5b1351a4b.png';
-import hiFiHomeScreenImg from '../assets/f0edf0cd1700b773e9e82196345359d0177fc49b.png';
-import hiFiSellingFlowImg from '../assets/7a55e6b4d53d9648bda532fac42c10d6cf9d80ca.png';
-import hiFiSellingCompleteImg from '../assets/6ddd7a45c9d532861286c12d2122b28266a5edab.png';
+import cardSortingImg from '../assets/c448282c4da45510eab68a7b36ddaa2973578b03.webp';
+import hiFiOnboardingImg from '../assets/68aa67b68abe7b8961f12385c6a10eb5b1351a4b.webp';
+import hiFiHomeScreenImg from '../assets/f0edf0cd1700b773e9e82196345359d0177fc49b.webp';
+import hiFiSellingFlowImg from '../assets/7a55e6b4d53d9648bda532fac42c10d6cf9d80ca.webp';
+import hiFiSellingCompleteImg from '../assets/6ddd7a45c9d532861286c12d2122b28266a5edab.webp';
 import { ArrowLeft, ArrowRight, Users, Target, Package, TrendingUp, Search, Focus, Sparkles, Palette, BadgeCheck, CheckCircle2, Heart, Zap, AlertTriangle, Shield, Clock, Eye, DollarSign, Leaf, UserPlus, ChevronDown, ChevronUp, Lightbulb, BarChart3, Map, FileText, GitBranch, ShoppingBag, Recycle, LogIn, ShoppingCart } from 'lucide-react';
-import recyclifyHeroImage from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
-import wireframesImage from '../assets/9bbca8c75599410fc9ae1a59df1168a5dc498ccf.png';
+import recyclifyHeroImage from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.webp';
+import wireframesImage from '../assets/9bbca8c75599410fc9ae1a59df1168a5dc498ccf.webp';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { useState } from 'react';
 
@@ -40,6 +41,7 @@ export function RecyclifyCaseStudy() {
         image="/recyclify-cover.png"
       />
       <Navigation />
+      <SectionReveals />
 
       {/* SECTION 1: HERO */}
       <section

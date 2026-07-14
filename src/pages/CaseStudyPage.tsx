@@ -1,4 +1,5 @@
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Lock, CheckCircle2, TrendingUp, Users, Zap } from 'lucide-react';
@@ -244,6 +245,7 @@ export function CaseStudyPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <SectionReveals />
 
       {/* CASE STUDY HERO */}
       <section

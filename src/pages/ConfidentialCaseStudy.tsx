@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, BarChart3 } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
-import auditImage from '../assets/be4b759848759754b68270bcb39f13b0ea089c33.png';
+import auditImage from '../assets/be4b759848759754b68270bcb39f13b0ea089c33.webp';
 
 export function ConfidentialCaseStudy() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <SectionReveals />
 
       {/* HERO SECTION - Two Column Layout */}
       <section

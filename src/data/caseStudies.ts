@@ -1,15 +1,15 @@
 import { Users, Layers, Smartphone, Settings, BarChart3, Search, GitMerge, ShieldCheck, Sparkles } from 'lucide-react';
-import recyclifyHero from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.png';
-import discussionHero from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
+import recyclifyHero from '../assets/8ff22e9b39c0ae2daef106b3a94e4474e10b1ae8.webp';
+import discussionHero from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.webp';
 // Using Sales Dashboard image for better visual impact as requested
-import visualDesignHero from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.png';
-import claudeCover from '../assets/claude-cover.png';
+import visualDesignHero from '../assets/19bd8364dd3a95ae26abf854529d6f9120c96450.webp';
+import claudeCover from '../assets/claude-cover.webp';
 
 // Client Case Study Images
 // Client Case Study Images - Restored for Locked Style
-import clientResearchLocked from '../assets/be4b759848759754b68270bcb39f13b0ea089c33.png';
-import clientFlowLocked from '../assets/77a0cbc77af505d9a6124708f3f42639e3e077c2.png';
-import clientHeuristicsLocked from '../assets/2f8374a01ddd7212c48aacbeb9e0ea701ca03686.png';
+import clientResearchLocked from '../assets/be4b759848759754b68270bcb39f13b0ea089c33.webp';
+import clientFlowLocked from '../assets/77a0cbc77af505d9a6124708f3f42639e3e077c2.webp';
+import clientHeuristicsLocked from '../assets/2f8374a01ddd7212c48aacbeb9e0ea701ca03686.webp';
 
 export const publicCaseStudies = [
   {

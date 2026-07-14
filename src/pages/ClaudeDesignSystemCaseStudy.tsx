@@ -2,27 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
 import { SEO } from '../components/SEO';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { shadows } from '../utils/shadows';
 
 // Statically imported images provided by user
-import claudeBlogCover from '../assets/claude-blog-cover.png';
-import claudeCover from '../assets/claude-cover.png';
-import claudeConcept from '../assets/claude-concept.png';
-import claudeApproach from '../assets/claude-approach.png';
-import claudeFoundations from '../assets/claude-foundations.png';
-import claudeTokens from '../assets/claude-tokens.png';
-import claudeDesignMd from '../assets/claude-designmd.png';
-import claudeColor from '../assets/claude-color.png';
-import claudeType from '../assets/claude-type.png';
-import claudeComponents from '../assets/claude-components.png';
-import claudeButton from '../assets/claude-button.png';
-import claudeDark from '../assets/claude-dark.png';
-import claudeMobileFeed from '../assets/claude-mobile-feed.png';
-import claudeWebDashboard from '../assets/claude-web-dashboard.png';
-import claudePrinciples from '../assets/claude-principles.png';
+import claudeBlogCover from '../assets/claude-blog-cover.webp';
+import claudeCover from '../assets/claude-cover.webp';
+import claudeConcept from '../assets/claude-concept.webp';
+import claudeApproach from '../assets/claude-approach.webp';
+import claudeFoundations from '../assets/claude-foundations.webp';
+import claudeTokens from '../assets/claude-tokens.webp';
+import claudeDesignMd from '../assets/claude-designmd.webp';
+import claudeColor from '../assets/claude-color.webp';
+import claudeType from '../assets/claude-type.webp';
+import claudeComponents from '../assets/claude-components.webp';
+import claudeButton from '../assets/claude-button.webp';
+import claudeDark from '../assets/claude-dark.webp';
+import claudeMobileFeed from '../assets/claude-mobile-feed.webp';
+import claudeWebDashboard from '../assets/claude-web-dashboard.webp';
+import claudePrinciples from '../assets/claude-principles.webp';
 
 export function ClaudeDesignSystemCaseStudy() {
   return (
@@ -34,6 +35,7 @@ export function ClaudeDesignSystemCaseStudy() {
         image="/claude-cover.png"
       />
       <Navigation />
+      <SectionReveals />
 
       {/* HERO SECTION */}
       <section

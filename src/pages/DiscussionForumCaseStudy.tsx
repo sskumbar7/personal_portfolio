@@ -1,35 +1,36 @@
 import { Navigation } from '../components/Navigation';
+import { SectionReveals } from '../components/animations/SectionReveals';
 import { Footer } from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, Shield, MessageCircle, ThumbsUp, UserCheck, Palette, Type, Grid3x3, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { SEO } from '../components/SEO';
-import mobileHome from '../assets/b92a8671aba19484df70d5b00dcb3fc6b567fa53.png';
-import mobileCreate from '../assets/4d5a27ec50ddb7ac13e4f8c03f26fb31c5bd4cfd.png';
-import mobileDetail from '../assets/812b0facbc73c95b10c8ebb1e1cec32d9fc24df4.png';
+import mobileHome from '../assets/b92a8671aba19484df70d5b00dcb3fc6b567fa53.webp';
+import mobileCreate from '../assets/4d5a27ec50ddb7ac13e4f8c03f26fb31c5bd4cfd.webp';
+import mobileDetail from '../assets/812b0facbc73c95b10c8ebb1e1cec32d9fc24df4.webp';
 
 // Core Flows
-import heroImage from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.png';
-import loginFlow from '../assets/9acc539a382f66e721f1ed8fbca7ae282932ad23.png';
-import browseFlow from '../assets/7f4469d22cdce8df49731ecb7fe65719ce99a569.png';
+import heroImage from '../assets/13e06508fa565e6a916de46eba28a74c9e452b39.webp';
+import loginFlow from '../assets/9acc539a382f66e721f1ed8fbca7ae282932ad23.webp';
+import browseFlow from '../assets/7f4469d22cdce8df49731ecb7fe65719ce99a569.webp';
 import createPostFlow from '../assets/e2bcae5819bc486f774930a0a5f66075302ce8e5.png';
 import replyFlow from '../assets/72612e97302ec43d760405fb4db85c219fd39bb2.png';
 
 // Web / Design Screens
-import landingPageDesign from '../assets/8a80c5f22aba5bf46b75e7083d0132c4bf9d6c7a.png';
-import topicListingDesign from '../assets/024046386a2425ffa236cbb25c4ba7515941a17e.png';
-import postDetailsDesign from '../assets/16043d6f496b856ec2f44ef1d6daa78391bf6800.png';
-import createNewPostDesign from '../assets/aafa51483f84f99d61331ff2d888e1b54d58d1c4.png';
-import replyToDiscussionDesign from '../assets/fb6bd5d093f88a01f65745952d1faf47fa78309b.png';
+import landingPageDesign from '../assets/8a80c5f22aba5bf46b75e7083d0132c4bf9d6c7a.webp';
+import topicListingDesign from '../assets/024046386a2425ffa236cbb25c4ba7515941a17e.webp';
+import postDetailsDesign from '../assets/16043d6f496b856ec2f44ef1d6daa78391bf6800.webp';
+import createNewPostDesign from '../assets/aafa51483f84f99d61331ff2d888e1b54d58d1c4.webp';
+import replyToDiscussionDesign from '../assets/fb6bd5d093f88a01f65745952d1faf47fa78309b.webp';
 
 // Design System / UI Elements
-import colorSystemImage from '../assets/befbc3f0803267c0ec86a20a0cf7cab64a627942.png';
+import colorSystemImage from '../assets/befbc3f0803267c0ec86a20a0cf7cab64a627942.webp';
 import typographyImage from '../assets/ed380d7db126e3f6f1bff5a4dbfc3b254db09e97.png';
-import buttonVariantsImage from '../assets/41168b98aa9b7f53ecd60d2b268710cce1cac410.png';
-import cardAnatomyImage from '../assets/Card_anatomy.png';
+import buttonVariantsImage from '../assets/41168b98aa9b7f53ecd60d2b268710cce1cac410.webp';
+import cardAnatomyImage from '../assets/Card_anatomy.webp';
 
 // Brand / Reference Logos
-import componentConsistency1 from '../assets/2a4a44acb66830653a79cb8be98e84e234210834.png';
+import componentConsistency1 from '../assets/2a4a44acb66830653a79cb8be98e84e234210834.webp';
 import componentConsistency2 from '../assets/acb433052ee4b2cecaf021f76d400d96d5068c35.png';
 
 import mayoClinicLogo from '../assets/905a241ff1bdc5bcea7ed3d12e1b4c0abf151367.png';
@@ -51,6 +52,7 @@ export function DiscussionForumCaseStudy() {
         image="/discussion-cover.png"
       />
       <Navigation />
+      <SectionReveals />
 
       {/* HERO SECTION */}
       <section
