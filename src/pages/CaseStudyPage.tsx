@@ -1,5 +1,6 @@
 import { Navigation } from '../components/Navigation';
 import { SectionReveals } from '../components/animations/SectionReveals';
+import { LayersPanel } from '../components/LayersPanel';
 import { Footer } from '../components/Footer';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Lock, CheckCircle2, TrendingUp, Users, Zap } from 'lucide-react';
@@ -246,6 +247,7 @@ export function CaseStudyPage() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <SectionReveals />
+      <LayersPanel />
 
       {/* CASE STUDY HERO */}
       <section

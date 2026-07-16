@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
 import { SectionReveals } from '../components/animations/SectionReveals';
+import { LayersPanel } from '../components/LayersPanel';
 import { Footer } from '../components/Footer';
 import { SEO } from '../components/SEO';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
@@ -36,6 +37,7 @@ export function ClaudeDesignSystemCaseStudy() {
       />
       <Navigation />
       <SectionReveals />
+      <LayersPanel />
 
       {/* HERO SECTION */}
       <section
@@ -123,7 +125,7 @@ export function ClaudeDesignSystemCaseStudy() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
 
         {/* 1. COVER / HERO VISUAL */}
-        <section className="pt-8 pb-12 md:pt-12 md:pb-24">
+        <section data-layer-name="Overview" className="pt-8 pb-12 md:pt-12 md:pb-24">
           <div
             style={{
               borderRadius: '12px',
@@ -1149,7 +1151,7 @@ export function ClaudeDesignSystemCaseStudy() {
         </section>
 
         {/* BOTTOM NAVIGATION LINKS */}
-        <section className="py-12 border-t border-slate-100">
+        <section data-layer-name="Up next" className="py-12 border-t border-slate-100">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <Link
               to="/work"

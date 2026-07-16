@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Sparkles, Layout, Palette, Zap } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
 import { SectionReveals } from '../components/animations/SectionReveals';
+import { LayersPanel } from '../components/LayersPanel';
 import { Footer } from '../components/Footer';
 import { SEO } from '../components/SEO';
 import moodAnalysisImg from '../assets/mood-analysis-screens.webp';
@@ -25,6 +26,7 @@ export function VisualDesignCaseStudy() {
       />
       <Navigation />
       <SectionReveals />
+      <LayersPanel />
 
       {/* HERO SECTION */}
       <section
@@ -835,7 +837,7 @@ export function VisualDesignCaseStudy() {
         </section>
 
         {/* SECTION 5: CLOSING SUMMARY */}
-        <section className="pb-12 md:pb-24">
+        <section data-layer-name="Closing thoughts" className="pb-12 md:pb-24">
           <div
             style={{
               background: 'rgba(29, 133, 126, 0.04)',
@@ -860,7 +862,7 @@ export function VisualDesignCaseStudy() {
         </section>
 
         {/* NAVIGATION */}
-        <section className="pt-12 pb-16 md:pt-16 md:pb-24" style={{ borderTop: '1px solid rgba(0, 0, 0, 0.08)' }}>
+        <section data-layer-name="Up next" className="pt-12 pb-16 md:pt-16 md:pb-24" style={{ borderTop: '1px solid rgba(0, 0, 0, 0.08)' }}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
             <Link
               to="/work"

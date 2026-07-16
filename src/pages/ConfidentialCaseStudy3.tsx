@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, SearchCheck } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
 import { SectionReveals } from '../components/animations/SectionReveals';
+import { LayersPanel } from '../components/LayersPanel';
 import { Footer } from '../components/Footer';
 import heuristicsPreview from '../assets/2f8374a01ddd7212c48aacbeb9e0ea701ca03686.webp';
 
@@ -11,6 +12,7 @@ export function ConfidentialCaseStudy3() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <SectionReveals />
+      <LayersPanel />
 
       {/* HERO SECTION */}
       <section
@@ -112,7 +114,7 @@ export function ConfidentialCaseStudy3() {
       </section>
 
       {/* BLURRED PREVIEW IMAGE */}
-      <section className="pt-8 pb-12 md:pt-12 md:pb-24">
+      <section data-layer-name="Confidential preview" className="pt-8 pb-12 md:pt-12 md:pb-24">
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
           <div
             style={{
@@ -631,7 +633,7 @@ export function ConfidentialCaseStudy3() {
         </section>
 
         {/* NAVIGATION */}
-        <section className="pt-12 pb-16 md:pt-16 md:pb-24" style={{ borderTop: '1px solid rgba(0, 0, 0, 0.08)' }}>
+        <section data-layer-name="Up next" className="pt-12 pb-16 md:pt-16 md:pb-24" style={{ borderTop: '1px solid rgba(0, 0, 0, 0.08)' }}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
             <Link
               to="/work"

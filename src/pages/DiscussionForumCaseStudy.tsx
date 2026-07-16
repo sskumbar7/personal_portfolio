@@ -1,5 +1,6 @@
 import { Navigation } from '../components/Navigation';
 import { SectionReveals } from '../components/animations/SectionReveals';
+import { LayersPanel } from '../components/LayersPanel';
 import { Footer } from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, Shield, MessageCircle, ThumbsUp, UserCheck, Palette, Type, Grid3x3, Sparkles } from 'lucide-react';
@@ -53,6 +54,7 @@ export function DiscussionForumCaseStudy() {
       />
       <Navigation />
       <SectionReveals />
+      <LayersPanel />
 
       {/* HERO SECTION */}
       <section
@@ -140,7 +142,7 @@ export function DiscussionForumCaseStudy() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
 
         {/* HERO VISUAL */}
-        <section className="pt-8 pb-12 md:pt-12 md:pb-24">
+        <section data-layer-name="Overview" className="pt-8 pb-12 md:pt-12 md:pb-24">
           <div
             style={{
               borderRadius: '12px',
@@ -2500,6 +2502,7 @@ export function DiscussionForumCaseStudy() {
 
         {/* FOOTER NAVIGATION */}
         <section
+          data-layer-name="Up next"
           className="pt-12 pb-16 md:pt-16 md:pb-24"
           style={{
             borderTop: '1px solid rgba(0, 0, 0, 0.08)'
