@@ -51,6 +51,8 @@ export function About() {
               {/* Quote */}
               <motion.div
                 className="mb-10"
+                data-inspect="One italic line in brand teal — conviction doesn't need a card around it."
+                data-inspect-token="Work Sans italic"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -103,10 +105,10 @@ export function About() {
               {principles.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
                 >
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#1D857E]/5 text-[#1D857E]">
@@ -119,10 +121,13 @@ export function About() {
 
                   {/* Progress Bar Container */}
                   <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    {/* Static final width + scaleX keeps the fill strictly monotonic:
+                        no unit conversion, progress only ever moves forward */}
                     <motion.div
-                      className="h-full bg-[#1D857E]/50 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: item.width }}
+                      className="h-full bg-[#1D857E]/50 rounded-full origin-left"
+                      style={{ width: item.width }}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
                     />

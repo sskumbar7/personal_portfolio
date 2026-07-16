@@ -41,6 +41,7 @@ export function BottomCTA() {
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <motion.h2
             className="text-[28px] md:text-[36px] font-normal"
+            data-inspect="Pages end where conversations start."
             style={{
               color: '#111827',
               lineHeight: '1.4',

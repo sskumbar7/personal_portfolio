@@ -1,15 +1,19 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Globe, Menu, X, Moon, Sun } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { Menu, X, Scan } from 'lucide-react';
 
 import { motion, AnimatePresence } from 'motion/react';
+import { inspectStore, useInspectActive } from '../utils/inspectStore';
 
 export function Navigation() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const inspectActive = useInspectActive();
+  const [inspectTipVisible, setInspectTipVisible] = useState(false);
+  // Inspect mode is a homepage feature (for now)
+  const showInspect = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -202,6 +206,86 @@ export function Navigation() {
                   />
                 </Link>
               </motion.div>
+
+              {/* Inspect mode toggle — a utility, not a destination: pinned
+                  right of a divider so nav links can grow without touching it */}
+              {showInspect && (
+                <motion.div
+                  className="hidden lg:flex items-center gap-6"
+                  initial={{ opacity: 0, y: -15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <span
+                    aria-hidden="true"
+                    style={{ width: '1px', height: '20px', background: 'rgba(0, 0, 0, 0.08)' }}
+                  />
+                  <div className="relative">
+                  <button
+                    onClick={() => inspectStore.toggle()}
+                    aria-pressed={inspectActive}
+                    aria-describedby="inspect-tooltip"
+                    className="flex items-center gap-2"
+                    style={{
+                      padding: '7px 14px',
+                      borderRadius: '20px',
+                      fontSize: '13px',
+                      fontWeight: 500,
+                      fontFamily: 'Inter, sans-serif',
+                      cursor: 'pointer',
+                      border: inspectActive ? '1px solid #111827' : '1px solid rgba(29, 133, 126, 0.3)',
+                      background: inspectActive ? '#111827' : 'transparent',
+                      color: inspectActive ? '#FFFFFF' : '#1D857E',
+                      transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!inspectActive) e.currentTarget.style.background = 'rgba(29, 133, 126, 0.06)';
+                      setInspectTipVisible(true);
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!inspectActive) e.currentTarget.style.background = 'transparent';
+                      setInspectTipVisible(false);
+                    }}
+                    onFocus={() => setInspectTipVisible(true)}
+                    onBlur={() => setInspectTipVisible(false)}
+                  >
+                    <Scan size={14} />
+                    {inspectActive ? 'Exit inspect' : 'Inspect'}
+                  </button>
+
+                  {/* What-is-this tooltip — idle state only; active state explains
+                      itself. Always mounted; visibility is animated directly. */}
+                  <motion.div
+                    id="inspect-tooltip"
+                    role="tooltip"
+                    aria-hidden={!(inspectTipVisible && !inspectActive)}
+                    initial={false}
+                    animate={
+                      inspectTipVisible && !inspectActive
+                        ? { opacity: 1, y: 0, transition: { delay: 0.35, duration: 0.18 } }
+                        : { opacity: 0, y: -4, transition: { delay: 0, duration: 0.1 } }
+                    }
+                    className="absolute pointer-events-none"
+                    style={{
+                      top: 'calc(100% + 10px)',
+                      right: 0,
+                      width: 'max-content',
+                      maxWidth: '230px',
+                      background: '#111827',
+                      color: 'rgba(255, 255, 255, 0.92)',
+                      borderRadius: '8px',
+                      padding: '8px 12px',
+                      fontSize: '12px',
+                      lineHeight: 1.5,
+                      fontFamily: 'Work Sans, sans-serif',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.25)'
+                    }}
+                  >
+                    See the design decisions behind this site
+                  </motion.div>
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             {/* Mobile Actions (Menu) */}

@@ -95,14 +95,24 @@ export function Hero() {
             <div>
               <FadeIn delay={0.1}>
                 <div className="mb-6">
-                  <Tag variant="badge">
-                    Currently at KPMG
-                  </Tag>
+                  <span
+                    className="inline-block"
+                    data-inspect="A live status line says more than a static bio ever will."
+                    data-inspect-token='Tag variant="badge"'
+                  >
+                    <Tag variant="badge">
+                      Currently at KPMG
+                    </Tag>
+                  </span>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.2}>
-                <h1 className="leading-tight text-[28px] md:text-[36px] font-semibold" style={{
+                <h1
+                  className="leading-tight text-[28px] md:text-[36px] font-semibold"
+                  data-inspect="Only the words that carry meaning get the gradient. Restraint is the system."
+                  data-inspect-token="#1D857E → #3BC5A1"
+                  style={{
                   color: 'var(--color-foreground)',
                   lineHeight: '1.2'
                 }}>
@@ -121,7 +131,11 @@ export function Hero() {
 
             {/* Pill tags */}
             <FadeIn delay={0.4}>
-              <div className="flex flex-wrap gap-2 -mt-2">
+              <div
+                className="flex flex-wrap gap-2 -mt-2"
+                data-inspect="Monospace pills for machine terms, sans for human ones — type does the taxonomy."
+                data-inspect-token='Tag variant="code"'
+              >
                 {tags.map((tag, index) => (
                   <Tag key={index} variant="code">
                     {tag}
@@ -186,7 +200,12 @@ export function Hero() {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4" style={{ order: 3 }}>
+            <div
+              className="flex flex-wrap gap-4 pt-4"
+              style={{ order: 3 }}
+              data-inspect="One filled action per view. Everything else stays quiet."
+              data-inspect-token='Button variant="default"'
+            >
               <Button variant="default" className="w-full md:w-auto" asChild>
                 <Link to="/work">View Case Studies</Link>
               </Button>
@@ -207,6 +226,8 @@ export function Hero() {
 
               <div
                 className="relative w-full max-w-md cursor-pointer"
+                data-inspect="Grayscale until hover. Color is earned, not given."
+                data-inspect-token="cubic-bezier(0.16, 1, 0.3, 1)"
                 onMouseEnter={() => setIsPhotoHovered(true)}
                 onMouseLeave={() => setIsPhotoHovered(false)}
               >

@@ -183,7 +183,11 @@ export function CaseStudies() {
         </div>
 
         {/* 3 Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          data-inspect="Cards lift 2px, images zoom 5% — the same physics everywhere on the site."
+          data-inspect-token="shadows.card · scale(1.05) 500ms"
+        >
           {publicCaseStudies.slice(0, 3).map((study) => {
             const IconComponent = study.icon;
             return (

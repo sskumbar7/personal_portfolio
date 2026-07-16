@@ -31,6 +31,8 @@ export function Experience() {
           <div className="flex justify-center mb-16">
             <motion.div
               className="px-10 py-3 rounded-full bg-white cursor-default relative z-10"
+              data-inspect="The page's only infinite animation lives where 'now' does."
+              data-inspect-token="scale 1 → 1.015 · 4s ∞"
               style={{
                 border: '1px solid rgba(29, 133, 126, 0.3)',
                 boxShadow: '0 2px 12px rgba(0, 0, 0, 0.04)',
