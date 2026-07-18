@@ -12,7 +12,7 @@ export function Experience() {
   ];
 
   return (
-    <section className="bg-white relative overflow-hidden">
+    <section className="bg-white relative overflow-hidden" data-tour="timeline">
 
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-20 md:pb-20 relative">
         <div className="max-w-[1100px] mx-auto">

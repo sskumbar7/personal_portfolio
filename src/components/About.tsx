@@ -88,7 +88,7 @@ export function About() {
           </div>
 
           {/* Right column - Design Principles */}
-          <div className="relative pt-2">
+          <div className="relative pt-2" data-tour="principles">
             <div className="text-center mb-10 md:mb-12">
               <h3
                 className="text-xs font-bold tracking-widest uppercase text-[#1D857E] opacity-60 mb-2"
