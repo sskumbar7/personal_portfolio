@@ -3,6 +3,8 @@ import { useState } from 'react';
 import portraitImage from '../assets/29ef344e7da5848a42de9cbdc17ff00a75af6555.webp';
 import { Button } from './ui/button';
 import { Tag } from './ui/Tag';
+import { HeroMeshGradient } from './HeroMeshGradient';
+import { CursorGlow } from './CursorGlow';
 
 import { Link } from 'react-router-dom';
 
@@ -80,13 +82,10 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden transition-colors duration-300">
-      {/* Soft gradient background - Adaptive */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          background: 'linear-gradient(135deg, #1D857E 0%, transparent 100%)'
-        }}
-      />
+      {/* Animated mesh gradient background */}
+      <HeroMeshGradient />
+      {/* Soft cursor trail — hero only */}
+      <CursorGlow />
 
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-24 md:pb-20 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
