@@ -8,6 +8,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { SkipLink } from "./components/SkipLink";
 import { BackToTop } from "./components/BackToTop";
 import { GuidedTour } from "./components/GuidedTour";
+import { CommandPalette } from "./components/CommandPalette";
 
 // All other routes are code-split. Vercel serves hashed chunks as static
 // files ahead of the SPA rewrite, so lazy chunks resolve correctly.
@@ -35,6 +36,7 @@ export default function App() {
       <SkipLink />
       <BackToTop />
       <GuidedTour />
+      <CommandPalette />
       <AnimatePresence
         mode="wait"
         initial={false}

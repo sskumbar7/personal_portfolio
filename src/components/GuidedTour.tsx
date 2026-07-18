@@ -157,6 +157,13 @@ export function GuidedTour() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
+  // The command palette can summon the tour
+  useEffect(() => {
+    const onOpenEvent = () => setOpen(true);
+    window.addEventListener('portfolio:open-tour', onOpenEvent);
+    return () => window.removeEventListener('portfolio:open-tour', onOpenEvent);
+  }, []);
+
   // Keep the transcript pinned to the newest message
   useEffect(() => {
     const el = scrollRef.current;

@@ -207,19 +207,19 @@ export function Navigation() {
                 </Link>
               </motion.div>
 
-              {/* Inspect mode toggle — a utility, not a destination: pinned
-                  right of a divider so nav links can grow without touching it */}
-              {showInspect && (
-                <motion.div
-                  className="hidden lg:flex items-center gap-6"
-                  initial={{ opacity: 0, y: -15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <span
-                    aria-hidden="true"
-                    style={{ width: '1px', height: '20px', background: 'rgba(0, 0, 0, 0.08)' }}
-                  />
+              {/* Utilities — pinned right of a divider so nav links can
+                  grow without touching them */}
+              <motion.div
+                className="hidden lg:flex items-center gap-6"
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{ width: '1px', height: '20px', background: 'rgba(0, 0, 0, 0.08)' }}
+                />
+                {showInspect && (
                   <div className="relative">
                   <button
                     onClick={() => inspectStore.toggle()}
@@ -284,8 +284,35 @@ export function Navigation() {
                     See the design decisions behind this site
                   </motion.div>
                   </div>
-                </motion.div>
-              )}
+                )}
+
+                {/* Command palette hint */}
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent('portfolio:open-palette'))}
+                  aria-label="Open command menu (Cmd+K)"
+                  style={{
+                    padding: '5px 9px',
+                    borderRadius: '6px',
+                    fontSize: '11px',
+                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+                    cursor: 'pointer',
+                    border: '1px solid rgba(0, 0, 0, 0.12)',
+                    background: 'transparent',
+                    color: 'rgba(17, 24, 39, 0.45)',
+                    transition: 'color 0.15s ease, border-color 0.15s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#1D857E';
+                    e.currentTarget.style.borderColor = 'rgba(29, 133, 126, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'rgba(17, 24, 39, 0.45)';
+                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.12)';
+                  }}
+                >
+                  ⌘K
+                </button>
+              </motion.div>
             </div>
 
             {/* Mobile Actions (Menu) */}
