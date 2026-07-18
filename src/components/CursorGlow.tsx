@@ -43,10 +43,13 @@ export function CursorGlow() {
 
     const rect = container.getBoundingClientRect();
 
-    // Resize canvas to container
-    if (canvas.width !== rect.width || canvas.height !== rect.height) {
-      canvas.width = rect.width;
-      canvas.height = rect.height;
+    // Resize canvas to container (rounded: canvas dims are integers, and a
+    // fractional rect width would otherwise trigger a realloc every frame)
+    const w = Math.round(rect.width);
+    const h = Math.round(rect.height);
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
