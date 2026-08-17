@@ -160,11 +160,11 @@ export function Hero() {
                 data-inspect="One filled action per view. Everything else stays quiet."
                 data-inspect-token='Button variant="default"'
               >
-                <Button variant="default" className="w-full md:w-auto" asChild>
-                  <Link to="/work">View Case Studies</Link>
-                </Button>
                 <Button variant="secondary" className="w-full md:w-auto" onClick={handleCopyEmail}>
                   {emailCopied ? 'Email Copied!' : 'Contact Me'}
+                </Button>
+                <Button variant="default" className="w-full md:w-auto" asChild>
+                  <Link to="/work">View Case Studies</Link>
                 </Button>
               </div>
 
