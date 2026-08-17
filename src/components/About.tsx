@@ -1,33 +1,41 @@
 import { Heart, BarChart3, Accessibility, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
+import { shadows } from '../utils/shadows';
 
 export function About() {
   const principles = [
     {
       icon: Heart,
       title: 'Human-Centered',
-      width: '100%' // Full width for concept
+      description: 'Every decision starts with a person, not a screen.'
     },
     {
       icon: BarChart3,
       title: 'Data-Informed',
-      width: '90%'
+      description: "Evidence guides taste. It doesn't replace it."
     },
     {
       icon: Accessibility,
-      title: 'Accessible', // Using Accessibility icon if available, else fallback to something else in next step
-      width: '95%'
+      title: 'Accessible',
+      description: "If it excludes, it isn't finished."
     },
     {
       icon: RefreshCw,
       title: 'Iterative',
-      width: '85%'
+      description: 'Ship, learn, refine. In that order, on repeat.'
     }
   ];
 
   return (
-    <section className="bg-white relative overflow-hidden">
+    <section
+      className="relative overflow-hidden"
+      style={{
+        // Tinted band, fading to white at both edges so it never seams
+        // against the white sections above and below
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F5F9F8 14%, #F5F9F8 86%, #FFFFFF 100%)'
+      }}
+    >
       <div className="max-w-[1180px] mx-auto px-8 pt-12 pb-12 md:pt-24 md:pb-24 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative items-start">
           {/* Left column */}
@@ -48,21 +56,28 @@ export function About() {
                 Blending systems thinking, interaction craft, and human insight.
               </p>
 
-              {/* Quote */}
+              {/* Pull quote — the serif's second and only other appearance */}
               <motion.div
                 className="mb-10"
-                data-inspect="One italic line in brand teal — conviction doesn't need a card around it."
-                data-inspect-token="Work Sans italic"
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                data-inspect="The serif returns for the thesis, and nowhere else. Two voices, both used sparingly."
+                data-inspect-token="Fraunces italic · clamp(24px, 2.2vw, 30px)"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
               >
                 <p
-                  className="text-xl md:text-2xl font-medium italic text-[#1D857E]"
-                  style={{ fontFamily: 'Work Sans, sans-serif' }}
+                  style={{
+                    fontFamily: "'Fraunces', Georgia, serif",
+                    fontStyle: 'italic',
+                    fontWeight: 480,
+                    fontSize: 'clamp(24px, 2.2vw, 30px)',
+                    lineHeight: 1.35,
+                    letterSpacing: '-0.01em',
+                    color: '#1D857E'
+                  }}
                 >
-                  "Great design is systematic, strategic, and deeply human."
+                  “Great design is systematic, strategic, and deeply human.”
                 </p>
               </motion.div>
 
@@ -78,68 +93,73 @@ export function About() {
                   emerging <span className="font-semibold text-[#1D857E]">AI workflows</span> to create experiences that
                   feel both intelligent and deeply human.
                 </p>
-
-                <p className="text-gray-600">
-                  Every project is an opportunity to build something calm, purposeful, and meaningful—rooted
-                  in research, refined through craft, and delivered with clarity.
-                </p>
               </div>
             </div>
           </div>
 
           {/* Right column - Design Principles */}
           <div className="relative pt-2" data-tour="principles">
-            <div className="text-center mb-10 md:mb-12">
-              <h3
-                className="text-xs font-bold tracking-widest uppercase text-[#1D857E] opacity-60 mb-2"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Design Principles
-              </h3>
+            <div className="mb-8">
+              <div className="mb-4">
+                <Tag variant="section-label">Design Principles</Tag>
+              </div>
               <p className="text-sm text-gray-400">
                 Core values that guide every decision
               </p>
             </div>
 
-            <div className="space-y-10">
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              data-inspect="No percentages on principles. They're commitments, not metrics."
+              data-inspect-token="honesty > data-viz"
+            >
               {principles.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 12 }}
+                  className="group"
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ delay: index * 0.08, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -3, boxShadow: shadows.cardHover }}
+                  style={{
+                    // Solid white against the tinted band so the cards
+                    // actually read as elevated surfaces
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(0, 0, 0, 0.05)',
+                    borderRadius: '16px',
+                    padding: '24px 22px',
+                    boxShadow: shadows.card
+                  }}
                 >
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#1D857E]/5 text-[#1D857E]">
-                      <item.icon size={20} strokeWidth={1.5} />
+                  <div className="flex items-start justify-between" style={{ marginBottom: '16px' }}>
+                    <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center text-[#1D857E] transition-colors duration-300 bg-[#1D857E]/5 group-hover:bg-[#1D857E]/10">
+                      <item.icon size={19} strokeWidth={1.5} />
                     </div>
-                    <span className="text-lg font-medium text-gray-800">
-                      {item.title}
+                    <span
+                      style={{
+                        fontSize: '12px',
+                        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+                        color: 'rgba(29, 133, 126, 0.45)',
+                        letterSpacing: '0.05em'
+                      }}
+                    >
+                      0{index + 1}
                     </span>
                   </div>
-
-                  {/* Progress Bar Container */}
-                  <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                    {/* Static final width + scaleX keeps the fill strictly monotonic:
-                        no unit conversion, progress only ever moves forward */}
-                    <motion.div
-                      className="h-full bg-[#1D857E]/50 rounded-full origin-left"
-                      style={{ width: item.width }}
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
-                    />
+                  <div className="text-[17px] font-semibold text-gray-800" style={{ marginBottom: '6px', fontFamily: 'Inter, sans-serif' }}>
+                    {item.title}
                   </div>
+                  <p style={{
+                    fontSize: '14px',
+                    lineHeight: 1.55,
+                    color: '#6B7280',
+                    fontFamily: 'Work Sans, sans-serif'
+                  }}>
+                    {item.description}
+                  </p>
                 </motion.div>
               ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <p className="text-xs text-gray-300 font-medium tracking-wide">
-                Balanced approach across all principles
-              </p>
             </div>
           </div>
         </div>
