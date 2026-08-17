@@ -42,6 +42,20 @@ export function HeroMeshGradient() {
         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)',
       }}
     >
+      {/* Craft texture — faint dot grid, fading in from the right so it
+          backs the headline's whitespace without sitting under text */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(29, 133, 126, 0.22) 1px, transparent 1px)',
+          backgroundSize: '22px 22px',
+          maskImage: 'linear-gradient(to right, transparent 35%, rgba(0,0,0,0.5) 70%, black 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 35%, rgba(0,0,0,0.5) 70%, black 100%)',
+          opacity: 0.5,
+        }}
+      />
+
       {/* Blob 1 — large, slow drift top-right to bottom-left */}
       <div
         style={{
@@ -51,8 +65,8 @@ export function HeroMeshGradient() {
           top: '-10%',
           right: '-5%',
           borderRadius: '40% 60% 70% 30% / 60% 30% 70% 40%',
-          background: 'radial-gradient(ellipse at center, rgba(29, 133, 126, 0.16) 0%, rgba(29, 133, 126, 0.07) 45%, rgba(29, 133, 126, 0.02) 65%, transparent 80%)',
-          animation: 'meshBlob1 8s ease-in-out infinite',
+          background: 'radial-gradient(ellipse at center, rgba(29, 133, 126, 0.19) 0%, rgba(29, 133, 126, 0.08) 45%, rgba(29, 133, 126, 0.025) 65%, transparent 80%)',
+          animation: 'meshBlob1 14s ease-in-out infinite',
           willChange: 'transform',
         }}
       />
@@ -66,13 +80,13 @@ export function HeroMeshGradient() {
           bottom: '-5%',
           left: '-5%',
           borderRadius: '60% 40% 30% 70% / 40% 60% 40% 60%',
-          background: 'radial-gradient(ellipse at center, rgba(59, 197, 161, 0.14) 0%, rgba(59, 197, 161, 0.06) 45%, rgba(59, 197, 161, 0.015) 65%, transparent 80%)',
-          animation: 'meshBlob2 10s ease-in-out infinite',
+          background: 'radial-gradient(ellipse at center, rgba(59, 197, 161, 0.16) 0%, rgba(59, 197, 161, 0.07) 45%, rgba(59, 197, 161, 0.02) 65%, transparent 80%)',
+          animation: 'meshBlob2 18s ease-in-out infinite',
           willChange: 'transform',
         }}
       />
 
-      {/* Blob 3 — small accent, faster cycle */}
+      {/* Blob 3 — small accent */}
       <div
         style={{
           position: 'absolute',
@@ -81,8 +95,8 @@ export function HeroMeshGradient() {
           top: '25%',
           left: '20%',
           borderRadius: '50% 50% 40% 60% / 50% 40% 60% 50%',
-          background: 'radial-gradient(ellipse at center, rgba(29, 133, 126, 0.12) 0%, rgba(78, 205, 196, 0.05) 45%, rgba(78, 205, 196, 0.01) 65%, transparent 80%)',
-          animation: 'meshBlob3 7s ease-in-out infinite',
+          background: 'radial-gradient(ellipse at center, rgba(29, 133, 126, 0.13) 0%, rgba(78, 205, 196, 0.055) 45%, rgba(78, 205, 196, 0.012) 65%, transparent 80%)',
+          animation: 'meshBlob3 12s ease-in-out infinite',
           willChange: 'transform',
         }}
       />

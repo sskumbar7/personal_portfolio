@@ -51,7 +51,7 @@ export function ConfidentialCaseStudy2() {
               style={{
                 lineHeight: '1.1',
                 color: '#111827',
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: "'Fraunces', Georgia, serif",
                 fontWeight: 600,
                 letterSpacing: '-0.02em',
                 margin: 0

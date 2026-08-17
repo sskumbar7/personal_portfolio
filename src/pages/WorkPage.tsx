@@ -249,28 +249,30 @@ export function WorkPage() {
       <section
         className="relative overflow-hidden"
         style={{
-          minHeight: '450px',
           background: 'linear-gradient(180deg, rgba(29, 133, 126, 0.11) 0%, rgba(29, 133, 126, 0.06) 40%, #FFFFFF 80%)'
         }}
       >
-        <div className="max-w-[1180px] mx-auto px-8 pt-24 pb-28 relative">
+        <div className="max-w-[1180px] mx-auto px-8 pt-20 pb-14 relative">
           <motion.div
-            className="text-center max-w-[720px] mx-auto space-y-10"
+            className="text-center max-w-[860px] mx-auto space-y-6"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
           >
-            {/* Headline with selective green emphasis */}
+            {/* Headline — wraps naturally; `balance` keeps line lengths even
+                so the serif never leaves an orphan word on its own line */}
             <h1
-              className="leading-tight"
               style={{
+                fontFamily: "'Fraunces', Georgia, serif",
+                fontSize: 'clamp(32px, 4vw, 50px)',
+                fontWeight: 560,
+                lineHeight: 1.14,
+                letterSpacing: '-0.015em',
                 color: '#111827',
-                fontSize: '36px',
-                lineHeight: '1.2'
+                textWrap: 'balance'
               }}
             >
-              Selected work across <span style={{ color: '#1D857E' }}>design systems</span>,<br />
-              <span style={{ color: '#1D857E' }}>interaction</span>, and AI-assisted workflows.
+              Selected work across <span style={{ color: '#1D857E' }}>design systems</span>, <span style={{ color: '#1D857E' }}>interaction</span>, and AI-assisted workflows.
             </h1>
 
             {/* Supporting text */}
