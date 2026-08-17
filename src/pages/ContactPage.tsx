@@ -54,15 +54,17 @@ export function ContactPage() {
             <div className="text-center max-w-[720px] mx-auto space-y-10">
               {/* Headline - split into two lines with highlighted words */}
               <h1
-                className="leading-tight"
                 style={{
+                  fontFamily: "'Fraunces', Georgia, serif",
+                  fontSize: 'clamp(34px, 4.5vw, 54px)',
+                  fontWeight: 560,
+                  lineHeight: 1.12,
+                  letterSpacing: '-0.015em',
                   color: '#111827',
-                  fontSize: '36px',
-                  lineHeight: '1.2'
+                  textWrap: 'balance'
                 }}
               >
-                Let's talk about <span style={{ color: '#1D857E' }}>design</span>, <span style={{ color: '#1D857E' }}>systems</span>,<br />
-                or what you're building.
+                Tell me what you're <span style={{ color: '#1D857E' }}>building</span>.
               </h1>
 
               {/* Supporting text */}

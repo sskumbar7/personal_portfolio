@@ -169,7 +169,7 @@ export function Navigation() {
                   onMouseEnter={() => setHoveredLink('Experiments')}
                   onMouseLeave={() => setHoveredLink(null)}
                 >
-                  Experiments
+                  Design Lab
                   <span
                     className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300"
                     style={{
@@ -382,7 +382,7 @@ export function Navigation() {
                     alignItems: 'center'
                   }}
                 >
-                  Experiments
+                  Design Lab
                 </Link>
 
                 <Link

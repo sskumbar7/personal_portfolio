@@ -41,8 +41,8 @@ export function Experiments() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
         >
-          <Tag variant="section-label">R&D Lab</Tag>
-          <h2 style={{ color: 'var(--color-foreground)', fontWeight: 600 }}>Design Experiments</h2>
+          <Tag variant="section-label">Design Lab</Tag>
+          <h2 style={{ color: 'var(--color-foreground)', fontWeight: 600 }}>Recent Experiments</h2>
           <p className="caption max-w-2xl mx-auto" style={{ fontSize: '17px', lineHeight: '1.5', color: 'var(--color-muted-foreground)' }}>
             Short-form experiments with emerging AI design tools.
           </p>

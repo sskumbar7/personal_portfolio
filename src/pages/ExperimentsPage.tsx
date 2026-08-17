@@ -129,7 +129,7 @@ export function ExperimentsPage() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Design Experiments & R&D | Sandeep S Kumbar"
+        title="Design Lab | Sandeep S Kumbar"
         description="A chronological feed of design experiments, testing emerging AI agents, system automation, and interaction theories."
         keywords="Design Experiments, AI Design Agents, Figma Automation, R&D, Product Design, UX Strategy"
         image="/figma-agent-flowchart.png"
@@ -212,9 +212,13 @@ export function ExperimentsPage() {
           </Link>
 
           <h1
-            className="editorial-heading text-[36px] md:text-[48px]"
             style={{
-              lineHeight: '1.15',
+              fontFamily: "'Fraunces', Georgia, serif",
+              fontSize: 'clamp(36px, 4.5vw, 54px)',
+              fontWeight: 560,
+              lineHeight: 1.12,
+              letterSpacing: '-0.015em',
+              color: '#111827',
               marginBottom: '20px',
               textAlign: 'left'
             }}
@@ -262,7 +266,7 @@ export function ExperimentsPage() {
               >
                 <Link to="/" style={{ color: '#9CA3AF', textDecoration: 'none' }}>Home</Link>
                 <span>&gt;</span>
-                <span style={{ color: '#9CA3AF' }}>Experiments</span>
+                <span style={{ color: '#9CA3AF' }}>Design Lab</span>
                 <span>&gt;</span>
                 <span style={{ color: '#4B5563', fontWeight: 500 }}>Figma AI Agent</span>
               </div>
@@ -600,7 +604,7 @@ export function ExperimentsPage() {
                 marginBottom: '20px' 
               }}
             >
-              Experiments Directory
+              All experiments
             </h5>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }} className="space-y-4">
               {experimentsList.map((item) => {

@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { Tag } from './ui/Tag';
+import { CountUp } from './animations/CountUp';
 
 export function Experience() {
   const companies = [
@@ -61,7 +62,7 @@ export function Experience() {
                 default: { duration: 0.2 }
               }}
             >
-              11+ Years of Experience
+              <CountUp to={11} suffix="+" /> Years of Experience
             </motion.div>
           </div>
 
